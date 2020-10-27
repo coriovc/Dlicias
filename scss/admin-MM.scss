@@ -1,0 +1,28 @@
+@import "variables.scss";
+
+@import "../vendor/bootstrap/scss/bootstrap.scss";
+
+// Import Custom Mixins and Components
+@import "mixins.scss";
+@import "responsive.scss";
+@import "global.scss";
+@import "utilities.scss";
+
+
+// Custom Components
+@import "home.scss";
+@import "header.scss";
+@import "dashboard.scss";
+@import "ajustes.scss";
+@import "empleados.scss";
+@import "inventario.scss";
+
+@import "dropdowns.scss";
+@import "navs.scss";
+@import "buttons.scss";
+@import "cards.scss";
+@import "charts.scss";
+@import "login.scss";
+@import "exit-top.scss";
+@import "error.scss";
+@import "footer.scss";

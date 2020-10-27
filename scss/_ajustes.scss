@@ -1,0 +1,187 @@
+.section-ajustes{
+	padding-top: 2rem;
+
+	.card{
+    		position: relative;
+			background-color: $white;
+			border-radius: 1rem;
+			border: 1px transparent;
+
+			.card-header{
+				background-color: #fff;
+    			border-bottom: none;
+			  h2{
+			  	margin: 0 0 0 2rem;
+			  	color:#014CFF;
+			  	
+			  	&.yellow{
+			  		color: #f4a100;
+			  	}
+			  	&.green{
+					color: #00ac69;
+				}
+				&.red{
+					color: #f73636;
+				}
+			  }	
+
+			  i{
+
+				&.grand{
+					position: absolute;
+					font-size: 400%;
+					margin: 0 0 0 -2.2rem;
+				}
+
+				&.blue{
+					color: #014CFF;
+				}
+				&.yellow{
+					color: #f4a100;
+				}
+				&.green{
+					color: #00ac69;
+				}
+				&.red{
+					color: #f73636;
+				}
+			  }
+			}
+
+			.card-body{
+					
+				.content{
+					display:block;
+					img{
+						margin: 0 0 1.5rem 0;
+
+						&.img-profile{
+							margin-top: -20%;
+							width: 50%;
+							margin-bottom: 1rem;
+						}											
+					}
+
+					h4{
+					font-size: 1rem;
+    				color: #333333;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					h3{
+					font-size: 1.2rem;
+    				font-weight: 900;
+    				color: $primary;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					p{
+						font-weight: 200;
+	    				font-size: 0.8rem;
+	    				color: #4c4c4c;
+					}
+				}				
+			}
+    	}
+
+}
+
+.section-edit-perfil{
+	padding-top: 2rem;
+
+	.card{
+    		position: relative;
+			background-color: $white;
+			border-radius: 1rem;
+			border: 1px transparent;
+
+			img{
+				box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+				&.img-profile{
+					margin-top: -4rem;
+					width: 10rem;
+					margin-bottom: 1rem;
+					margin-left: auto; 
+					margin-right: auto;
+				}											
+			}
+
+			.card-header{
+				background-color: #fff;
+    			border-bottom: none;
+			  h2{
+			  	margin: 0 0 0 2rem;
+			  	color:#014CFF;
+			  	
+			  	&.yellow{
+			  		color: #f4a100;
+			  	}
+			  	&.green{
+					color: #00ac69;
+				}
+				&.red{
+					color: #f73636;
+				}
+			  }	
+
+			  i{
+
+				&.grand{
+					position: absolute;
+					font-size: 400%;
+					margin: 0 0 0 -2.2rem;
+				}
+
+				&.blue{
+					color: #014CFF;
+				}
+				&.yellow{
+					color: #f4a100;
+				}
+				&.green{
+					color: #00ac69;
+				}
+				&.red{
+					color: #f73636;
+				}
+			  }
+			}
+
+			.card-body{
+					
+				.content{
+					display:block;
+					img{
+						margin: 0 0 1.5rem 0;
+
+						&.img-profile{
+							margin-top: -20%;
+							width: 50%;
+							margin-bottom: 1rem;
+						}											
+					}
+
+					h4{
+					font-size: 1rem;
+    				color: #333333;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					h3{
+					font-size: 1.2rem;
+    				font-weight: 900;
+    				color: $primary;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					p{
+						font-weight: 200;
+	    				font-size: 0.8rem;
+	    				color: #4c4c4c;
+					}
+				}				
+			}
+    	}
+
+}

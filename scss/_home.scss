@@ -1,0 +1,67 @@
+.home-section{
+	position: relative;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: $white;
+
+    @media #{$breakpoint-xs} {
+    	padding: 5rem 0;
+    }
+
+    .height-100{
+    	height: 100vh;
+    	@media #{$breakpoint-xs} {
+			height: 100%;
+		}
+    }
+
+    .home-content{
+    		h2{
+    			font-size: 4rem;
+			    font-weight: 900;
+			    line-height: 1;
+    			color: #9a9a9a;
+    			font-family: 'Comfortaa', cursive;
+
+    			span{
+    				color:$primary;
+    			}
+
+    			@media #{$breakpoint-xs} {
+			    	font-size: 3.5rem;
+			    }
+    		}
+
+    	.card{
+    		position: relative;
+			height: 250px;
+			background-color: $white;
+			border-radius: 1rem;
+			border: 1px transparent;
+			margin: 2rem;
+
+			.card-body{
+					text-align: center;
+				.content{
+					display:block;
+					img{
+						margin: 1rem 0 1.5rem 0;
+					}
+
+					h3{
+					font-size: 1.5rem;
+    				font-weight: 900;
+    				color:$primary;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					p{
+						font-weight: 200;
+	    				font-size: 0.8rem;
+	    				color: #4c4c4c;
+					}
+				}				
+			}
+    	}
+    }
+}

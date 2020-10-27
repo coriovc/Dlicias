@@ -1,0 +1,350 @@
+body{
+    /*;background: url("../imagenes/10.png") center / cover  fixed; */
+background-color: #0D0D0D
+    
+  }
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:#f73637;
+}
+/*#1f2d41*/
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.icon-size-35{
+  font-size: 35px;
+  line-height: 1.2;
+}
+
+
+.bg-table-blue{
+  background-color: #01011b;
+}
+
+.bg-table-red{
+  background-color: #1b0101;
+}
+
+.bg-table-yellow{
+  background-color: #271a00;
+}
+
+.bg-table-green{
+  background-color: #001d07;
+}
+
+.bg-table-purple{
+  background-color: ;
+}
+
+.bg-table-indigo{
+  background-color: ;
+}
+
+.bg-table-pink{
+  background-color: ;
+}
+
+.bg-table-orange{
+  background-color: ;
+}
+
+
+.text-card{
+  font-size: 0.8rem;
+
+}
+
+.icon-op{
+  color: rgba(1, 76, 255, 0.5) !important;
+}
+.icon-white{
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.masthead {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.9) 80%, #000 100%), url("../imagenes/10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+.degradado
+{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.0) 10%, rgba(0, 0, 0, 1) 80%, #000 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+  .degradado-top-nav
+  {
+      background: linear-gradient(to top, rgba(1, 76, 255, 0.0) 30%, rgba(0, 0, 0, 0.5) 95%);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+    }
+/*tarjetas minimalistas*/
+
+.card-border{
+
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+
+  }
+
+.card-border-Primary{
+
+    border: 1px solid #014CFF;
+    border-radius: 6px;
+
+  }
+
+.card-border-success{
+
+    border: 1px solid #1cc88a;
+    border-radius: 6px;
+
+  }
+
+.card-border-info{
+
+    border: 1px solid #36b9cc;
+    border-radius: 6px;
+
+  }
+
+.card-border-Warning{
+
+    border: 1px solid #f6c23e;
+    border-radius: 6px;
+
+  }
+
+.card-border-Danger{
+
+    border: 1px solid #e74a3b;
+    border-radius: 6px;
+
+  }
+
+.card-border-Secondary{
+
+    border: 1px solid #858796;
+    border-radius: 6px;
+
+  }
+
+
+.product-device {
+  top: -1rem;
+  right: 20rem;
+  position: absolute;
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+
+/*.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  content: "";
+  border-radius: 5px;
+}
+
+.product-device-2 {
+  top: -25%;
+  right: auto;
+  bottom: 0;
+  left: 5%;
+}
+
+ */
+
+footer.sticky-footer {
+  padding: 2rem 0;
+  flex-shrink: 0;
+}
+
+footer.sticky-footer .copyright {
+  line-height: 1;
+  font-size: 0.8rem;
+}
+
+body.sidebar-toggled footer.sticky-footer {
+  width: 100%;
+}
+
+/* 20. preloader */
+/* line 599, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_common.scss */
+.preloader {
+  background-color: #1B1B1B;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  -webkit-transition: .6s;
+  -o-transition: .6s;
+  transition: .6s;
+  margin: 0 auto;
+}
+
+.preloader .preloader-circle {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-style: solid;
+  border-width: 2px;
+  border-top-color: #014CFF;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  z-index: 10;
+  border-radius: 50%;
+  -webkit-animation: zoom 2000ms infinite ease;
+  animation: zoom 2000ms infinite ease;
+  -webkit-transition: .6s;
+  -o-transition: .6s;
+  transition: .6s;
+}
+
+/* line 637, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_common.scss */
+.preloader .preloader-circle2 {
+  border-top-color: #0078ff;
+}
+
+/* line 640, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_common.scss */
+.preloader .preloader-img {
+  position: absolute;
+  top: 45%;
+  z-index: 200;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  display: inline-block;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-top: 6px;
+  -webkit-transition: .6s;
+  -o-transition: .6s;
+  transition: .6s;
+}
+
+/* line 658, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_common.scss */
+.preloader .preloader-img img {
+  max-width: 50px;
+}
+
+/* line 661, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_common.scss */
+.preloader .pere-text strong {
+  font-weight: 800;
+  color: #dca73a;
+  text-transform: uppercase;
+}
+
+@-webkit-keyframes zoom {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .6s;
+    -o-transition: .6s;
+    transition: .6s;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: .6s;
+    -o-transition: .6s;
+    transition: .6s;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .6s;
+    -o-transition: .6s;
+    transition: .6s;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: .6s;
+    -o-transition: .6s;
+    transition: .6s;
+  }
+}
+
+.btn-add{
+    padding: 0.5rem !important;
+    border-radius: 1rem !important;
+    justify-content: left !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

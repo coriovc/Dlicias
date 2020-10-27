@@ -1,0 +1,33 @@
+.dash-section{
+	margin-top: 4rem;
+
+	.card{
+    		position: relative;
+			background-color: $white;
+			border-radius: 1rem;
+			border: 1px transparent;
+
+			.card-body{
+					text-align: center;
+				.content{
+					display:block;
+					img{
+						margin: 0 0 1.5rem 0;						
+					}
+
+					h3{
+					font-size: 1.2rem;
+    				font-weight: 900;
+    				color: $primary;
+    				font-family: 'Comfortaa', cursive;
+					}
+
+					p{
+						font-weight: 200;
+	    				font-size: 0.8rem;
+	    				color: #4c4c4c;
+					}
+				}				
+			}
+    	}
+}

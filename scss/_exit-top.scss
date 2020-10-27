@@ -1,0 +1,31 @@
+/* ::Backtotop*/
+
+#exti-top {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    line-height: 60px;
+    right: 30px;
+    width: 45px;
+    background-color: $primary;
+    color: $white;
+    text-align: center;
+    height: 45px;
+    border-radius: 50%;    
+    @include transition-duration(.5s);
+
+    i{
+        font-size: 26px;
+    }
+
+    &:hover {
+        background-color: $dark;
+        color: $white;
+    }
+
+    @media #{$breakpoint-xs} {
+        right: 30px;
+        bottom: 30px;
+    }
+}
