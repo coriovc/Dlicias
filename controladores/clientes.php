@@ -5,7 +5,7 @@ require_once "auditoria.php";
 
  function registrarCliente(){
   global $db;
- $tipo_documento = $_REQUEST['tipo_documento'];
+$tipo_documento = $_REQUEST['tipo_documento'];
 $identificacion= $_REQUEST['identificacion'];   
 $nombre = $_REQUEST['nombre'];  
 $telefono= $_REQUEST['telefono'];  
