@@ -1,46 +1,62 @@
 <nav class="navbar navbar-expand navbar-white fixed-top bg-white shadow-lg">
             
     <div class="nav-item dropdown dropdown-xl no-caret">
-        <div class="shadow-lg"><img src="../imagenes/logo/logo-dark-deli.png" style="position: absolute;width: 100px;margin-top: -1.5rem;">
+        <div class="shadow-lg"><img src="../../imagenes/logo/logo-dark-deli.png" style="position: absolute;width: 100px;margin-top: -1.5rem;">
         </div>
     </div>
 
-            <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mw-100 navbar-search" style="margin-left: 7rem;">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar..." aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-nav btn-icon" type="button"><span class="material-icons-round">search</span></button>
-              </div>
-            </div>
-          </form>
-            
+        <!--<form class="d-none d-sm-inline-block form-inline mw-100 navbar-search" style="margin-left: 8rem;">
+            <input class="search" type="search" placeholder="Buscar...">
+        </form>-->
+        
             <ul class="navbar-nav align-items-center ml-auto">
             
             <li class="nav-item mr-3 no-caret">                    
                 <button class="btn btn-transparent-dark rounded-pill btn-sm" id="fecha"><span class="material-icons-round">query_builder</span><strong class="ml-1" id="clock"></strong></button> 
             </li>
-            <div class="mdl-tooltip" data-mdl-for="fecha"><strong id="date"></strong></div>   
+            <div class="mdl-tooltip" data-mdl-for="fecha"><strong id="date"></strong></div>
                  
                                 
             <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="material-icons-round">notifications</span></a>
                     
+                <?php 
+                $not = '';
+                require_once '../../controladores/cita.php';
+                require_once '../../controladores/producto.php';
+                $toto =  totalDia(date('Y-m-d'));
+                if($toto>=480)
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="citas_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
+                            <div class="dropdown-notifications-item-content">
+                                <div class="dropdown-notifications-item-content-text">Cupo de citas cerrado para hoy</div>
+                            </div>
+                        </a>';
+                $citasHoy =  listarCitasDia();
+                if($citasHoy>0)
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="citas_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
+                            <div class="dropdown-notifications-item-content">
+                                <div class="dropdown-notifications-item-content-text">'.$citasHoy.' citas para hoy</div>
+                            </div>
+                        </a>';
+                $bajos =  listarProductosBajos();
+                if($bajos>0)
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="producto_listado.php">
+                            <div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="dropdown-notifications-item-content">
+                                <div class="dropdown-notifications-item-content-text">'.$bajos.' productos estan con bajo stock</div>
+                            </div>
+                        </a>';
+                if($citasHoy>=0 || $toto>=480 || $bajos){
+                ?>
+                <?php } ?>
+
+
                     <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownAlerts">
                         <h6 class="dropdown-header dropdown-notifications-header"><i class="mr-2" data-feather="bell"></i>Centro de alertas</h6>
-                        <a class="dropdown-item dropdown-notifications-item" href="#!"
-                            ><div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 8, 2019</div>
-                                <div class="dropdown-notifications-item-content-text">Critical system failure, systems shutting down.</div>
-                            </div></a
-                        ><a class="dropdown-item dropdown-notifications-item" href="#!"
-                            ><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
-                            <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-details">December 2, 2019</div>
-                                <div class="dropdown-notifications-item-content-text">New user request. Woody has requested access to the organization.</div>
-                            </div></a
-                        ><a class="dropdown-item dropdown-notifications-footer" href="#!">Ver Todas</a>
+                            
+                            <?php echo $not; ?>
+                        
+                        <a class="dropdown-item dropdown-notifications-footer" href="#!">Ver Todas</a>
                     </div>
                 </li>
                
@@ -52,18 +68,18 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in-up" aria-labelledby="userDropdown">
 
                         <div class="text-center">
-                        <img class="img-profile rounded-circle" src="../imagenes/img-user.png" style="width: 5rem; margin-left: auto; margin-bottom: 1rem;">
+                        <img class="img-profile rounded-circle" src="../../imagenes/User-img.png" style="width: 5rem; margin-left: auto; margin-bottom: 1rem;">
                         <div class="text-center"><strong style="text-transform: uppercase;">
-                            <!--<?php echo $value->nombre ." ". $value->apellido; ?>--> Victor Corio</strong>                    
+                            <?php echo $_SESSION['admin']['nombre']; ?></strong>                    
                         </div>
-                        <strong style="margin-top: 0.1rem;" class="text-primary"><!--<?php echo $value->tipo_usuario; ?>--> Administrador</strong></div>
+                        <strong style="margin-top: 0.1rem;" class="text-primary"><?php echo $_SESSION['admin']['tipo_usuario']; ?></strong></div>
                         
-                        <a class="dropdown-item" href="ayuda.php" >
+                        <a class="dropdown-item" href="../ajustes/" >
                           <span class="mr-2 material-icons-round">settings</span>
                           ajustes
                         </a> 
 
-                        <a class="dropdown-item" href="ayuda.php" >
+                        <a class="dropdown-item" href="../ayuda/" >
                           <span class="text-warning mr-2 material-icons-round">help</span>
                           Ayuda
                         </a>    

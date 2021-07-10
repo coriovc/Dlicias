@@ -1,8 +1,3 @@
- <!--<?php
-    session_start(); 
-    if (!empty($_SESSION['email']) && !empty($_SESSION['password'])){
-        header('Location: home.php'); 
-    }  ?>-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,18 +17,9 @@
   <title>Iniciar Sesion</title>   
 </head>
 <body>
-  <!--<div id="preloader-active">
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-inner position-relative">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img pere-text">
-                <img src="imagenes/ocor-logo.png" alt="">
-            </div>
-        </div>
-    </div>
-  </div>-->
 <!-- ***** Welcome Area Start ***** -->
-    <section class="login-section"><div class="blur">
+    <section class="login-section" style="background: url(imagenes/fondo-Principal.jpg);background-position: center;
+    background-size: cover;"><div style="backdrop-filter: saturate(180%) blur(20px);">
         <div class="container">
           <div class="row height-100 align-items-center justify-content-center">              
               <div class="col-12 col-md-4 col-lg-4">
@@ -46,14 +32,14 @@
                         <fieldset>
                         
                         <div class="form-group">
-                          <input class="form-control" type="text" name="email" placeholder="Usuario o Correo" autocomplete="off">
+                          <input class="form-control" type="text" name="ci" placeholder="Cedula" autocomplete="off">
                         </div>
                         
                         <div class="input-group">
-                          <input class="form-control" type="password" id="Passw" name="password" placeholder="Contraseña">
+                          <input class="form-control" type="password" id="password" name="clave" placeholder="Contraseña">
                           &nbsp;
                           <div class="input-group-append"><span>
-                            <a class="btn btn-white btn-icon" onclick="mostrarPassword()" id="ShowPassword"><span class="material-icons-round">visibility</span></a></span>
+                            <a class="btn btn-white btn-icon" id="ShowPassword" onclick="mostrarContrasena()"><span class="material-icons-round" id="pass">visibility</span></a></span>
                           </div>
                         </div>
 
@@ -76,18 +62,22 @@
         </div>
       </div>
     </section>
-    <!-- ***** Welcome Area End ***** -->
+<!-- ***** Welcome Area End ***** -->
 
 
 
 
 </body>
-  <script type="text/javascript">
-  $(document).ready(function () {//CheckBox mostrar contraseña
-   $('#ShowPassword').click(function () {
-   $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');});
-   })
-  </script>
+  <script>
+  function mostrarContrasena(){
+      var tipo = document.getElementById("password");
+      if(tipo.type == "password"){
+          tipo.type = "text";
+      }else{
+          tipo.type = "password";
+      }
+  }
+</script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

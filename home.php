@@ -1,16 +1,15 @@
-<!--<?php
-    /*session_start(); 
-    if (empty($_SESSION['email']) or empty($_SESSION['password'])){
-        unset($_SESSION['email']);
-        unset($_SESSION['password']);
-        header("location:index.php");
-    }
-    include('controllers/controller-usuario.php');
-    $l = UsuarioLog();
-    if($l && count($l)){
-    foreach ($l as $key => $value) {}
-    }*/
-?>-->
+<?php  
+if(!isset($_SESSION)){
+  session_start();
+
+}
+require_once "controladores/usuario.php";
+if(!isset($_SESSION['admin']))
+{
+  header("location: index.php");
+  exit(1);
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +17,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Ocor-Codes">
-  <link rel="icon"       href="imagenes/img-user.png">
+  <link rel="icon"       href="imagenes/logo/logo-dark-deli.png">
   <!-- Estilos-->  
   <link rel="stylesheet" href="css/icon.css">
   <link rel="stylesheet" href="css/estilos.css">
@@ -33,34 +32,36 @@
         <div class="container">
           <div class="row align-items-center d-flex d-xl-none">
             <div class="col-4 home-content">
-                <h2>Bienevnido <span><!--<?php echo $value->nombre?>-->victor</span></h2>                      
+                <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
               </div> 
           </div>
           <div class="row height-100 align-items-center justify-content-center">
               <div class="col-4 home-content d-none d-xl-block">
-                <h2>Bienevnido <span><!--<?php echo $value->nombre?>-->victor</span></h2>                      
-              </div> 
+                <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
+              </div>
+              <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content">
-                      <a class="card lift-img" href="views/error-404.php">
+                      <a class="card bg-blue lift-img" href="views/Venta/">
                         <div class="card-body align-items-center">
                           <div class="content">
-                            <img src="imagenes/icon/008-credit card.svg" width="60">
-                              <h3>Venta Rapida</h3>
-                              <p>Realizar ventas, o pedidos de clientes, Rapida</p>
+                            <span class="material-icons-round text-white" style="font-size: 7rem;">monetization_on</span>
+                              <h3 class="text-white">Venta Rapida</h3>
+                              <p class="text-white">Realizar ventas, o pedidos de clientes, Rapida</p>
                           </div>
                         </div>
                       </a>
                   </div> 
               </div>
+              <?php } ?> 
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content">
-                      <a class="card lift-img" href="views/Dashboard.php">
+                      <a class="card bg-purple lift-img" href="views/Dashboard/">
                         <div class="card-body align-items-center">
                           <div class="content">
-                            <img src="imagenes/icon/024-layer.svg" width="60">
-                              <h3>Dashboard</h3>
-                              <p>Adminitracion del negocio</p>
+                            <span class="material-icons-round text-white" style="font-size: 7rem;">dashboard</span>
+                              <h3 class="text-white">Dashboard</h3>
+                              <p class="text-white">Adminitracion del negocio</p>
                           </div>
                         </div>
                       </a>

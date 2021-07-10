@@ -6,11 +6,20 @@
 			background-color: $white;
 			border-radius: 1rem;
 			border: 1px transparent;
-
+			height: 100%;
+			.card-head{
+				text-align: center;
+				
+				span{
+						font-size:4rem;
+						margin-top:1rem;
+					}
+			}
 			.card-body{
 					text-align: center;
+					padding-top: 0.5rem;
 				.content{
-					display:block;
+					display:block;					
 					img{
 						margin: 0 0 1.5rem 0;						
 					}

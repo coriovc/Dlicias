@@ -142,13 +142,26 @@ overflow:hidden}
 
 .mdl-tabs__tab .mdl-tabs__ripple-container .mdl-ripple{background: #ddd}
 .mdl-tabs__panel{display:block}
-.mdl-tabs.is-upgraded .mdl-tabs__panel{display:none}
-.mdl-tabs.is-upgraded .mdl-tabs__panel.is-active{display:block}@-webkit-keyframes border-expand{0%{opacity:0;
+.mdl-tabs.is-upgraded .mdl-tabs__panel{display:none;opacity: 0;}
+.mdl-tabs.is-upgraded .mdl-tabs__panel.is-active{display:block;opacity: 1;}@-webkit-keyframes border-expand{0%{opacity:0;
   width:0}100%{opacity:1;
   width:100%}}@keyframes border-expand{0%{opacity:0;
   width:0}100%{opacity:1;
   width:100%}}
 
+.fade {
+  -webkit-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fade {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+.fade:not(.show) {
+  opacity: 0;
+}
 
 .mdl-tooltip{-webkit-transform:scale(0);
   transform:scale(0);

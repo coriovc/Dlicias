@@ -1,20 +1,18 @@
-<?php
-    session_start();
-    include_once('conexion.php');
-    $email = $_POST["email"];
-    $passwd  = $_POST['password'];
-    $password  = $passwd;//crypt($passwd,"##");
-    $sql = "SELECT * FROM usuarios  WHERE usuario = '$_REQUEST[email]' or email = '$_REQUEST[email]'";
-    $consulta = $base_de_datos->query( $sql );
-    $fila = $consulta->fetchAll(PDO::FETCH_OBJ);
-  
-    if ( $fila[0]->password == $password ) {
-        $_SESSION["email"]    = $fila[0]->email;
-        $_SESSION["password"] = $fila[0]->password;
-        header("location:../home.php");
-        die();
-    }
-    else{
-    header("location:../index.php");
-} die();
-        
+<?php 
+session_start();
+require_once "../controladores/usuario.php"; 
+require_once "../controladores/auditoria.php"; 
+$usu = buscarUsuarioLogin();
+if(!$usu){
+
+    header('location:../index.php');
+}
+else{
+    $_SESSION['admin']=$usu;
+    //echo $_SESSION['admin']['tipo_usuario'];
+    registrarOperacion($usu['nombre']." ha iniciado sesion",$usu['id'],"ENTRADA");
+header('location: ../home.php');
+
+} 
+
+?>

@@ -101,11 +101,11 @@ sup {
   top: -.5em; }
 
 a {
-  color: #00ac69;
+  color: #f73636;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
-    color: #00603a;
+    color: #d80909;
     text-decoration: underline; }
 
 a:not([href]):not([tabindex]) {
@@ -266,5 +266,3 @@ template {
 
 [hidden] {
   display: none !important; }
-
-/*# sourceMappingURL=bootstrap-reboot.css.map */

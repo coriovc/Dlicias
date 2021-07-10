@@ -18,10 +18,80 @@ background-color: #0D0D0D
   background-color: transparent;
 }
 
+.dataTables_length, .DataTables_Table_0_filter, .dataTables_info, .dataTables_paginate{
+      margin-left: 2rem;
+}
+
+.search {
+  outline: none;
+}
+.search[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+.search::-webkit-search-decoration,
+.search::-webkit-search-cancel-button {
+  display: none; 
+}
+
+
+.search{
+  background:#f5f5f5 url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+  border: 1px solid transparent;
+  padding: 9px 10px 9px 32px;
+  width: 70px;
+  
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+.search:focus {
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.15)
+}
+
+
+.search-inv{
+  width: 50px;
+
+}
+.search-inv:focus {
+  width: 500px;
+}
+
+.search:-moz-placeholder {
+  color: #999;
+}
+.search::-webkit-input-placeholder {
+  color: #999;
+}
+
+
 .icon-size-35{
   font-size: 35px;
   line-height: 1.2;
 }
+
+.icon-animate{
+  -webkit-animation: mover 3s infinite  alternate;
+  animation: mover 3s infinite  alternate;
+}
+  @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-15px); }
+  }
+  @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-15px); }
+  }
+
 
 
 .bg-table-blue{
@@ -56,6 +126,33 @@ background-color: #0D0D0D
   background-color: ;
 }
 
+.prus:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.5;
+  color: #fff;
+}
+
+.icon-head{
+    color: #fff;
+    font-size: 15rem;
+    margin-top: -10rem;
+    right: 0;
+    position: absolute;
+}
+
+.icon-head-dash {
+    color: #fff;
+    font-size: 20rem;
+    margin-top: -8rem;
+    right: 0;
+    position: absolute;
+}
 
 .text-card{
   font-size: 0.8rem;
@@ -97,6 +194,11 @@ background-color: #0D0D0D
       background-size: cover;
     }
 /*tarjetas minimalistas*/
+
+.card-bor{
+    border-radius: 1rem !important;
+    border: 1px transparent !important;
+}
 
 .card-border{
 

@@ -400,7 +400,7 @@ h1, h2, h3, h4, h5, h6,
 
 .display-3 {
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.2;
 }
 
@@ -2736,7 +2736,7 @@ pre code {
   border: 0;
 }
 .form-control:-moz-focusring {
-  color: transparent;
+  color: #181818;
   text-shadow: 0 0 0 #687281;
 }
 .form-control:focus {
@@ -9750,7 +9750,7 @@ button.bg-cyan:focus {
 }
 
 .bg-blue {
-  background-color: #f73637 !important;
+  background-color: #014CFF !important;
 }
 
 a.bg-blue:hover, a.bg-blue:focus,
