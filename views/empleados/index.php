@@ -3,7 +3,7 @@ if(!isset($_SESSION)){session_start();}
 if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <?php
@@ -34,8 +34,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
       <div class="row">        
         <div class="col-lg-3 mb-4">
           <div class="justify-content-center tct text-center">
-              
-              <img style="width: 50%;" src="../../imagenes/drawkit-developer-woman-flush.svg"/>
+             
               <div class="d-flex mt-4" style="margin-left: -0.5rem;">
                     <h6 class="mb-0">Buscar Empleado:</h6>
                 </div>
@@ -73,9 +72,9 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     <div class="btn-icon bg-light text-yellow shadow mr-2">
                     <i class="material-icons-round icon-size-35">attach_money</i></div>Pagar</a>
                   
-                  <a class="btn btn-orange btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-servicio">
-                    <div class="btn-icon bg-light text-orange shadow mr-2">
-                    <i class="material-icons-round icon-size-35">warning</i></div>Reportar</a>
+                  <a class="btn btn-green btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-servicio">
+                    <div class="btn-icon bg-light text-green shadow mr-2">
+                    <i class="material-icons-round icon-size-35">pending_actions</i></div>Registrar entrada</a>
                 </div>
               </div>
           </div>

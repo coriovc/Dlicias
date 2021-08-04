@@ -133,9 +133,9 @@ elseif(isset($_GET["remover"])){
               <div class="col-6 col-lg-6">
                 <label><strong>Codigo del Servicio*</strong></label>
                 <input type="text" name="codigo_s" title="Código del Producto" readonly="readonly" class="form-control" required="required" value="<?php
-                $permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $permitted_chars = '0123456789';
                 // Output: video-g6swmAP8X5VG4jCi.mp4
-                echo 'SR'.substr(str_shuffle($permitted_chars), 0, 5);
+                echo 'SE'.substr(str_shuffle($permitted_chars), 0, 4);
                  
                 ?>">
               </div>

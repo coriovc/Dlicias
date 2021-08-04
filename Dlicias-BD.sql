@@ -120,8 +120,7 @@ CREATE TABLE `compras` (
   `cantidad` int(11) NOT NULL,
   `precio_c` int(11) NOT NULL,
   `codigo_compra` varchar(32) NOT NULL,
-  `numero_factura` int(11) DEFAULT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `numero_factura` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -155,8 +154,7 @@ CREATE TABLE `producto` (
   `stock_min` int(11) NOT NULL,
   `stock_max` int(11) NOT NULL,
   `id_unidadventa` int(11) NOT NULL,
-  `equivalencia_venta` int(11) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `equivalencia_venta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -176,6 +174,21 @@ CREATE TABLE `servicio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
+INSERT INTO `servicio` (`id`, `codigo_s`, `nombre`, `precio`, `id_categoria`, `tiempo`, `borrado`) VALUES
+(1, 'SRZTM', 'Maquillada', 50000, 4, 45,'N'),
+(2, 'SR5GB', 'lavado', 12000, 6, 30,'N'),
+(3, 'SRL87', 'jjjj', 5555, 6, 45,'N'),
+(4, 'SRD5R', 'madelava', 50000, 7, 120,'N'),
+(5, 'SRFVR', 'yo venezuela', 1212121, 7, 30,'N'),
+(6, 'SRBO5', '345', 34534, 7, 34,'N'),
+(7, 'SR2XF', 'tr', 456546, 7, 45,'N'),
+(8, 'SRR0J', 'tr', 456546, 7, 45,'N'),
+(9, 'SRJQR', 'tr', 456546, 7, 45,'N'),
+(10, 'SR4Z8', 'tre6', 45643, 7, 30,'N'),
+(11, 'SR0L2', 'hg', 6567, 7, 30,'N'),
+(12, 'SR7HT', '32423', 23423, 7, 30,'N'),
+(13, 'SRO9H', '456456', 45645, 7, 30,'N'),
+(14, 'SREND', '345345', 34534, 7, 30,'N');
 
 --
 -- Estructura de tabla para la tabla `servicio_producto`
@@ -185,8 +198,7 @@ CREATE TABLE `servicio_producto` (
   `id` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
-  `cantidad` float NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `cantidad` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -201,6 +213,17 @@ CREATE TABLE `unidad` (
   `abreviatura` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+INSERT INTO `unidad` (`id`, `nombre`, `abreviatura`) VALUES
+(1, 'MILILITROS', 'ML'),
+(2, 'LITROS', 'L'),
+(3, 'PAQUETES', 'PQ'),
+(4, 'CAJA', 'CA'),
+(5, 'UNIDAD', 'UND'),
+(6, 'MILIGRAMO', 'MG'),
+(7, 'GRAMO', 'G'),
+(9, 'PAR', 'P'),
+(10, 'CENTIMETROS', 'CM');
 -- --------------------------------------------------------
 
 --
@@ -255,8 +278,7 @@ CREATE TABLE `venta` (
   `forma_pago` varchar(20) NOT NULL DEFAULT 'PUNTO',
   `recibido` float NOT NULL,
   `cambio` float NOT NULL,
-  `referencia` varchar(20) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `referencia` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -268,8 +290,7 @@ CREATE TABLE `venta` (
 CREATE TABLE `venta_cita` (
   `id` int(11) NOT NULL,
   `id_venta` int(11) NOT NULL,
-  `id_cita` int(11) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `id_cita` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -283,8 +304,7 @@ CREATE TABLE `venta_producto` (
   `id_venta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `precio_v` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

@@ -220,7 +220,68 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           </div> <!--fin de seccion 1-->
 
           <div class="mdl-tabs__panel" id="seccion-2">
-            <div class="row align-items-center my-5">
+            <div class="d-flex justify-content-between align-items-sm-center my-5">
+              <div class="mr-4">
+                  <h1 class="display-5 tct text-yellow">Bitacora</h1>
+              </div>
+              
+              <div class="dropdown no-caret mr-3">
+                  <a class="btn btn-white rounded-pill shadow-lg" href="#">
+                      <i class="material-icons-round mr-2">download_for_offline</i>
+                      <div class="font-weight-500 tct">Descargar PDF</div>
+                  </a>
+                  <a class="btn btn-white rounded-pill shadow-lg" href="#" data-toggle="modal" data-target="#modal-borrar-bitacora">
+                      <i class="material-icons-round mr-2">delete</i>
+                      <div class="font-weight-500 tct">Vaciar</div>
+                  </a>
+                  <a href="respaldo.php" onclick="respaldo()" class="btn btn-outline-warning rounded-pill lift-btn tct">
+                    <i class="material-icons-round mr-2">file_download</i>
+                    <h6 style="margin-bottom: 0;">Copia de seguridad de la BD</h6>
+                  </a>
+              </div>
+            </div>
+            
+            <div class="card mb-4 overflow-hidden">
+                <div class="card-header">
+                  <i class="material-icons-round grand yellow">dns</i>
+                  <h2 class="yellow" >Bitacora</h2>
+                </div>
+
+                        <div class="">
+                        <table id="" class="table display" width="100%">
+                          <thead class="text-yellow bg-table-yellow">
+                          <tr>
+                              <th>Tipo</th>                                   
+                              <th>Actividad</th>
+                              <th>Fecha y Hora</th>
+                              <th>Acciones</th>
+                          </tr>
+                          </thead>
+
+                          
+
+                          <tbody>
+                          <?php 
+                          $resultados = listarOperaciones();
+                          foreach ($resultados as $key => $r){ ?>
+                              <tr>
+                                
+                                <td><div class="badge badge-purple badge-pill"><?php echo $r['tipo']; ?></div></td>
+                                <td><?php echo $r['campo_texto']; ?></td>
+                                <td><?php echo date("d/m/Y - h:i:s a",strtotime($r['fecha'])); ?></td>
+                                <td>
+                                  <button class="btn btn-sm btn-icon btn-transparent-dark">
+                                  <span class="material-icons-round">delete</span></button>
+                                </td>
+                              </tr>
+                              <?php } ?>
+                          </tbody>
+                        </table>
+                        </div>
+            </div>
+
+            <hr>
+            <!--<div class="row align-items-center my-5">
               <div class="col">
                 <div class="text-center">
                   <h1 class="display-5 tct text-yellow">Copia de Seguridad</h1>
@@ -269,65 +330,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </div>
                 </div>
               </div>
-            </div>
-
-            <hr>
-
-            <div class="d-flex justify-content-between align-items-sm-center my-5">
-              <div class="mr-4">
-                  <h1 class="display-5 tct text-yellow">Bitacora</h1>
-              </div>
-              
-              <div class="dropdown no-caret mr-3">
-                  <a class="btn btn-white rounded-pill shadow-lg" href="#">
-                      <i class="material-icons-round mr-2">description</i>
-                      <div class="font-weight-500 tct">Descargar PDF</div>
-                  </a>
-                  <a class="btn btn-white rounded-pill shadow-lg" href="#" data-toggle="modal" data-target="#modal-borrar-bitacora">
-                      <i class="material-icons-round mr-2">delete</i>
-                      <div class="font-weight-500 tct">Vaciar</div>
-                  </a>
-              </div>
-            </div>
-            
-            <div class="card mb-4 overflow-hidden">
-                <div class="card-header">
-                  <i class="material-icons-round grand yellow">dns</i>
-                  <h2 class="yellow" >Bitacora</h2>
-                </div>
-
-                        <div class="">
-                        <table id="" class="table display" width="100%">
-                          <thead class="text-yellow bg-table-yellow">
-                          <tr>
-                              <th>Tipo</th>                                   
-                              <th>Actividad</th>
-                              <th>Fecha y Hora</th>
-                              <th>Acciones</th>
-                          </tr>
-                          </thead>
-
-                          
-
-                          <tbody>
-                          <?php 
-                          $resultados = listarOperaciones();
-                          foreach ($resultados as $key => $r){ ?>
-                              <tr>
-                                
-                                <td><div class="badge badge-purple badge-pill"><?php echo $r['tipo']; ?></div></td>
-                                <td><?php echo $r['campo_texto']; ?></td>
-                                <td><?php echo date("d/m/Y - h:i:s a",strtotime($r['fecha'])); ?></td>
-                                <td>
-                                  <button class="btn btn-sm btn-icon btn-transparent-dark">
-                                  <span class="material-icons-round">delete</span></button>
-                                </td>
-                              </tr>
-                              <?php } ?>
-                          </tbody>
-                        </table>
-                        </div>
-            </div>
+            </div>-->
 
             <hr>
 
@@ -496,7 +499,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                   <div class="col-lg-5 col-xl-4 mb-4">
                     <div class="card">
                       <div class="card-body">
-                        <h6>Contratos</h6>
+                        <h4 class="text-primary">Ajustes del sitema</h4>
                         <hr>
                           <div class="d-flex mb-4">
                             <div class="mr-3"><div class="btn-icon bg-primary"><span class="material-icons-round">article</span></div>

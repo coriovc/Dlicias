@@ -29,6 +29,9 @@
   </div>
 </div>
 
+
+
+
 <div class="modal fade" id="modal-ingrediente" tabindex="-1" role="dialog" aria-labelledby="modal-ingrediente" aria-hidden="true">
   <div class="modal-dialog modal-xl shadow-lg modal-dialog-centered modal-dialog-scrollable" role="document">
     <div class="modal-content">
@@ -43,9 +46,9 @@
               <div class="col-12 col-lg-3 mb-2">
                 <label><strong>codigo*</strong></label>
                 <input type="txt" class="form-control" readonly="readonly" name="codigo_pt" title="Código del Producto" placeholder="codigo" required  value="<?php
-                $permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $permitted_chars = '0123456789';
                 // Output: video-g6swmAP8X5VG4jCi.mp4
-                echo 'PR'.substr(str_shuffle($permitted_chars), 0, 5);
+                echo 'PRO'.substr(str_shuffle($permitted_chars), 0, 5);
                  
                 ?>">
               </div>

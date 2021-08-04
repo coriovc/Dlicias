@@ -53,10 +53,23 @@ if(!isset($_SESSION['admin']))
                       </a>
                   </div> 
               </div>
-              <?php } ?> 
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content">
-                      <a class="card bg-purple lift-img" href="views/Dashboard/">
+                      <a class="card bg-green lift-img" href="#!">
+                        <div class="card-body align-items-center">
+                          <div class="content">
+                            <span class="material-icons-round text-white" style="font-size: 7rem;">pending_actions</span>
+                              <h3 class="text-white">Registar</h3>
+                              <p class="text-white">Registar la entrada de los empleados</p>
+                          </div>
+                        </div>
+                      </a>
+                  </div> 
+              </div>  
+              <?php } ?> 
+              <div class="col-12 col-md-3 col-lg-2">
+                  <div class="home-content">
+                      <a class="card bg-purple lift-img" style="margin: 0;" href="views/Dashboard/">
                         <div class="card-body align-items-center">
                           <div class="content">
                             <span class="material-icons-round text-white" style="font-size: 7rem;">dashboard</span>
@@ -66,7 +79,7 @@ if(!isset($_SESSION['admin']))
                         </div>
                       </a>
                   </div> 
-              </div>               
+              </div>              
           </div>          
         </div>
     </section>

@@ -10,7 +10,8 @@ require_once "auditoria.php";
   $precio = $_REQUEST['precio'];
   $id_categoria = $_REQUEST['id_categoria'];
   $tiempo = $_REQUEST['tiempo'];
-  mysqli_query($db,"INSERT INTO servicio VALUES (NULL,'".$codigo_s."','".$nombre."','".$precio."','".$id_categoria."','".$tiempo."')");
+  $borrado = 'N'; 
+  mysqli_query($db,"INSERT INTO servicio VALUES (NULL,'".$codigo_s."','".$nombre."','".$precio."','".$id_categoria."','".$tiempo."','".$borrado."')");
 
   $r = mysqli_query($db,"SELECT MAX(id) as ultimoid FROM servicio");
   $temporal = mysqli_fetch_assoc($r);
@@ -28,7 +29,7 @@ require_once "auditoria.php";
 
  function eliminarServicio(){ 
   global $db;
-  mysqli_query($db,"DELETE FROM servicio WHERE id=$_REQUEST[id]");
+  mysqli_query($db,"UPDATE servicio SET borrado='S' WHERE id=$_REQUEST[id]");
    $_SESSION['creada']=1;
   registrarOperacion(" ha eliminado un servicio",$_SESSION['admin']['id'],"SERVICIO");
 }
@@ -68,9 +69,9 @@ inner join producto on producto.id=servicio_producto.id_producto
 
  function buscarServicio(){
   global $db;
- $r =  mysqli_query($db,"SELECT servicio.*,categoria.nombre as nombrecategoria FROM servicio 
+ $r =  mysqli_query($db,"SELECT servicio.*,categoria.nombre as nombrecategoria FROM servicio
   INNER JOIN categoria ON categoria.id=servicio.id_categoria
-    WHERE servicio.id=$_REQUEST[id]");
+    WHERE servicio.id=$_REQUEST[id] AND borrado='N'");
     $temporal = mysqli_fetch_assoc($r);
   return $temporal;
 

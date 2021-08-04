@@ -6973,20 +6973,19 @@ input[type=button].btn-block {
   margin-left: -1px;
   line-height: 1.25;
   color: #f73637;
-  background-color: #fff;
-  border: 1px solid #d7dce3;
-}
+  background-color: #ecf0f6;
+  border-color: #dedede;}
 .page-link:hover {
   z-index: 2;
-  color: #0042a6;
-  text-decoration: none;
-  background-color: #e3e6ec;
-  border-color: #d7dce3;
+    color: #f73636;
+    text-decoration: none;
+    background-color: #eec7c7;
+    border-color: transparent;
 }
 .page-link:focus {
   z-index: 3;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 97, 242, 0.25);
+  box-shadow: 0 0 10px 5px rgb(0 0 0 / 12%);
 }
 
 .page-item:first-child .page-link {
@@ -7008,8 +7007,8 @@ input[type=button].btn-block {
   color: #687281;
   pointer-events: none;
   cursor: auto;
-  background-color: #fff;
-  border-color: #d7dce3;
+  background-color: #ecf0f6;
+  border-color: #ecf0f6;
 }
 
 .pagination-lg .page-link {

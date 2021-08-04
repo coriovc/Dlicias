@@ -4,11 +4,11 @@ error_reporting(E_ERROR | E_PARSE | E_CORE_ERROR);
 $servername='localhost';//localhost
 $dbusername='root';//root
 $dbpassword='';//tupass
-$dbname='nazstudio';//tuclave
+$dbname='dlicias-bd';//tuclave
 
 function connecttodb($servername,$dbname,$dbusername,$dbpassword)
 {
-	
+    
 $link=mysqli_connect ($servername,$dbusername,$dbpassword,$dbname);
 if(!$link)
 {
@@ -39,12 +39,12 @@ else
 }
 
 
-$executa="$DirBase --host=$servername --user=$dbusername --password=$dbpassword -R -c  --add-drop-table $dbname > \"C:/xampp/htdocs/Dlicias/respaldos$ficheroDeLaCopia\""; 
+$executa="$DirBase --host=$servername --user=$dbusername --password=$dbpassword -R -c  --add-drop-table $dbname > \"C:/xampp/htdocs/Dlicias/actual/respaldos$ficheroDeLaCopia\""; 
 system($executa); 
 
 header( "Content-Disposition: attachment; filename=\"".$ficheroDeLaCopia."\"");
 header("Content-type: application/force-download");
-@readfile("C:/xampp/htdocs/Dlicias/respaldos".$ficheroDeLaCopia);
+@readfile("C:/xampp/htdocs/Dlicias/actual/respaldos".$ficheroDeLaCopia);
 
 unlink($ficheroDeLaCopia);
 

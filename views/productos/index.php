@@ -107,7 +107,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
 
                 <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="javascript:popUp('servicios_nuevo.php')">
                   <div class="btn-icon bg-light text-secondary shadow mr-2">
-                  <i class="material-icons-round icon-size-35">add</i></div>Nuevo Servico</a>
+                  <i class="material-icons-round icon-size-35">add</i></div>Nuevo Servicio</a>
               </div>
             </div>
         </div>
@@ -178,10 +178,10 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                         <td><?php echo $r['id']; ?></td>
                         <td><?php echo $r['codigo_pt']; ?></td>
                         <td><?php echo $r['nombre']; ?></td>
-                        <td><?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?><br>
+                        <td>
+                          <?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?><?php echo $r['und_entrada']; ?><br>
                           <?php echo round($r['cantidad'] / $r['equivalencia_venta']); ?> <?php echo $r['und']; ?><br>
-                        
-                      <?php echo $r['cantidad'] /// $r['equivalencia_venta']; ?> <?php echo $r['und_consumo']; ?><br></td>
+                          <?php echo $r['cantidad'] /// $r['equivalencia_venta']; ?> <?php echo $r['und_consumo']; ?><br></td>
                         <td><?php echo $r['precio_c']; ?></td>
                         <td><?php echo $r['precio_v']; ?></td>
                         <td>
@@ -281,7 +281,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                         <td><?php echo $r['id']; ?></td>
                         <td><?php echo $r['nombre']; ?></td>
                         <td>
-                          <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="categorias_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><span class="material-icons-round">edit</span></a>
+                          <button class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="#" data-toggle="modal" data-target="#modal-categoria-edit"><span class="material-icons-round">edit</span></button>
                           
                           <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-categoria"><span class="material-icons-round">close</span></button>
                         </td>
@@ -318,6 +318,12 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
   function eliminar(id_cate) {
     //console.log(id_cate+"--------");
     $("#id_cate").val(id_cate);
+  }
+</script>
+<script>
+  function modificar(id_modi) {
+    //console.log(id_modi+"--------");
+    $("#id_modi").val(id_modi);
   }
 </script>
 <?php

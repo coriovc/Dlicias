@@ -4,8 +4,8 @@
   <!-- Core plugin JavaScript-->
   <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
   <!-- Page level plugins -->
-  <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Google scripts -->
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   <script src="../../js/Validacionform.js"></script>

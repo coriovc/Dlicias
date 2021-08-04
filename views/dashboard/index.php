@@ -70,7 +70,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../empleados/">
-                  <div class="card-head"><span class="material-icons-round text-yellow">library_add</span></div>
+                  <div class="card-head"><span class="material-icons-round text-yellow">pending_actions</span></div>
                     <div class="card-body">
                       <div class="content">
                           <h3 class="text-yellow">Horario</h3>
