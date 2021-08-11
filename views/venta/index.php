@@ -159,7 +159,7 @@ if(isset($_GET["removerproducto"])){
     <header class="page-header bg-img-cover" style="background: rgb(1,76,255);background: linear-gradient(90deg, rgba(1,76,255,1) 0%, rgba(0,168,255,1) 100%);">
     <div class="container" style="margin-top: 6rem;">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
           <h1 class="display-3 tct text-white">Nueva Venta</h1>
           <i class="material-icons-round icon-head icon-animate">payment</i>
         </div>
@@ -170,7 +170,7 @@ if(isset($_GET["removerproducto"])){
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 mb-4">
-        <div class="card card-bor mb-4" style="margin-top: -1rem;">
+        <div class="card card-bor mb-4" style="margin-top: -1rem;" data-aos="fade-up" data-aos-delay="1000">
         <div class="card-body">
 
       

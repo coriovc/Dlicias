@@ -11,8 +11,19 @@
         
             <ul class="navbar-nav align-items-center ml-auto">
             
-            <li class="nav-item mr-3 no-caret">                    
-                <button class="btn btn-transparent-dark rounded-pill btn-sm" id="fecha"><span class="material-icons-round">query_builder</span><strong class="ml-1" id="clock"></strong></button> 
+            <li class="nav-item mr-3 no-caret" data-aos="fade-left" data-aos-delay="200">                    
+                <button class="btn btn-transparent-dark rounded-pill btn-sm" id="fecha"><!--<span class="material-icons-round">query_builder</span>-->
+                    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/kbtmbyzy.json"
+                            trigger="loop"
+                            delay="5000"
+                            colors="primary:#b4b4b4,secondary:#f73636"
+                            stroke="100"
+                            scale="60"
+                            style="width:35px;height:35px">
+                        </lord-icon>
+                    <strong class="ml-1" id="clock"></strong></button> 
             </li>
             <div class="mdl-tooltip" data-mdl-for="fecha"><strong id="date"></strong></div>
                  
@@ -68,7 +79,16 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in-up" aria-labelledby="userDropdown">
 
                         <div class="text-center">
-                        <img class="img-profile rounded-circle" src="../../imagenes/User-img.png" style="width: 5rem; margin-left: auto; margin-bottom: 1rem;">
+                        <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/dxjqoygy.json"
+                            trigger="loop"
+                            delay="4000"
+                            colors="primary:#f73636,secondary:#f73636"
+                            stroke="50"
+                            scale="53"
+                            style="width:80px;height:80px">
+                        </lord-icon>
                         <div class="text-center"><strong style="text-transform: uppercase;">
                             <?php echo $_SESSION['admin']['nombre']; ?></strong>                    
                         </div>

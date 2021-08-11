@@ -18,6 +18,14 @@ background-color: #0D0D0D
   background-color: transparent;
 }
 
+.pass-off{
+  display: none;
+}
+
+.pass-on{
+  display: block;
+}
+
 .dataTables_length, .DataTables_Table_0_filter, .dataTables_info, .dataTables_paginate{
       margin-left: 2rem;
 }

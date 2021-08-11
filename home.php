@@ -24,6 +24,7 @@ if(!isset($_SESSION['admin']))
   <link rel="stylesheet" href="css/blur.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/styles-new.css">
+  <link rel="stylesheet" href="css/aos.css">
   <title>Home</title>
 </head>
 <body>
@@ -31,17 +32,17 @@ if(!isset($_SESSION['admin']))
     <section class="home-section">
         <div class="container">
           <div class="row align-items-center d-flex d-xl-none">
-            <div class="col-4 home-content">
+            <div class="col-4 home-content" data-aos="fade-up" data-aos-delay="200">
                 <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
               </div> 
           </div>
           <div class="row height-100 align-items-center justify-content-center">
-              <div class="col-4 home-content d-none d-xl-block">
+              <div class="col-4 home-content d-none d-xl-block" data-aos="fade-right" data-aos-delay="200">
                 <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
               </div>
               <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
               <div class="col-12 col-md-3 col-lg-3">
-                  <div class="home-content">
+                  <div class="home-content" data-aos="fade-left" data-aos-delay="200">
                       <a class="card bg-blue lift-img" href="views/Venta/">
                         <div class="card-body align-items-center">
                           <div class="content">
@@ -54,7 +55,7 @@ if(!isset($_SESSION['admin']))
                   </div> 
               </div>
               <div class="col-12 col-md-3 col-lg-3">
-                  <div class="home-content">
+                  <div class="home-content" data-aos="fade-left" data-aos-delay="400">
                       <a class="card bg-green lift-img" href="#!">
                         <div class="card-body align-items-center">
                           <div class="content">
@@ -68,8 +69,8 @@ if(!isset($_SESSION['admin']))
               </div>  
               <?php } ?> 
               <div class="col-12 col-md-3 col-lg-2">
-                  <div class="home-content">
-                      <a class="card bg-purple lift-img" style="margin: 0;" href="views/Dashboard/">
+                  <div class="home-content" data-aos="fade-left" data-aos-delay="600">
+                      <a class="card bg-purple lift-img animsition-link" style="margin: 0;" href="views/Dashboard/">
                         <div class="card-body align-items-center">
                           <div class="content">
                             <span class="material-icons-round text-white" style="font-size: 7rem;">dashboard</span>
@@ -89,22 +90,33 @@ if(!isset($_SESSION['admin']))
 /* Modales */
 include ('php/modal/modal_logout.php'); 
 ?>
+
+
 </body>
   
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-<script type="text/javascript">
-  function mostrarsaludo(){
-    fecha = new Date(); 
-    hora = fecha.getHours();
-      if(hora >= 0 && hora < 12){
-         texto = "Buenos Días";}          
-      if(hora >= 12 && hora < 18){
-         texto = "Buenas Tardes";}
-      if(hora >= 18 && hora < 24){
-         texto = "Buenas Noches";}
-  document.getElementById('txtsaludo').innerHTML = texto;}
-</script>
+  <script src="js/aos.js"></script>
+  <script type="text/javascript">
+    function mostrarsaludo(){
+      fecha = new Date(); 
+      hora = fecha.getHours();
+        if(hora >= 0 && hora < 12){
+           texto = "Buenos Días";}          
+        if(hora >= 12 && hora < 18){
+           texto = "Buenas Tardes";}
+        if(hora >= 18 && hora < 24){
+           texto = "Buenas Noches";}
+    document.getElementById('txtsaludo').innerHTML = texto;}
+  </script>
+  <script>
+    AOS.init({
+        easing: 'ease-in-out-sine',
+        offset: 100,
+        duration: 900,
+        once: true
+      });
+  </script>
 </html>

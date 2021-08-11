@@ -21,7 +21,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
   <header class="page-header bg-img-cover overlay overlay-30" style="background-image: url(../../imagenes/fondo-Principal.jpg);">
   <div class="container" style="margin-top: 6rem;">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
         <h1 class="display-3 tct text-white">Empleados</h1>
         <i class="material-icons-round icon-head icon-animate">supervised_user_circle</i>
       </div>
@@ -30,7 +30,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
   </header>
 
   <section class="section-empleados">
-    <div class="container-fluid">
+    <div class="container-fluid" data-aos="fade-right" data-aos-delay="400">
       <div class="row">        
         <div class="col-lg-3 mb-4">
           <div class="justify-content-center tct text-center">
@@ -80,7 +80,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
           </div>
         </div>
         
-        <div class="col-lg-8 col-xl-9 mb-4">   
+        <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
 
          <div class="card my-4 overflow-hidden">
             <div class="card-header">

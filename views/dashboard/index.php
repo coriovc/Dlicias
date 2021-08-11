@@ -20,7 +20,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
     <header class="page-header bg-img-cover-dash overlay overlay-30" style="background-image: url(../../imagenes/fondo-Principal.jpg);">
         <div class="container text-left" style="margin-top: 6rem;">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
                 <h1 class="display-4 tct text-white"><strong id="txtsaludo"></strong><strong><?php echo $_SESSION['admin']['nombre']; ?></strong></h1>
                 <p class="page-header-text text-white mb-0">Estamos para ayudarte</p>
                 <i class="material-icons-round icon-head-dash icon-animate">emoji_people</i>
@@ -31,9 +31,18 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 
         <div class="container">
             <div class="row" style="margin-top: -1.5rem; margin-bottom: 3rem;">
-                <div class="dropdown no-caret">
+                <div class="dropdown no-caret" data-aos="fade-right" data-aos-delay="700">
                     <a class="btn btn-white rounded-pill shadow-lg dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="material-icons-outlined">description</i>&nbsp;&nbsp;
+                    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/nocovwne.json"
+                            trigger="loop"
+                            delay="4000"
+                            colors="primary:#151515,secondary:#f73636"
+                            stroke="50"
+                            scale="53"
+                            style="width:40px;height:40px">
+                        </lord-icon>
                     <div class="font-weight-500">Generar Informe</div>
                     <i class="fas fa-chevron-right dropdown-arrow"></i></a>
                     
@@ -51,7 +60,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 
         
 
-    <section class="dash-section">
+    <section class="dash-section" data-aos="fade-up" data-aos-delay="1000">
         <div class="container">
          <div class="row">
           <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?> 

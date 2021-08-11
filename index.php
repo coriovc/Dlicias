@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/blur.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/styles-new.css">
+  <link rel="stylesheet" href="css/aos.css">
   <!-- scripts-->
   <title>Iniciar Sesion</title>   
 </head>
@@ -24,7 +25,7 @@
           <div class="row height-100 align-items-center justify-content-center">              
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="login-content">
-                  <div class="card">
+                  <div class="card" data-aos="fade-up" data-aos-delay="400">
                     <div class="card-body align-items-center">
                       <div class="img-user"><img src="imagenes/logo/logo-dark-deli.png"></div>
 
@@ -39,13 +40,15 @@
                           <input class="form-control" type="password" id="password" name="clave" placeholder="Contraseña">
                           &nbsp;
                           <div class="input-group-append"><span>
-                            <a class="btn btn-white btn-icon" id="ShowPassword" onclick="mostrarContrasena()"><span class="material-icons-round" id="pass">visibility</span></a></span>
+                            <a class="btn btn-white btn-icon" id="ShowPassword" onclick="mostrarContrasena()">
+                              <span class="material-icons-round" id="pass-1">visibility</span>
+                              <span class="material-icons-round pass-off" id="pass-2">visibility_off</span></a></span>
                           </div>
                         </div>
 
                         <br>
                         <div class="form-group text-center">
-                          <button type="submit" class="btn btn-white shadow-lg rounded-pill">Acceder</button>
+                          <button type="submit" class="btn btn-white shadow-lg rounded-pill animsition-link">Acceder</button>
                         </div>
                         <hr class="white">
                         <div class="form-group text-center">
@@ -66,22 +69,39 @@
 
 
 
-
 </body>
-  <script>
-  function mostrarContrasena(){
-      var tipo = document.getElementById("password");
-      if(tipo.type == "password"){
-          tipo.type = "text";
-      }else{
-          tipo.type = "password";
-      }
-  }
-</script>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <!-- animsition.js -->
+  <script src="js/animsition.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/material.min.js"></script>
-  <script src="js/loader.js"></script>
+  <script src="js/aos.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function mostrarContrasena(){
+        var tipo = document.getElementById("password");
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            $("#pass-1").addClass("pass-off");
+            $("#pass-2").addClass("pass-on");
+        }else{
+            tipo.type = "password";
+            $("#pass-1").removeClass("pass-off");
+            $("#pass-2").removeClass("pass-on");
+        }
+    }
+  </script>
+  <script>
+      AOS.init({
+          easing: 'ease-in-out-sine',
+          offset: 100,
+          duration: 900,
+          once: true
+        });
+    </script>
+
 </html>

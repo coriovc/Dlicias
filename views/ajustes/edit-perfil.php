@@ -22,12 +22,12 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
       <div class="row">
         <div class="col-lg-6 col-xl-6 mb-4">          
           <div class="card o-visible tct mb-4">
-              <img class="img-profile rounded-circle" src="../../imagenes/img-user.png">       
+              <img class="img-profile rounded-circle" src="../../imagenes/User-img.png">       
                 <div class="container tct text-center">
                     <div class="row justify-content-center">
                       <div class="col-lg-8">
-                        <h1 class="display-4"><!--<?php echo $value->nombre." ".$value->apellido;?>-->victor corio</h1>
-                        <p class="text-primary"><!--<?php echo $value->tipo_usuario;?>-->Administrador</p>
+                        <h1 class="display-4"><?php echo $_SESSION['admin']['nombre']; ?></h1>
+                        <p class="text-primary"><?php echo $_SESSION['admin']['tipo_usuario']; ?></p>
                       </div>
                     </div>
                 </div>                   
@@ -38,11 +38,11 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                       <div class="form-group row">
                       <div class="col-sm-4 mb-3 mb-sm-0">
                         <label class="tct"><strong>Usuario</strong></label>
-                        <input type="text" class="form-control rounded-pill" id="usuario" name="usuario" value="" placeholder="Usuario...">
+                        <input type="text" class="form-control rounded-pill" id="usuario" name="usuario" value="<?php echo $_SESSION['admin']['ci']; ?>" placeholder="Usuario...">
                       </div>
                       <div class="col-sm-4">
                         <label class="tct"><strong>Nombre</strong></label>
-                        <input type="text" class="form-control rounded-pill" id="nombre" name="nombre" value="" placeholder="Nombre...">
+                        <input type="text" class="form-control rounded-pill" id="nombre" name="nombre" value="<?php echo $_SESSION['admin']['nombre']; ?>" placeholder="Nombre...">
                       </div>
                       <div class="col-sm-4">
                         <label class="tct"><strong>Apellido</strong></label>
@@ -51,7 +51,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     </div>
                     <div class="form-group">
                       <label class="tct"><strong>Correo</strong></label>
-                      <input type="email" class="form-control rounded-pill" id="email" name="email" value="" placeholder="Direccion de Email...">
+                      <input type="email" class="form-control rounded-pill" id="email" name="email" value="<?php echo $_SESSION['admin']['correo']; ?>" placeholder="Direccion de Email...">
                     </div>
                     </fieldset>
               </div>   

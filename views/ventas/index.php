@@ -29,7 +29,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
   <header class="page-header bg-img-cover overlay overlay-30" style="background-image: url(../../imagenes/fondo-Principal.jpg);">
   <div class="container" style="margin-top: 6rem;">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
         <h1 class="display-3 tct text-white">Ventas</h1>
         <i class="material-icons-round icon-head icon-animate">payment</i>
       </div>
@@ -42,7 +42,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
       <div class="row">
         
       <div class="col-lg-3 mb-4">
-        <div class="card tct o-visible mb-4">
+        <div class="card tct o-visible mb-4" data-aos="fade-right" data-aos-delay="200">
             <div class="card-body">
 
               <div class="d-flex align-items-center justify-content-between" style="margin-left: -0.5rem;">
@@ -64,7 +64,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
         </div>
       </div>
         
-        <div class="col-lg-8 col-xl-9 mb-4">   
+        <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
           
          <div class="section--center mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
           <div class="mdl-tabs__tab-bar mb-4 tct">

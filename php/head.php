@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../css/blur.css">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/styles-new.css">
+  <link rel="stylesheet" href="../../css/aos.css">
   <!-- scripts-->
   <script src="../../js/reloj.js"></script>
   <script src="../../js/Validacionform.js"></script>
