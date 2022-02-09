@@ -96,12 +96,12 @@
       <li id="ajustes"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
           <a class="btn btn-white active btn-icon" href="../ajustes/">
-          <span class="text-primary material-icons-round">admin_panel_settings</span></a>
+          <span class="text-primary material-icons-round">settings</span></a>
         </div>
         
         <div class="d-none  d-md-inline">
           <a class="btn btn-white active" href="../ajustes/">
-          <span class="text-primary mr-2 material-icons-round">admin_panel_settings</span>
+          <span class="text-primary mr-2 material-icons-round">settings</span>
           Perfil</a>
         </div>
       </li>   

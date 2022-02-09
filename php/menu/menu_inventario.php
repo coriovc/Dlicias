@@ -100,12 +100,12 @@
       <li id="ajustes"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
           <a class="btn btn-transparent-light btn-icon" href="../ajustes/">
-          <span class="material-icons-round">admin_panel_settings</span></a>
+          <span class="material-icons-round">settings</span></a>
         </div>
         
         <div class="d-none  d-md-inline">
           <a class="btn btn-transparent-light rounded-pill" href="../ajustes/">
-          <span class="mr-2 material-icons-round">admin_panel_settings</span>
+          <span class="mr-2 material-icons-round">settings</span>
           Ajustes</a>
         </div>
       </li>   

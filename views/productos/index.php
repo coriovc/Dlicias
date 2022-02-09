@@ -97,16 +97,16 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
               </div>
 
               <div class="my-2">
-                <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-categoria">
-                  <div class="btn-icon bg-light text-secondary shadow mr-2">
+                <a class="btn btn-purple btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-categoria">
+                  <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nueva Categoria</a>
 
-                <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-ingrediente">
-                  <div class="btn-icon bg-light text-secondary shadow mr-2">
+                <a class="btn btn-purple btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-ingrediente">
+                  <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nuevo Ingrediente</a>
 
-                <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="javascript:popUp('servicios_nuevo.php')">
-                  <div class="btn-icon bg-light text-secondary shadow mr-2">
+                <a class="btn btn-purple btn-add tct mb-2 btn-block" href="javascript:popUp('servicios_nuevo.php')">
+                  <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nuevo Servicio</a>
               </div>
             </div>
@@ -118,32 +118,32 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="mdl-tabs__tab-bar mb-4 tct">
           
           <!--Ingredientes-->
-            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab red is-active">          
+            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab purple is-active">          
               <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon red btn-sm">restaurant_menu</span>
+                <span class="material-icons-round btn btn-icon purple btn-sm">restaurant_menu</span>
               </div>
               <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon red btn-sm mr-2">restaurant_menu</span>Ingredientes
+                <span class="material-icons-round btn btn-icon purple btn-sm mr-2">restaurant_menu</span>Ingredientes
               </div>
             </a>   
 
           <!--Servicios-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab red">
+            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab purple">
               <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">room_service</span>
+                <span class="material-icons-round btn btn-icon btn-sm purple">room_service</span>
               </div>
               <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">room_service</span>Servicios
+                <span class="material-icons-round btn btn-icon btn-sm purple mr-2">room_service</span>Servicios
               </div>
             </a>
 
           <!--Servicios-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-3" class="mdl-tabs__tab red">
+            <a style="text-decoration:none" id="productos" href="#seccion-3" class="mdl-tabs__tab purple">
               <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">category</span>
+                <span class="material-icons-round btn btn-icon btn-sm purple">category</span>
               </div>
               <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">category</span>Categorias
+                <span class="material-icons-round btn btn-icon btn-sm purple mr-2">category</span>Categorias
               </div>
             </a>
 
@@ -152,14 +152,14 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="mdl-tabs__panel is-active" id="seccion-1">
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand red">restaurant_menu</i>
+                      <i class="material-icons-round grand text-purple">restaurant_menu</i>
 
-                        <h2 class="red">Ingredientes</h2>
+                        <h2 class="text-purple">Ingredientes</h2>
                     </div>
 
                     <div class="table-responsive">
                     <table class="table" width="100%">
-                       <thead>
+                       <thead class="text-purple bg-table-purple">
                       <tr>
                         <th>Nro</th>
                         <th>Código de Producto</th>
@@ -206,13 +206,13 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="mdl-tabs__panel" id="seccion-2"> 
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand red">room_service</i>
-                        <h2 class="red">Servicios</h2>
+                      <i class="material-icons-round grand text-purple">room_service</i>
+                        <h2 class="text-purple">Servicios</h2>
                     </div>
 
                     <div class="table-responsive">
                     <table class="table" width="100%">
-                      <thead>
+                      <thead class="text-purple bg-table-purple">
                       <tr>
                         <th>Nro</th>
                         <th>Nombre</th>
@@ -259,14 +259,14 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="mdl-tabs__panel" id="seccion-3">
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand red">category</i>
+                      <i class="material-icons-round grand text-purple">category</i>
                       
-                        <h2 class="red">Categorias</h2>
+                        <h2 class="text-purple">Categorias</h2>
                     </div>
 
                     <div class="table-responsive">
                     <table class="table" width="100%">
-                       <thead>
+                       <thead class="text-purple bg-table-purple">
                       <tr>
                         <th>Nro</th>
                         <th>Nombre</th>

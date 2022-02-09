@@ -50,14 +50,14 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
               </div>
 
               <div class="my-2">
-                <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-                <a class="btn btn-red btn-add tct mb-2 btn-block" href="../venta">
-                  <div class="btn-icon bg-light text-red shadow mr-2">
+                
+                <a class="btn btn-blue btn-add tct mb-2 btn-block" href="../venta">
+                  <div class="btn-icon bg-light text-blue shadow mr-2">
                   <i class="material-icons-round icon-size-35">payment</i></div>Nueva Venta</a>
-                <?php } ?>
+                
 
-                <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-cliente">
-                  <div class="btn-icon bg-light text-secondary shadow mr-2">
+                <a class="btn btn-blue btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-cliente">
+                  <div class="btn-icon bg-light text-blue shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nuevo Cliente</a>
               </div>
             </div>
@@ -70,33 +70,30 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="mdl-tabs__tab-bar mb-4 tct">
           
           <!--Ingredientes-->
-          <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab red is-active">          
+            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab blue is-active">          
               <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon red btn-sm">store</span>
+                <span class="material-icons-round btn btn-icon blue btn-sm">store</span>
               </div>
               <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon red btn-sm mr-2">store</span>Ventas Realizadas
+                <span class="material-icons-round btn btn-icon blue btn-sm mr-2">store</span>Ventas Realizadas
               </div>
-            </a>   
-            <?php } ?>   
+            </a>      
           <!--Productos finales-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab red">
+            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab blue">
               <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">person</span>
+                <span class="material-icons-round btn btn-icon btn-sm blue">person</span>
               </div>
               <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">person</span>Clientes
+                <span class="material-icons-round btn btn-icon btn-sm blue mr-2">person</span>Clientes
               </div>
             </a>
 
           </div> 
-          <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
           <div class="mdl-tabs__panel  is-active" id="seccion-1">
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header justify-content-between">
-                      <i class="material-icons-round grand red">store</i>
-                        <h2 class="red">Ventas</h2>
+                      <i class="material-icons-round grand blue">store</i>
+                        <h2 class="blue">Ventas</h2>
                     <div class="dropdown no-caret mr-3">
                         <a class="btn btn-white rounded-pill shadow" href="javascript:popUp('imprimir_venta.php')">
                             <i class="material-icons-round mr-2">description</i>
@@ -105,9 +102,9 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </div>
                     </div>
 
-                    <div class="table-responsive">
+                    <div>
                     <table class="table display" width="100%">
-                      <thead class="text-red bg-table-red">
+                      <thead class="text-blue bg-table-blue">
                       <tr>
                         <th>Código</th>
                         <th>Cliente</th>
@@ -138,17 +135,16 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </div>
               </div>
           </div><!--fin de seccion 1-->
-          <?php } ?>   
           <div class="mdl-tabs__panel " id="seccion-2"> 
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand red">person</i>
-                        <h2 class="red">Clientes</h2>
+                      <i class="material-icons-round grand blue">person</i>
+                        <h2 class="blue">Clientes</h2>
                     </div>
 
-                    <div class="table-responsive">
+                    <div>
                     <table class="table display" width="100%">
-                      <thead class="text-red bg-table-red">
+                      <thead class="text-blue bg-table-blue">
                       <tr>
                         <th>Nro</th>
                         <th>Cedula/RIF</th>

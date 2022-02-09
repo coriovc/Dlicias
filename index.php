@@ -33,11 +33,11 @@
                         <fieldset>
                         
                         <div class="form-group">
-                          <input class="form-control" type="text" name="ci" placeholder="Cedula" autocomplete="off">
+                          <input class="form-control" type="text" name="ci" placeholder="26866132" autocomplete="off">
                         </div>
                         
                         <div class="input-group">
-                          <input class="form-control" type="password" id="password" name="clave" placeholder="Contraseña">
+                          <input class="form-control" type="password" id="password" name="clave" placeholder="*****">
                           &nbsp;
                           <div class="input-group-append"><span>
                             <a class="btn btn-white btn-icon" id="ShowPassword" onclick="mostrarContrasena()">
@@ -67,8 +67,6 @@
     </section>
 <!-- ***** Welcome Area End ***** -->
 
-
-
 </body>
 
   <!-- jQuery -->
@@ -76,8 +74,8 @@
   <!-- animsition.js -->
   <script src="js/animsition.js"></script>
   <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.js"></script>
   <script src="js/material.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -88,10 +86,12 @@
             tipo.type = "text";
             $("#pass-1").addClass("pass-off");
             $("#pass-2").addClass("pass-on");
+            tipo.placeholder = "12345";
         }else{
             tipo.type = "password";
             $("#pass-1").removeClass("pass-off");
             $("#pass-2").removeClass("pass-on");
+            tipo.placeholder = "*****";
         }
     }
   </script>

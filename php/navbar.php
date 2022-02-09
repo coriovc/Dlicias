@@ -51,8 +51,8 @@
                         </a>';
                 $bajos =  listarProductosBajos();
                 if($bajos>0)
-                $not .='<a class="dropdown-item dropdown-notifications-item" href="producto_listado.php">
-                            <div class="dropdown-notifications-item-icon bg-danger"><i class="fas fa-exclamation-triangle"></i></div>
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="../productos/">
+                            <div class="dropdown-notifications-item-icon bg-danger"><span class="material-icons-round text-white">priority_high</span></div>
                             <div class="dropdown-notifications-item-content">
                                 <div class="dropdown-notifications-item-content-text">'.$bajos.' productos estan con bajo stock</div>
                             </div>
@@ -93,11 +93,6 @@
                             <?php echo $_SESSION['admin']['nombre']; ?></strong>                    
                         </div>
                         <strong style="margin-top: 0.1rem;" class="text-primary"><?php echo $_SESSION['admin']['tipo_usuario']; ?></strong></div>
-                        
-                        <a class="dropdown-item" href="../ajustes/" >
-                          <span class="mr-2 material-icons-round">settings</span>
-                          ajustes
-                        </a> 
 
                         <a class="dropdown-item" href="../ayuda/" >
                           <span class="text-warning mr-2 material-icons-round">help</span>
@@ -105,7 +100,7 @@
                         </a>    
                 
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" style="margin-top: 0.1rem;">
-                        <span class="mr-2 material-icons-round">exit_to_app</span>
+                        <span class="mr-2 material-icons-round">logout</span>
                           Logout
                         </a>
                     </div>

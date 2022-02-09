@@ -79,11 +79,11 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../empleados/">
-                  <div class="card-head"><span class="material-icons-round text-yellow">pending_actions</span></div>
+                  <div class="card-head"><span class="material-icons-round text-yellow">how_to_reg</span></div>
                     <div class="card-body">
                       <div class="content">
-                          <h3 class="text-yellow">Horario</h3>
-                          <p>Registrar horario de hoy!</p>
+                          <h3 class="text-yellow">Asistencia</h3>
+                          <p>Registrar asitencia de hoy!</p>
                       </div>
                     </div>
                 </a>
@@ -92,36 +92,35 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../productos/">
-                  <div class="card-head"><span class="material-icons-round text-green">add_circle_outline</span></div>
+                  <div class="card-head"><span class="material-icons-round text-purple">add_circle_outline</span></div>
                     <div class="card-body">
                       <div class="content">
-                          <h3 class="text-green">Ingredientes</h3>
+                          <h3 class="text-purple">Ingrediente</h3>
                           <p>Agregar nuevo ingrediente</p>
                       </div>
                     </div>
                 </a>
             </div>
-            <?php } ?>
-            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../compras/">
-                  <div class="card-head"><span class="material-icons-round text-purple">add_shopping_cart</span></div>
+                <a class="card lift-img" href="../productos/">
+                  <div class="card-head"><span class="material-icons-round text-purple">room_service</span></div>
                     <div class="card-body">
                       <div class="content">
-                          <h3 class="text-purple">Compra</h3>
-                          <p>Agregar nueva compra de ingredientes</p>
+                          <h3 class="text-purple">Servicio</h3>
+                          <p>Agregar nuevo Servicio</p>
                       </div>
                     </div>
                 </a>
             </div>
             <?php } ?>
+            
 
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ventas/#seccion-2">
-                  <div class="card-head"><span class="material-icons-round text-red">person_add</span></div>
+                  <div class="card-head"><span class="material-icons-round text-blue">person_add</span></div>
                     <div class="card-body">
                       <div class="content">
-                          <h3 class="text-red">Clientes</h3>
+                          <h3 class="text-blue">Cliente</h3>
                           <p>Agregar nuevo cliente</p>
                       </div>
                     </div>
@@ -129,55 +128,17 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             </div>                  
             <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../productos/">
-                  <div class="card-head"><span class="material-icons-round text-yellow">category</span></div>
-                    <div class="card-body">
-                      <div class="content">
-                          <h3 class="text-yellow">Productos</h3>
-                          <p>Agrega nuevos ingredientes y productos</p>
-                      </div>
-                    </div>
-                </a>
-            </div>
-            <?php } ?>
-            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../empleados/">
                   <div class="card-head"><span class="material-icons-round text-green">people</span></div>
                     <div class="card-body">
                       <div class="content">
                           <h3 class="text-green">Empleados</h3>
-                          <p>Agregar nuevo empleado, Problemas con pagos o facturacion.</p>
+                          <p>Gestion de empleados</p>
                       </div>
                     </div>
                 </a>
             </div>
             <?php } ?>
-            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../ajustes/">
-                  <div class="card-head"><span class="material-icons-round text-purple">admin_panel_settings</span></div>
-                    <div class="card-body">
-                      <div class="content">
-                          <h3 class="text-purple">Privilegios</h3>
-                          <p>Configuracion de privilegios de ususarios.</p>
-                      </div>
-                    </div>
-                </a>
-            </div>
-            <?php } ?>
-
-            <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../ajustes/">                  
-                  <div class="card-head"><span class="material-icons-round text-red">fact_check</span></div>
-                    <div class="card-body">
-                      <div class="content">
-                          <h3 class="text-red">Mi Actividad</h3>
-                          <p>Revisa tus ultimos movimientos.</p>
-                      </div>
-                    </div>
-                </a>
-            </div>
 
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ayuda/">                  
@@ -193,10 +154,10 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 
             <div class="col-12 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ajustes/">                  
-                  <div class="card-head"><span class="material-icons-round text-blue">settings</span></div>
+                  <div class="card-head"><span class="material-icons-round text-red">settings</span></div>
                     <div class="card-body">
                       <div class="content">
-                          <h3 class="text-blue">Ajustes</h3>
+                          <h3 class="text-red">Ajustes</h3>
                           <p>Usuario, Mantenimiento, Bitacora, Papelera</p>
                       </div>
                     </div>

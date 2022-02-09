@@ -31,16 +31,16 @@ if(!isset($_SESSION['admin']))
     <!-- ***** Welcome Area Start ***** -->
     <section class="home-section">
         <div class="container">
-          <div class="row align-items-center d-flex d-xl-none">
+          <!--<div class="row align-items-center d-flex d-xl-none">
             <div class="col-4 home-content" data-aos="fade-up" data-aos-delay="200">
                 <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
               </div> 
-          </div>
+          </div>-->
           <div class="row height-100 align-items-center justify-content-center">
-              <div class="col-4 home-content d-none d-xl-block" data-aos="fade-right" data-aos-delay="200">
+              <!--<div class="col-4 home-content d-none d-xl-block" data-aos="fade-right" data-aos-delay="200">
                 <h2>Bienevnido <span><?php echo $_SESSION['admin']['nombre']; ?></span></h2>                      
-              </div>
-              <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
+              </div>-->
+              
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content" data-aos="fade-left" data-aos-delay="200">
                       <a class="card bg-blue lift-img" href="views/Venta/">
@@ -54,6 +54,7 @@ if(!isset($_SESSION['admin']))
                       </a>
                   </div> 
               </div>
+              <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content" data-aos="fade-left" data-aos-delay="400">
                       <a class="card bg-green lift-img" href="#!">
@@ -68,9 +69,9 @@ if(!isset($_SESSION['admin']))
                   </div> 
               </div>  
               <?php } ?> 
-              <div class="col-12 col-md-3 col-lg-2">
+              <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content" data-aos="fade-left" data-aos-delay="600">
-                      <a class="card bg-purple lift-img animsition-link" style="margin: 0;" href="views/Dashboard/">
+                      <a class="card bg-purple lift-img animsition-link" href="views/Dashboard/">
                         <div class="card-body align-items-center">
                           <div class="content">
                             <span class="material-icons-round text-white" style="font-size: 7rem;">dashboard</span>

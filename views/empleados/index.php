@@ -43,7 +43,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     <div class="input-group">
                       <input type="text" class="form-control rounded-pill no-rounded-right" placeholder="Ejem: victor corio...." aria-label="Search" aria-describedby="basic-addon2">
                       <div class="input-group-append">
-                        <button class="btn btn-primary btn-icon" type="button">
+                        <button class="btn btn-yellow btn-icon" type="button">
                           <i class="material-icons-round">search</i>
                         </button>
                       </div>
@@ -60,20 +60,13 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                 </div>
 
                 <div class="my-2">
-                  <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-producto">
-                    <div class="btn-icon bg-light text-secondary shadow mr-2">
+                  <a class="btn btn-yellow btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-producto">
+                    <div class="btn-icon bg-light text-yellow shadow mr-2">
                     <i class="material-icons-round icon-size-35">person_add</i></div>Nuevo Empleado</a>
 
-                  <a class="btn btn-secondary btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-producto">
-                    <div class="btn-icon bg-light text-secondary shadow mr-2">
-                    <i class="material-icons-round icon-size-35">add_task</i></div>Añadir Horario</a>
-
-                  <a class="btn btn-yellow btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-pagar-emp">
-                    <div class="btn-icon bg-light text-yellow shadow mr-2">
-                    <i class="material-icons-round icon-size-35">attach_money</i></div>Pagar</a>
                   
-                  <a class="btn btn-green btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-servicio">
-                    <div class="btn-icon bg-light text-green shadow mr-2">
+                  <a class="btn btn-yellow btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-servicio">
+                    <div class="btn-icon bg-light text-yellow shadow mr-2">
                     <i class="material-icons-round icon-size-35">pending_actions</i></div>Registrar entrada</a>
                 </div>
               </div>
@@ -84,13 +77,13 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 
          <div class="card my-4 overflow-hidden">
             <div class="card-header">
-              <i class="material-icons-round grand red">group</i>
-              <h2 class="red">Empleados</h2>
+              <i class="material-icons-round grand yellow">group</i>
+              <h2 class="yellow">Empleados</h2>
             </div>
 
                     <div class="datatable table-responsive">
                     <table class="table" id="dataTable" width="100%" cellspacing="0">
-                      <thead class="text-primary bg-table-red">
+                      <thead class="text-yellow bg-table-yellow">
                       <tr>
                         <th class="text-center">
                           <div class="custom-control custom-checkbox">
@@ -120,9 +113,9 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                           <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
                         </td>                      
                         <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img" href="#!"><span class="material-icons-round">account_circle</span>Ver</a>
-                          <a class="btn btn-yellow rounded-pill btn-sm lift-img" href="#!" ><span class="material-icons-round">attach_money</span>Pagar</a>
-                          <a class="btn btn-red rounded-pill btn-sm lift-X-r" href="#" ><span class="material-icons-round">close</span>Eliminar</a>
+                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
+                          
+                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
                         </td>
                        </tr>
                        <tr>
@@ -139,9 +132,9 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                           <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
                         </td>                      
                         <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img" href="#!"><span class="material-icons-round">account_circle</span>Ver</a>
-                          <a class="btn btn-yellow rounded-pill btn-sm lift-img" href="#!" ><span class="material-icons-round">attach_money</span>Pagar</a>
-                          <a class="btn btn-red rounded-pill btn-sm lift-X-r" href="#" ><span class="material-icons-round">close</span>Eliminar</a>
+                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
+                          
+                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
                         </td>
                        </tr> 
                        <tr>
@@ -158,9 +151,9 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                           <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
                         </td>                      
                         <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img" href="#!"><span class="material-icons-round">account_circle</span>Ver</a>
-                          <a class="btn btn-yellow rounded-pill btn-sm lift-img" href="#!" ><span class="material-icons-round">attach_money</span>Pagar</a>
-                          <a class="btn btn-red rounded-pill btn-sm lift-X-r" href="#" ><span class="material-icons-round">close</span>Eliminar</a>
+                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
+                          
+                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
                         </td>
                        </tr> 
                         
