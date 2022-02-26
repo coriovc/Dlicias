@@ -259,7 +259,8 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                         <td><?php echo $r['id']; ?></td>
                         <td><?php echo $r['nombre']; ?></td>
                         <td>
-                          <button class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="#" data-toggle="modal" data-target="#modal-categoria-edit"><span class="material-icons-round">edit</span></button>
+                          <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" 
+                          href="javascript:popUp_categoria('edit_categoria.php?operacion=modificar&id=<?=$r['id'] ?>')"><span class="material-icons-round">edit</span></a>
                           
                           <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-categoria"><span class="material-icons-round">close</span></button>
                         </td>
@@ -284,6 +285,11 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
   <script type="text/javascript">
     function popUp(URL) {
         window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=600,height=800,left = 390,top = 50');
+    }
+  </script>
+  <script type="text/javascript">
+    function popUp_categoria(URL) {
+        window.open(URL, 'Categoria', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=500,height=800,left=50,top=80');
     }
   </script>
   <script>

@@ -103,7 +103,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                 </a>
             </div>
             <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../productos/">
+                <a class="card lift-img" href="javascript:popUp('../productos/servicios_nuevo.php')">
                   <div class="card-head"><span class="material-icons-round text-purple">room_service</span></div>
                     <div class="card-body">
                       <div class="content">
@@ -243,5 +243,11 @@ include ('../../php/modal/modal_logout.php');
             texto = "Buenas Noches ";}
           document.getElementById('txtsaludo').innerHTML = texto;}
 </script>
+
+ <script type="text/javascript">
+    function popUp(URL) {
+        window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=600,height=800,left = 390,top = 50');
+    }
+  </script>
 </body>
 </html>

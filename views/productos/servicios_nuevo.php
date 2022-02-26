@@ -173,7 +173,7 @@ elseif(isset($_GET["remover"])){
           
                   
                   <div align="center">
-                  <a href="Dashboard.php" type="button" class="btn btn-transparent-dark"><strong>Cancelar</strong></a>
+                  <button onclick="javascript:closeWindow()" type="button" class="btn btn-transparent-dark"><strong>Cancelar</strong></button>
                   <button type="submit" onclick="cargar()" name="guardar" title="Guardar" class="btn btn-green">Registrar</button>
         </form>
                             </div>
