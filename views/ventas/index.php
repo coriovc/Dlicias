@@ -65,31 +65,18 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
       </div>
         
         <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
-          
-         <div class="section--center mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-          <div class="mdl-tabs__tab-bar mb-4 tct">
-          
-          <!--Ingredientes-->
-            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab blue is-active">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon blue btn-sm">store</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon blue btn-sm mr-2">store</span>Ventas Realizadas
-              </div>
-            </a>      
-          <!--Productos finales-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab blue">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm blue">person</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm blue mr-2">person</span>Clientes
-              </div>
-            </a>
-
-          </div> 
-          <div class="mdl-tabs__panel  is-active" id="seccion-1">
+          <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-blue mr-2">store</span>Ventas</button>
+            
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false"><span class="material-icons-round text-blue mr-2">person</span>Clientes</button>
+          </li>
+        </ul>
+        <hr>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header justify-content-between">
                       <i class="material-icons-round grand blue">store</i>
@@ -134,8 +121,8 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </table>
                     </div>
               </div>
-          </div><!--fin de seccion 1-->
-          <div class="mdl-tabs__panel " id="seccion-2"> 
+          </div>
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
                       <i class="material-icons-round grand blue">person</i>
@@ -173,8 +160,9 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </table>
                     </div>
               </div>
-          </div> <!--fin de seccion 2-->
-         </div>
+          </div>
+        </div>
+
         </div> 
         
       </div>

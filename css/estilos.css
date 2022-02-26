@@ -419,6 +419,14 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 
+.btn-white:not(:disabled):not(.disabled):active, .btn-white:not(:disabled):not(.disabled).active, .show > .btn-white.dropdown-toggle {
+    color: #232323;
+    background-color: #fff;
+    border-color: transparent;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important; 
+}
+
+
 
 
 

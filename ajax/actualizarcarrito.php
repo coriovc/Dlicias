@@ -1,5 +1,5 @@
 <?php 
-require_once  "../controladores/producto.php";  
+require_once  "../controladores/servicio.php";  
 
 if(!isset($_SESSION))
   session_start(); ?>
@@ -8,7 +8,7 @@ if(!isset($_SESSION))
   <table class="table table-bordered table-hover" width="100%">
     <thead>
       <tr>
-          <th>Producto o Servicio</th>
+          <th>servicio o Servicio</th>
           <th>Cantidad</th>
           <th>Costo</th>
           <th>Monto</th>
@@ -19,7 +19,7 @@ if(!isset($_SESSION))
      <?php 
       $total = 0;
       if(isset($_SESSION["venta"]) && is_array($_SESSION["venta"]) && count($_SESSION["venta"])){
-      foreach($_SESSION["venta"] as $id_producto => $elemento){
+      foreach($_SESSION["venta"] as $id_servicio => $elemento){
       $total = $total + intval($elemento['cantidad']) * intval($elemento['precio_v']);
       ?>
       <tr>
@@ -27,7 +27,7 @@ if(!isset($_SESSION))
           <td><?=$elemento['cantidad']?> <?=$elemento['unidad_venta']?> </td>
           <td><?=$elemento['precio_v']?> Bs. S.</td>
           <td><?=intval($elemento['cantidad']) * intval($elemento['precio_v']) ?></td>
-          <td><button type="button"onclick="window.location='index.php?removerproducto=<?=$id_producto ?>';" class="btn badge-danger rounded-pill btn-sm btn-icon"><i class="material-icons-round">clear</i></button></td>
+          <td><button type="button"onclick="window.location='index.php?removerservicio=<?=$id_servicio ?>';" class="btn badge-danger rounded-pill btn-sm btn-icon"><i class="material-icons-round">clear</i></button></td>
       </tr>
         <?php }
   } ?>  

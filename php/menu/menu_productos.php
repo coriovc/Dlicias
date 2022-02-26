@@ -5,12 +5,12 @@
       <li id="Dashboard"class="nav-item mr-2">
         <div class="d-inline d-md-none">
           <a class="btn btn-transparent-light btn-icon" href="../Dashboard/">
-        <span class="material-icons-round">amp_stories</span></a>
+        <span class="material-icons-round">space_dashboard</span></a>
         </div>
           
         <div class="d-none  d-md-inline">
           <a class="btn btn-transparent-light rounded-pill" href="../Dashboard/">
-          <span class="mr-2 material-icons-round">amp_stories</span>
+          <span class="mr-2 material-icons-round">space_dashboard</span>
           Dashboard</a>
         </div>
       </li>
@@ -57,12 +57,12 @@
       <li id="inventario"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
           <a class="btn btn-transparent-light btn-icon" href="../Inventario/">
-          <span class="material-icons-round">bubble_chart</span></a>
+          <span class="material-icons-round">inventory</span></a>
         </div>
         
         <div class="d-none  d-md-inline">
           <a class="btn btn-transparent-light rounded-pill" href="../Inventario/">
-          <span class="mr-2 material-icons-round">bubble_chart</span>
+          <span class="mr-2 material-icons-round">inventory</span>
           Inventario</a>
         </div>
       </li>
@@ -79,17 +79,17 @@
           Empleados</a>
         </div>
       </li>
-<!--Info
-      <li id="info"class="nav-item mr-2">        
+<!--gestion 
+      <li id="gestion"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
-          <a class="btn btn-transparent-light btn-icon" href="../info/">
-          <span class="material-icons-round">info</span></a>
+          <a class="btn btn-transparent-light btn-icon" href="../gestion/">
+          <span class="material-icons-round">layers</span></a>
         </div>
         
         <div class="d-none  d-md-inline">
-          <a class="btn btn-transparent-light rounded-pill" href="../info/">
-          <span class="mr-2 material-icons-round">info</span>
-          Info</a>
+          <a class="btn btn-transparent-light rounded-pill" href="../gestion/">
+          <span class="mr-2 material-icons-round">layers</span>
+          Gestión</a>
         </div>
       </li> -->
 <!--Ajustes-->
@@ -115,7 +115,7 @@
 <div class="mdl-tooltip tct" data-mdl-for="ventas">Ventas</div>
 <div class="mdl-tooltip tct" data-mdl-for="productos">Productos</div>
 <div class="mdl-tooltip tct" data-mdl-for="inventario">Inventario</div>
-<div class="mdl-tooltip tct" data-mdl-for="info">Acerca</div>
+<div class="mdl-tooltip tct" data-mdl-for="gestion">Gestión</div>
 <div class="mdl-tooltip tct" data-mdl-for="empleados">Empleados</div>
 <div class="mdl-tooltip tct" data-mdl-for="ajustes">Ajustes</div>
 </div>

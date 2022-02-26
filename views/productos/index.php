@@ -112,53 +112,33 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
             </div>
         </div>
       </div>
-        
-        <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
-         <div class="section--center mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-          <div class="mdl-tabs__tab-bar mb-4 tct">
-          
-          <!--Ingredientes-->
-            <a style="text-decoration:none" id="ingredientes" href="#seccion-1" class="mdl-tabs__tab purple is-active">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon purple btn-sm">restaurant_menu</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon purple btn-sm mr-2">restaurant_menu</span>Ingredientes
-              </div>
-            </a>   
+         
+      <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
+        <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-purple mr-2">egg</span>Ingredientes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false"><span class="material-icons-round text-purple mr-2">room_service</span>Servicios</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false"><span class="material-icons-round text-purple mr-2">view_cozy</span>Categorias</button>
+          </li>
+        </ul>
 
-          <!--Servicios-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-2" class="mdl-tabs__tab purple">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm purple">room_service</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm purple mr-2">room_service</span>Servicios
-              </div>
-            </a>
+      <hr>
 
-          <!--Servicios-->  
-            <a style="text-decoration:none" id="productos" href="#seccion-3" class="mdl-tabs__tab purple">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm purple">category</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm purple mr-2">category</span>Categorias
-              </div>
-            </a>
-
-          </div> 
-
-          <div class="mdl-tabs__panel is-active" id="seccion-1">
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+              
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand text-purple">restaurant_menu</i>
+                      <i class="material-icons-round grand text-purple">egg</i>
 
                         <h2 class="text-purple">Ingredientes</h2>
                     </div>
 
-                    <div class="table-responsive">
-                    <table class="table" width="100%">
+                    <table class="table display" width="100%">
                        <thead class="text-purple bg-table-purple">
                       <tr>
                         <th>Nro</th>
@@ -199,19 +179,18 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     <?php } ?>
                       </tbody>
                     </table>
-                    </div>
               </div>
-          </div><!--fin de seccion 1-->
 
-          <div class="mdl-tabs__panel" id="seccion-2"> 
+          </div>
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+              
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
                       <i class="material-icons-round grand text-purple">room_service</i>
                         <h2 class="text-purple">Servicios</h2>
                     </div>
 
-                    <div class="table-responsive">
-                    <table class="table" width="100%">
+                    <table class="table display" width="100%">
                       <thead class="text-purple bg-table-purple">
                       <tr>
                         <th>Nro</th>
@@ -252,19 +231,18 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     <?php } ?>
                       </tbody>
                     </table>
-                    </div>
               </div>
-          </div> <!--fin de seccion 2-->
 
-          <div class="mdl-tabs__panel" id="seccion-3">
+          </div>
+          <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+              
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
-                      <i class="material-icons-round grand text-purple">category</i>
+                      <i class="material-icons-round grand text-purple">view_cozy</i>
                       
                         <h2 class="text-purple">Categorias</h2>
                     </div>
 
-                    <div class="table-responsive">
                     <table class="table" width="100%">
                        <thead class="text-purple bg-table-purple">
                       <tr>
@@ -291,12 +269,12 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     <?php } ?>
                       </tbody>
                     </table>
-                    </div>
               </div>
-          </div><!--fin de seccion 1-->
-        
 
-         </div>
+          </div>
+        </div>
+
+      </div>
         </div> 
         
       </div>
@@ -309,9 +287,9 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
     }
   </script>
   <script>
-    function eliminar(id_cita) {
-      //console.log(id_cita+"--------");
-      $("#id_cita").val(id_cita);
+    function eliminar(id_pedido) {
+      //console.log(id_pedido+"--------");
+      $("#id_pedido").val(id_pedido);
     }
   </script>
   <script>

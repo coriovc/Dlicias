@@ -33,7 +33,7 @@ else
 {
     $DirBase=$DirBase."/bin/mysqldump";
 
-    registrarOperacion(" ha hecho un respaldo de la base de datos",$_SESSION['admin']['id'],"RESPALDO");
+    registrarOperacion($_SESSION['admin']['nombre']."ha hecho un respaldo de la base de datos",$_SESSION['admin']['id'],"RESPALDO");
     
      
 }

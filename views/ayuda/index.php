@@ -14,7 +14,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
   
       <?php
       include ('../../php/navbar.php');
-      include ('../../php/menu/menu_0.php'); /* barra lateral y barra superior */
+      include ('../../php/menu/menu_ayuda.php'); /* barra lateral y barra superior */
       ?>
     <header class="page-header bg-img-cover" style="background: rgb(219,114,0);background: linear-gradient(90deg, rgba(219,114,0,1) 0%, rgba(255,172,88,1) 100%);">
     <div class="container" style="margin-top: 6rem;">

@@ -10,6 +10,10 @@ if(!isset($_SESSION['admin']))
   exit(1);
 }
 ?>
+<?php
+require_once "controladores/empleado.php";
+$lisempleado = listarEmpleado();
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -57,10 +61,10 @@ if(!isset($_SESSION['admin']))
               <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
               <div class="col-12 col-md-3 col-lg-3">
                   <div class="home-content" data-aos="fade-left" data-aos-delay="400">
-                      <a class="card bg-green lift-img" href="#!">
+                      <a class="card bg-green lift-img" href="#" data-toggle="modal" data-target="#modal-registrar-entrada">
                         <div class="card-body align-items-center">
                           <div class="content">
-                            <span class="material-icons-round text-white" style="font-size: 7rem;">pending_actions</span>
+                            <span class="material-icons-round text-white" style="font-size: 7rem;">how_to_reg</span>
                               <h3 class="text-white">Registar</h3>
                               <p class="text-white">Registar la entrada de los empleados</p>
                           </div>
@@ -89,9 +93,56 @@ if(!isset($_SESSION['admin']))
     <a id="exti-top" data-toggle="modal" data-target="#logoutModalHome"><i class="material-icons-round">exit_to_app</i></a>
 <?php
 /* Modales */
-include ('php/modal/modal_logout.php'); 
+
+include ('php/modal/modal_logout.php');
 ?>
 
+<div class="modal fade" id="modal-registrar-entrada" tabindex="-1" role="dialog" aria-labelledby="modal-categoria" aria-hidden="true">
+  <div class="modal-dialog modal-lg-2 modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title tct"><strong>Registrar Entrada</strong></h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span class="material-icons">highlight_off</span></button>
+      </div>
+      <?php
+        require_once "controladores/empleado.php";
+      ?>
+      <form class="modal-body" method="POST" name="form"  action="models/empleado/asistencia_guardar.php" >                     
+          <fieldset>
+            <div class="form-group row">   
+              <div class="col-12 mb-2">
+                <label><strong>Empleado*</strong></label>
+                  <select class="form-control custom-select" name="id_empleado" required="required" title="Seleccione un Empleado" style="width: 100%;">
+                  <?php
+                  for ($i=0; $i < count($lisempleado); $i++){ 
+                    ?>
+                    <option value="<?=$lisempleado[$i]['id'] ?>"><?= $lisempleado[$i]['nombre'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>                  
+              </div>
+              <div class="col-12 col-lg-6 mb-2">
+                <label><strong>Fecha</strong></label>
+                <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>" class="form-control" readonly title="fecha">
+              </div>
+              <div class="col-12 col-lg-6 mb-2">
+                <label><strong>Hora*</strong></label>
+                <input type="time" name="nombre" class="form-control" title="hora" value="<?php echo date('h:i:s A'); ?>" required="required">
+              </div>
+            </div>            
+          </fieldset>          
+        <small>(*)Campos Obligatorios</small>
+        <div class="modal-footer tct">        
+          <button type="button" class="btn btn-transparent-dark"  data-dismiss="modal">Cancelar</button>
+          <button type="submit" id="toastBasicTrigger" name="guardar" title="Agregar" class="btn btn-success">Agregar</button>
+          <input type="hidden" name="operacion" value="guardar">
+        </div>
+      </form>            
+      
+    </div>
+  </div>
+</div>
 
 </body>
   

@@ -5,14 +5,16 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <?php $fcha = date("Y-m-d");?>
 <?php 
 require_once "../../controladores/producto.php";
+require_once "../../controladores/servicio.php";
 require_once "../../controladores/clientes.php";
-require_once "../../controladores/cita.php";
+require_once "../../controladores/pedido.php";
 $productos = listarProducto();
+$servicio = listarServicio();
 $cliente = listarCliente();
 
 
-if(isset($_GET["removerproducto"])){
-  unset($_SESSION["venta"][$_GET["removerproducto"]]);
+if(isset($_GET["removerservicio"])){
+  unset($_SESSION["venta"][$_GET["removerservicio"]]);
 }
   
 
@@ -59,7 +61,7 @@ if(isset($_GET["removerproducto"])){
           && $('#id_cliente').val()!='' && $('#fecha').val()!='')
         $.ajax(
           {
-            url:'../../ajax/traercitaspendientes.php',
+            url:'../../ajax/traerpedidospendientes.php',
             method:'GET',
             data: {id_cliente : $('#id_cliente').val(),fecha: $('#fecha').val()},
             success: function(data){
@@ -77,13 +79,13 @@ if(isset($_GET["removerproducto"])){
         if(
           
         $('#id_cliente').val() && $('#id_cliente').val()!='' &&
-          $('#id_producto').val() && $('#cantidad_carrito').val() 
-          && $('#id_producto').val()!='' && $('#cantidad_carrito').val()!='')
+          $('#id_servicio').val() && $('#cantidad_carrito').val() 
+          && $('#id_servicio').val()!='' && $('#cantidad_carrito').val()!='')
         $.ajax(
           {
             url:'../../ajax/agregarcarrito.php',
             method:'POST',
-            data: {id_producto : $('#id_producto').val(),cantidad: $('#cantidad_carrito').val()},
+            data: {id_servicio : $('#id_servicio').val(),cantidad: $('#cantidad_carrito').val()},
             success: function(data){ 
               $('#scriptss').html(data);
               actualizarTotal();
@@ -133,7 +135,7 @@ if(isset($_GET["removerproducto"])){
           {
             url:'../../ajax/traerunidadventa.php',
             method:'GET',
-            data: {id_producto : idp},
+            data: {id_servicio : idp},
             success: function(data){
               $('.unidadesv').html(data);
             }
@@ -154,7 +156,7 @@ if(isset($_GET["removerproducto"])){
 <body onload="startTime()">
       <?php
       include ('../../php/navbar.php');
-      include ('../../php/menu/menu_dash.php');
+      include ('../../php/menu/menu_ventas.php');
       ?>
     <header class="page-header bg-img-cover" style="background: rgb(1,76,255);background: linear-gradient(90deg, rgba(1,76,255,1) 0%, rgba(0,168,255,1) 100%);">
     <div class="container" style="margin-top: 6rem;">
@@ -198,17 +200,18 @@ if(isset($_GET["removerproducto"])){
             </div>
           </fieldset>
           <fieldset>
-            <legend><strong>Elija sus Productos o Servicios</strong></legend>
+            <legend><strong>Elija sus Servicios</strong></legend>
               <form action="#" onsubmit="agregarCarrito(); return false;">  
 
                 <div class="form-group row">
                 <div class="col-12 col-lg-6 ">
-                <label>Producto o Servicio *</label>
-                <select class="form-control form-control-solid select2" name="id_producto" id="id_producto" required="required" title="Seleccione un Producto" style="width: 100%;">
+                <label>servicio o Servicio *</label>
+                <select class="form-control form-control-solid select2" name="id_servicio" id="id_servicio" required="required" title="Seleccione un servicio" style="width: 100%;">
+                  <option>Seleccionar</option>
                   <?php
-                  for ($i=0; $i < count($productos); $i++){ 
+                  for ($i=0; $i < count($servicio); $i++){ 
                     ?>
-                    <option value="<?=$productos[$i]['id'] ?>"><?= $productos[$i]['nombre'] ?></option>
+                    <option value="<?=$servicio[$i]['id'] ?>"><?= $servicio[$i]['nombre'] ?></option>
                   <?php
                   }
                   ?>
@@ -219,7 +222,7 @@ if(isset($_GET["removerproducto"])){
                 <input type="number" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=5;" name="cantidad" id="cantidad_carrito" class="form-control form-control-solid" title="Ingrese la Cantidad" placeholder="20" required="required">
               </div>
               <div class="col">
-                <button style="margin-top: 2rem;" class="btn btn-primary" type="submit" name="guardar">Agregar</button>
+                <button style="margin-top: 2rem;" class="btn btn-blue" type="submit" name="guardar">Agregar</button>
               </div>
               <input type="hidden" name="operacion" value="guardar">
               </form>
@@ -232,7 +235,7 @@ if(isset($_GET["removerproducto"])){
                                 
 
           </fieldset>
-    <form action="ventas_guardar.php" method="post" onsubmit="if(!confirm('Desea guardar la venta?'))return false;">
+    <form action="ventas_guardar.php" method="post">
     <input type="hidden" id="escondido" name="id_cliente">
     <input type="hidden" id="escondido2" name="fecha" value="<?php echo date('Y-m-d'); ?>">
 
@@ -261,7 +264,7 @@ if(isset($_GET["removerproducto"])){
                   <div align="center">
                   <button type="reset"  class="btn btn-transparent-dark btn-icon"><i class="material-icons-round">sync</i></button>
                   <a href="javascript:history.back()" type="button" class="btn btn-transparent-dark"><strong>Cancelar</strong></a>
-                  <button type="submit" id="toastBasicTrigger" class="btn btn-primary">Registrar</button>
+                  <button type="submit" id="toastBasicTrigger" class="btn btn-blue">Registrar</button>
                   <input type="hidden" name="operacion" value="guardar">
                             </div>
                           </div>

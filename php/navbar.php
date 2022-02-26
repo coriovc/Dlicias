@@ -33,20 +33,20 @@
                     
                 <?php 
                 $not = '';
-                require_once '../../controladores/cita.php';
+                require_once '../../controladores/pedido.php';
                 require_once '../../controladores/producto.php';
                 $toto =  totalDia(date('Y-m-d'));
                 if($toto>=480)
-                $not .='<a class="dropdown-item dropdown-notifications-item" href="citas_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="pedidos_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">Cupo de citas cerrado para hoy</div>
+                                <div class="dropdown-notifications-item-content-text">Cupo de pedidos cerrado para hoy</div>
                             </div>
                         </a>';
-                $citasHoy =  listarCitasDia();
-                if($citasHoy>0)
-                $not .='<a class="dropdown-item dropdown-notifications-item" href="citas_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
+                $pedidosHoy =  listarpedidosDia();
+                if($pedidosHoy>0)
+                $not .='<a class="dropdown-item dropdown-notifications-item" href="pedidos_listado.php"><div class="dropdown-notifications-item-icon bg-success"><i data-feather="user-plus"></i></div>
                             <div class="dropdown-notifications-item-content">
-                                <div class="dropdown-notifications-item-content-text">'.$citasHoy.' citas para hoy</div>
+                                <div class="dropdown-notifications-item-content-text">'.$pedidosHoy.' pedidos para hoy</div>
                             </div>
                         </a>';
                 $bajos =  listarProductosBajos();
@@ -57,7 +57,7 @@
                                 <div class="dropdown-notifications-item-content-text">'.$bajos.' productos estan con bajo stock</div>
                             </div>
                         </a>';
-                if($citasHoy>=0 || $toto>=480 || $bajos){
+                if($pedidosHoy>=0 || $toto>=480 || $bajos){
                 ?>
                 <?php } ?>
 

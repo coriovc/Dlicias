@@ -48,69 +48,67 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
 
 <section class="section-inv">
   <div class="container-fluid" data-aos="fade-up" data-aos-delay="1000">
-    <div class="section--center mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-      <div class="mdl-tabs__tab-bar mb-4 tct">
-          <!--Ingredientes-->
-            <a style="text-decoration:none" id="Perfil" href="#seccion-1" class="mdl-tabs__tab red is-active">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon red btn-sm">category</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon red btn-sm mr-2">category</span>Stock de ingredientes
-              </div>
-            </a>    
-      </div>  
-
-      <div class="mdl-tabs__panel is-active" id="seccion-1">
-              <div class="card mb-4 overflow-hidden">
-                    <div class="card-header">
-                      <i class="material-icons-round grand red">category</i>
-                        <h2 class="red">Ingredientes</h2>
-                    </div>
-
-                    <div class="table-responsive">
-                    <table class="table" width="100%">
-<thead>
-  <tr>
-    <th>Nro</th>
-    <th>Código de Producto</th>
-    <th>Nombre</th>
-    <th>Cantidad</th>
-    <th>Precio de Compra</th>
-    <th>Precio de Venta</th>
-    <th>Acciones</th>
-  </tr>
-  </thead>
-    <tbody>
-<?php 
-$resultados = listarProducto();
-foreach ($resultados as $key => $r){ ?>
-  <tr>
-    <td><?php echo $r['id']; ?></td>
-    <td><?php echo $r['codigo_pt']; ?></td>
-    <td><?php echo $r['nombre']; ?></td>
-    <td><?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?><br>
-      <?php echo round($r['cantidad'] / $r['equivalencia_venta']); ?> <?php echo $r['und']; ?><br>
     
-  <?php echo $r['cantidad'] /// $r['equivalencia_venta']; ?> <?php echo $r['und_consumo']; ?><br></td>
-    <td><?php echo $r['precio_c']; ?></td>
-    <td><?php echo $r['precio_v']; ?></td>
-    <td>
-        <a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
-      <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
-                <i class="fa fa-times"></i>
-              </button>
-    </td>
+    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-red mr-2">egg</span>Ingredientes Stock</button>
+      </li>
+    </ul>
 
-    
-  </tr>
-<?php } ?>
-  </tbody>
-                    </table>
-                    </div>
-              </div>
-          </div><!--fin de seccion 1-->
-    </div>
+      <hr>
+
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+              
+            <div class="card mb-4 overflow-hidden">
+        <div class="card-header">
+          <i class="material-icons-round grand red">category</i>
+          <h2 class="red">Ingredientes</h2>
+        </div>
+                    
+        <table class="table display" width="100%">
+            <thead>
+              <tr>
+                <th>Nro</th>
+                <th>Código de Producto</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio de Compra</th>
+                <th>Precio de Venta</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+              $resultados = listarProducto();
+              foreach ($resultados as $key => $r){ ?>
+                <tr>
+                  <td><?php echo $r['id']; ?></td>
+                  <td><?php echo $r['codigo_pt']; ?></td>
+                  <td><?php echo $r['nombre']; ?></td>
+                  <td><?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?><br>
+                    <?php echo round($r['cantidad'] / $r['equivalencia_venta']); ?> <?php echo $r['und']; ?><br>
+                  
+                <?php echo $r['cantidad'] /// $r['equivalencia_venta']; ?> <?php echo $r['und_consumo']; ?><br></td>
+                  <td><?php echo $r['precio_c']; ?></td>
+                  <td><?php echo $r['precio_v']; ?></td>
+                  <td>
+                      <a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
+                              <i class="fa fa-times"></i>
+                            </button>
+                  </td>
+
+                  
+                </tr>
+              <?php } ?>
+            </tbody>
+        </table>
+      </div>
+
+          </div>
+        </div>
+
   </div>
 </section> 
 <?php

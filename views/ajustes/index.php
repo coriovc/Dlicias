@@ -39,209 +39,168 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
     <div class="container-fluid">
       <div class="row">
         
-        <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="1000">   
-         <div class="section--center mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-          <div class="mdl-tabs__tab-bar mb-4 tct">
-          
-          <!--Perfil-->
-            <a style="text-decoration:none" id="perfil" href="#seccion-perfil" class="mdl-tabs__tab is-active red">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">admin_panel_settings</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">admin_panel_settings</span>Perfil
-              </div>
-            </a>
-
-          <!--Empresa-->
-            <a style="text-decoration:none" id="empresa" href="#seccion-empresa" class="mdl-tabs__tab green">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm green">store</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm green mr-2">store</span>Empresa
-              </div>
-            </a>
+        <div class="col-12 mb-4" data-aos="fade-up" data-aos-delay="1000">
+          <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <!--Perfil-->
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-red mr-2">admin_panel_settings</span>Perfil</button>
+          </li>
+        <!--Empresa-->
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false"><span class="material-icons-round text-green mr-2">store</span>Empresa</button>
+          </li>
 
           <?php if($_SESSION['admin']['tipo_usuario']=="Admin" || $_SESSION['admin']['tipo_usuario']=="Nivel socia"){ ?>
-          <!--Mantenimiento-->  
-            <a style="text-decoration:none" id="Mantenimiento" href="#seccion-mantenimiento" class="mdl-tabs__tab yellow">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm yellow">build</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm yellow mr-2">build</span>Mantenimiento
-              </div>
-            </a>
+        <!--Gestion del sistema--> 
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false"><span class="material-icons-round text-yellow mr-2">settings_suggest</span>Gestion del sistema</button>
+          </li>
           <?php } ?> 
-          <!--Estructura de costo
-            <a style="text-decoration:none" id="Costo" href="#seccion-costos" class="mdl-tabs__tab red">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">paid</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">paid</span>Costos
-              </div>
-            </a>--> 
+        <!--Estructura de costo--> 
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false"><span class="material-icons-round text-blue mr-2">paid</span>Costos</button>
+          </li>
+        <!--Cargos-->
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-5-tab" data-bs-toggle="pill" data-bs-target="#pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false"><span class="material-icons-round text-blue mr-2">badge</span>Cargos</button>
+          </li>
+        <!--pagos-->
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="#pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false"><span class="material-icons-round text-blue mr-2">payment</span>Pagos</button>
+          </li>
+        <!--informacion--> 
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-7-tab" data-bs-toggle="pill" data-bs-target="#pills-7" type="button" role="tab" aria-controls="pills-7" aria-selected="false"><span class="material-icons-round text-green mr-2">policy</span>Parametros</button>
+          </li>
+        <!--Papelera-->
+          <li class="nav-item" role="presentation">
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-8-tab" data-bs-toggle="pill" data-bs-target="#pills-8" type="button" role="tab" aria-controls="pills-8" aria-selected="false"><span class="material-icons-round text-red mr-2">delete</span>Papelera</button>
+          </li>
+        </ul>
 
-          <!--Cargos
-            <a style="text-decoration:none" id="Cargo" href="#seccion-cargos" class="mdl-tabs__tab red">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">badge</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">badge</span>Cargos
-              </div>
-            </a>--> 
+      <hr>
 
-          <!--pagos
-            <a style="text-decoration:none" id="pagos" href="#seccion-pagos" class="mdl-tabs__tab blue">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm blue">payment</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm blue mr-2">payment</span>Pagos
-              </div>
-            </a>-->
-          
-          <!--informacion
-            <a style="text-decoration:none" id="parametros" href="#seccion-parametros" class="mdl-tabs__tab green">          
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm green">policy</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm green mr-2">policy</span>Parametros
-              </div>
-            </a>-->
-
-          <!--Papelera-->  
-            <a style="text-decoration:none" id="papelera" href="#seccion-papelera" class="mdl-tabs__tab red">
-              <div class="d-inline d-md-none">
-                <span class="material-icons-round btn btn-icon btn-sm red">delete</span>
-              </div>
-              <div class="d-none  d-md-inline">
-                <span class="material-icons-round btn btn-icon btn-sm red mr-2">delete</span>Papelera
-              </div>
-            </a>
-
-          </div> 
-
-          <div class="mdl-tabs__panel is-active" id="seccion-perfil">
+        <div class="tab-content" id="pills-tabContent">
+        <!--Perfil-->
+          <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+              
             <div class="row">
-            <div class="col-lg-3 col-12 mb-4" data-aos="fade-right" data-aos-delay="200">
-              <div class="card o-visible mb-4 mt-5">
-                  <div class="card-body">
-                    <div class="content">
-                    <div class="text-center">
-                      <img class="img-profile rounded-circle" src="../../imagenes/User-img.png"/>
-                    </div>
+              <div class="col-lg-3 col-12 mb-4" data-aos="fade-right" data-aos-delay="200">
+                <div class="card o-visible mb-4 mt-5">
+                    <div class="card-body">
+                      <div class="content">
+                      <div class="text-center">
+                        <img class="img-profile rounded-circle" src="../../imagenes/User-img.png"/>
+                      </div>
 
-                    <div>
-                      <h6>CI</h6>
-                      <h4><?php echo $_SESSION['admin']['ci']; ?></h4>
-                    </div>
-                    
-                    <div>
-                      <h6>Nombre y Apellido</h6>
-                      <h4><?php echo $_SESSION['admin']['nombre']; ?></h4>
-                    </div>
+                      <div>
+                        <h6>CI</h6>
+                        <h4><?php echo $_SESSION['admin']['ci']; ?></h4>
+                      </div>
+                      
+                      <div>
+                        <h6>Nombre y Apellido</h6>
+                        <h4><?php echo $_SESSION['admin']['nombre']; ?></h4>
+                      </div>
 
-                    <div>
-                      <h6>Correo</h6>
-                      <h4><?php echo $_SESSION['admin']['correo']; ?></h4>
-                    </div>
-                    
-                    <div class="mt-4 d-flex" style="margin-left: -0.5rem;">
-                        <h6 class="mb-0">Opciones</h6>
-                    </div>
+                      <div>
+                        <h6>Correo</h6>
+                        <h4><?php echo $_SESSION['admin']['correo']; ?></h4>
+                      </div>
+                      
+                      <div class="mt-4 d-flex" style="margin-left: -0.5rem;">
+                          <h6 class="mb-0">Opciones</h6>
+                      </div>
 
-                    <div class="my-2">
-                      <a class="btn btn-red btn-add tct mb-2 btn-block" href="edit-perfil.php">
-                        <div class="btn-icon bg-light text-red shadow mr-2">
-                        <i class="material-icons-round icon-size-35">person</i></div>Editar prefil</a>
+                      <div class="my-2">
+                        <a class="btn btn-red btn-add tct mb-2 btn-block" href="edit-perfil.php">
+                          <div class="btn-icon bg-light text-red shadow mr-2">
+                          <i class="material-icons-round icon-size-35">person</i></div>Editar prefil</a>
 
+                      </div>
+                      </div>
                     </div>
-                    </div>
-                  </div>
+                </div>
               </div>
-            </div>
 
-            <div class="col-lg-9 col-12 mb-4" data-aos="fade-right" data-aos-delay="200">
-              <div class="card mb-4 overflow-hidden mt-5">
-                    <div class="card-header">
-                      <i class="material-icons-round grand red">history</i>
-                        <h2 class="text-red">Mi Actividad</h2>
+              <div class="col-lg-9 col-12 mb-4" data-aos="fade-right" data-aos-delay="200">
+                <div class="card mb-4 overflow-hidden mt-5">
+                      <div class="card-header">
+                        <i class="material-icons-round grand red">history</i>
+                          <h2 class="text-red">Mi Actividad</h2>
+                      </div>
+
+                      <div class="table-responsive">
+                      <table class="table" width="100%">
+                        <thead class="text-red bg-table-red">
+                        <tr>
+                          <th>Actividad</th>
+                          <th>Fecha</th>
+                          <th>Hora</th>
+                          <th>Actions</th>
+                        </tr>
+                        </thead>                  
+                        <tbody>
+                            <tr>
+                              <td>Registro una venta</td>
+                              <td>2011/04/25</td>
+                              <td>12:00 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Registro una compra</td>
+                              <td>2011/04/25</td>
+                              <td>03:00 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Registro un estado sad</td>
+                              <td>2011/04/25</td>
+                              <td>11:11 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Registro una venta</td>
+                              <td>2011/04/25</td>
+                              <td>12:00 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Registro una compra</td>
+                              <td>2011/04/25</td>
+                              <td>03:00 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>Registro un estado sad</td>
+                              <td>2011/04/25</td>
+                              <td>11:11 PM</td>
+                              <td>
+                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
+                              </td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      </div>
                     </div>
+              </div>  
+            </div> 
 
-                    <div class="table-responsive">
-                    <table class="table" width="100%">
-                      <thead class="text-red bg-table-red">
-                      <tr>
-                        <th>Actividad</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Actions</th>
-                      </tr>
-                      </thead>                  
-                      <tbody>
-                          <tr>
-                            <td>Registro una venta</td>
-                            <td>2011/04/25</td>
-                            <td>12:00 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Registro una compra</td>
-                            <td>2011/04/25</td>
-                            <td>03:00 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Registro un estado sad</td>
-                            <td>2011/04/25</td>
-                            <td>11:11 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Registro una venta</td>
-                            <td>2011/04/25</td>
-                            <td>12:00 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Registro una compra</td>
-                            <td>2011/04/25</td>
-                            <td>03:00 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>Registro un estado sad</td>
-                            <td>2011/04/25</td>
-                            <td>11:11 PM</td>
-                            <td>
-                              <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                            </td>
-                          </tr>
-                      </tbody>
-                    </table>
-                    </div>
-                  </div>
-            </div>  
-          </div> 
-          </div><!--fin de seccion 1-->
-
-          <div class="mdl-tabs__panel" id="seccion-empresa">
-                <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
+          </div>
+        <!--Empresa-->
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+              
+            <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
               <div class="mr-4">
                   <h1 class="display-5 tct text-green">Datos de la empresa</h1>
               </div>
@@ -351,10 +310,12 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     </div>
                   </div>               
                 </div>
-          </div><!--fin de seccion 1-->
 
-          <div class="mdl-tabs__panel" id="seccion-mantenimiento">
-           <div class="row">
+          </div>
+        <!--Gestion del sistema--> 
+          <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
+              
+            <div class="row">
             <div class="col-lg-3 mb-4">
               <div class="card tct o-visible mb-4">
                   <div class="card-body">
@@ -483,9 +444,11 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
 
             </div>
            </div>
-          </div><!--fin de seccion 2-->
 
-          <div class="mdl-tabs__panel" id="seccion-costos">
+          </div>
+        <!--costos-->
+          <div class="tab-pane fade" id="pills-4" role="tabpanel" aria-labelledby="pills-4-tab">
+              
             <div class="row">
               <div class="col-lg-3 mb-4">
                 <div class="card tct o-visible mb-4">
@@ -538,9 +501,11 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
               </div>
 
             </div> 
-          </div><!--fin de seccion 2-->
 
-          <div class="mdl-tabs__panel" id="seccion-cargos">
+          </div>
+        <!--cargos-->
+          <div class="tab-pane fade" id="pills-5" role="tabpanel" aria-labelledby="pills-5-tab">
+              
             <div class="row">
 
               <div class="col-lg-3 mb-4">
@@ -600,14 +565,54 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
 
             </div>
 
+          </div>
+        <!--pagos-->
+          <div class="tab-pane fade" id="pills-6" role="tabpanel" aria-labelledby="pills-6-tab">
+              
+            <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
+              <div class="mr-4">
+                  <h1 class="display-5 tct text-blue">Medios de pago</h1>
+              </div>              
+            </div>
+                <div class="row justify-content-center">
 
 
+                  <div class="col-lg-4 col-12 mb-4">
+                    <div class="card">
+                      <img src="../../imagenes/paypal.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">datos de conexión entre PayPal y la Plataforma.</p>
+                        <a href="#" class="btn btn-blue">Configurar</a>
+                      </div>
+                    </div>
+                  </div>
 
-            
-          </div><!--fin de seccion 2-->
+                  <div class="col-lg-4 col-12 mb-4">
+                    <div class="card">
+                      <img src="../../imagenes/transferencia.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">datos de la cuenta bancaria destinada a recibir los pagos de los clientes.</p>
+                        <a href="#" class="btn btn-blue">Configurar</a>
+                      </div>
+                    </div>
+                  </div>
 
-          <div class="mdl-tabs__panel" id="seccion-parametros">
-                <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
+                  <div class="col-lg-4 col-12 mb-4">
+                    <div class="card">
+                      <img src="../../imagenes/pago-movil.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">datos del Pago Móvil destinado a recibir los pagos de los clientes.</p>
+                        <a href="#" class="btn btn-blue">Configurar</a>
+                      </div>
+                    </div>
+                  </div>                               
+                </div>
+
+          </div>
+        <!--parametros-->
+          <div class="tab-pane fade" id="pills-7" role="tabpanel" aria-labelledby="pills-7-tab">
+              
+           <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
               <div class="mr-4">
                   <h1 class="display-5 tct text-green">Parametros  del sistema</h1>
               </div>
@@ -750,111 +755,56 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                       </div>
                     </div>
                   </div>
-
-                  
-
-
                                
                 </div>
                 </form>
-          </div><!--fin de seccion 5-->
 
-
-          <div class="mdl-tabs__panel" id="seccion-pagos">
-                <div class="d-flex justify-content-between align-items-sm-center mt-5 mb-2">
-              <div class="mr-4">
-                  <h1 class="display-5 tct text-blue">Medios de pago</h1>
-              </div>              
-            </div>
-                <div class="row justify-content-center">
-
-
-                  <div class="col-lg-4 col-12 mb-4">
-                    <div class="card">
-                      <img src="../../imagenes/paypal.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">datos de conexión entre PayPal y la Plataforma.</p>
-                        <a href="#" class="btn btn-blue">Configurar</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-12 mb-4">
-                    <div class="card">
-                      <img src="../../imagenes/transferencia.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">datos de la cuenta bancaria destinada a recibir los pagos de los clientes.</p>
-                        <a href="#" class="btn btn-blue">Configurar</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-4 col-12 mb-4">
-                    <div class="card">
-                      <img src="../../imagenes/pago-movil.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <p class="card-text">datos del Pago Móvil destinado a recibir los pagos de los clientes.</p>
-                        <a href="#" class="btn btn-blue">Configurar</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  
-
-                  
-
-
-                               
+          </div>
+        <!--Papelera-->
+          <div class="tab-pane fade" id="pills-8" role="tabpanel" aria-labelledby="pills-8-tab">
+              
+                <div class="text-left my-4">
+                    <h6>En la papelera apareceran todos los elementos <span class="text-red">borrados</span> del sistema buedes buscarlos por <span class="text-red">nombre</span>, <span class="text-red">código</span> o <span class="text-red">fecha</span>.</h6>
                 </div>
-          </div><!--fin de seccion 5-->
 
-
-          <div class="mdl-tabs__panel" id="seccion-papelera">
-
-              <div class="text-left my-4">
-                  <h6>En la papelera apareceran todos los elementos <span class="text-red">borrados</span> del sistema buedes buscarlos por <span class="text-red">nombre</span>, <span class="text-red">código</span> o <span class="text-red">fecha</span>.</h6>
-              </div>
-
-              <div class="card mb-4 overflow-hidden">
+                <div class="card mb-4 overflow-hidden">
                     <div class="card-header">
                       <i class="material-icons-round grand red">auto_delete</i>
-                        <h2 class="red">Papelera</h2>
+                      <h2 class="red">Papelera</h2>
                     </div>    
-                        <div>
-                        <table id="" class="table display" width="100%">
-                          <thead class="text-red bg-table-red">
-                      <tr>
-                        <th>Nombre</th>
-                        <th>Ci</th>
-                        <th>Tipo de Usuario</th>
-                        <th>Estado</th>
-                        <th>Aciones</th>
-                      </tr>
+                    <table id="" class="table display" width="100%">
+                      <thead class="text-red bg-table-red">
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Ci</th>
+                          <th>Tipo de Usuario</th>
+                          <th>Estado</th>
+                          <th>Aciones</th>
+                        </tr>
                       </thead>                  
                       <tbody>
                         <?php 
                         $resultados = listarUsuarioBorrado();
                         foreach ($resultados as $key => $r){ ?>
                         <tr>
-                        <td><strong><?php echo $r['nombre']; ?></strong></td>
-                        <td><strong><?php echo $r['ci']; ?></strong></td>
-                        <td><div class="btn btn-red btn-sm"><strong><?php echo $r['tipo_usuario']; ?></strong></div></td>
-                        <td>
-                          <div class="badge badge-marketing badge-red-soft badge-pill text-red"><strong>Inactivo</strong></div>
-                        </td>                      
-                        <td align="right">
-                          <a class="btn btn-red rounded-pill text-white btn-sm lift-X-r"><span class="material-icons-round">restore</span>Restaurar</a>
-                        </td>
-                      </tr>
-                      <?php } ?>
-                        </table>
-                        </div>
+                          <td><strong><?php echo $r['nombre']; ?></strong></td>
+                          <td><strong><?php echo $r['ci']; ?></strong></td>
+                          <td><div class="btn btn-red btn-sm"><strong><?php echo $r['tipo_usuario']; ?></strong></div></td>
+                          <td>
+                            <div class="badge badge-marketing badge-red-soft badge-pill text-red"><strong>Inactivo</strong></div>
+                          </td>                      
+                          <td align="right">
+                            <a class="btn btn-red rounded-pill text-white btn-sm lift-X-r"><span class="material-icons-round">restore</span>Restaurar</a>
+                          </td>
+                        </tr>
+                        <?php } ?>
+                      </tbody>
+                    </table>
                 </div>
-          </div><!--fin de seccion 6-->
 
-         </div>
-        </div> 
-        
+          </div>
+        </div>
+        </div>         
       </div>
     </div>
   </section> 

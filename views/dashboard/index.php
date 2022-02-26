@@ -2,6 +2,7 @@
 if(!isset($_SESSION)){session_start();}
 if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +15,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <body onload="startTime(); mostrarsaludo()">  
      <?php
       include ('../../php/navbar.php');
-      include ('../../php/menu/menu_dash.php');
+      include ('../../php/menu/menu_dashboard.php');
       ?>
 
     <header class="page-header bg-img-cover-dash overlay overlay-30" style="background-image: url(../../imagenes/fondo-Principal.jpg);">
@@ -78,7 +79,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
            <?php } ?>
            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../empleados/">
+                <a class="card lift-img" href="#" data-toggle="modal" data-target="#modal-registrar-entrada">
                   <div class="card-head"><span class="material-icons-round text-yellow">how_to_reg</span></div>
                     <div class="card-body">
                       <div class="content">
@@ -91,7 +92,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             <?php } ?>
             <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
             <div class="col-12 col-md-12 col-lg-2 my-4">
-                <a class="card lift-img" href="../productos/">
+                <a class="card lift-img" href="#" data-toggle="modal" data-target="#modal-ingrediente">
                   <div class="card-head"><span class="material-icons-round text-purple">add_circle_outline</span></div>
                     <div class="card-body">
                       <div class="content">
@@ -226,6 +227,7 @@ include ('../../php/footer.php');
 /* scripts */
 include ('../../php/scripts.php');
 /* Modales */
+include ('../../php/modal/modal_dashboard.php'); 
 include ('../../php/modal/modal_logout.php'); 
 ?>
 

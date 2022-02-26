@@ -127,54 +127,45 @@
           <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span class="material-icons">highlight_off</span></button>
       </div>
 
-      <form class="modal-body">                     
+      <form action="usuario_guardar.php" method="post" class="modal-body" >                     
           <fieldset>
             <div class="form-group row">
               <div class="col-12 col-lg-6 mb-2">
                   <label><strong>Nombre*</strong></label>
-                  <input class="form-control" name="#"  type="text" id="#" placeholder="Ingrese su nombre">
+                  <input class="form-control" name="nombre"  type="text" id="nombre" placeholder="Ingrese su nombre">
               </div>
 
               <div class="col-12 col-lg-6 mb-2">
-                  <label><strong>Apellido*</strong></label>
-                  <input class="form-control" name="#"  type="text" id="#" placeholder="Ingrese su apellido">
-              </div>              
-            </div>
-            <div class="form-group row">
-              <div class="col-12 col-lg-6 mb-2">
-                  <label><strong>Usuario*</strong></label>
-                  <input class="form-control" name="#"  type="text" id="#" placeholder="Ingrese un usuario">
+                  <label><strong>Cédula*</strong></label>
+                  <input class="form-control" name="ci"  type="text" id="ci" maxlength="9" placeholder="26866132">
               </div>
-
-              <div class="col-12 col-lg-6 mb-2">
-                  <label><strong>Email*</strong></label>
-                  <input class="form-control" name="#"  type="email" id="#" placeholder="correo@mail.com">
-              </div>              
-            </div>
-
-            <div class="form-group row">
+              
               <div class="col-12 mb-2">
                   <label><strong>Contraseña*</strong></label>
-                  <input class="form-control" name="#"  type="password" id="#" placeholder="Ingrese una contraseña">
-              </div>                
-            </div>
-            <div class="form-group row">
+                  <input class="form-control" name="clave"  type="password" id="clave" placeholder="******">
+              </div>
+
               <div class="col-12 mb-2">
-                  <label><strong>Confirme su Contraseña*</strong></label>
-                  <input class="form-control" name="#"  type="password" id="#" placeholder="Confirme su contraseña">
-              </div>                
+                  <label><strong>Email*</strong></label>
+                  <input class="form-control" name="#"  type="email" id="#" placeholder="correo@mail.com">
+              </div>               
             </div>
           </fieldset>
           <fieldset> 
             <div class="form-group row">
               <div class="col-12 col-lg-6 mb-2">
                   <label><strong>Pregunta de seguridad*</strong></label>
-                  <input class="form-control" name="#"  type="text" id="#" placeholder="Ingrese una pregunta de seguridad">
+                  <select class="form-control custom-select" name=pregunta required>
+                      <option value="Nombre de su primera mascota">Nombre de su primera mascota</option>
+                      <option value="Pelicula favorita">Pelicula favorita</option>
+                      <option value="Nombre de tu abuelo">Nombre de tu abuelo</option>
+                      <option value="Pasatiempo favorito">Pasatiempo favorito</option>
+                  </select>
               </div>
 
               <div class="col-12 col-lg-6 mb-2">
                   <label><strong>Respuesta*</strong></label>
-                  <input class="form-control" name="#"  type="text" id="#" placeholder="Ingrese su respuesta">
+                  <input class="form-control" name="respuesta"  type="text" id="respuesta" placeholder="Ingrese su respuesta">
               </div>              
             </div>            
           </fieldset>
@@ -182,14 +173,21 @@
               <div class="form-group row">
                 <div class="col-12">
                 <label for="paisnac"><strong>Tipo de Usuario*</strong></label>
-                    <div class="custom-control custom-radio custom-control-solid">
-                        <input class="custom-control-input" id="gerente" type="radio" name="customRadioSolid1">
-                        <label class="custom-control-label" for="gerente">Gerente</label>
+                    
+                    <div class="form-check">
+                      <div class="custom-control custom-radio custom-control-solid">
+                          <input class="custom-control-input" id="Admin" type="radio" name="tipo_usuario" value="Admin">
+                          <label class="custom-control-label" for="Admin">Administrador</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-solid">
+                          <input class="custom-control-input" id="Nivel 1" type="radio" name="tipo_usuario" value="Nivel 1">
+                          <label class="custom-control-label" for="Nivel 1">Nivel 1</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-solid">
+                          <input class="custom-control-input" id="Nivel 2" type="radio" name="tipo_usuario" value="Nivel 2">
+                          <label class="custom-control-label" for="Nivel 2">Nivel 2</label>
+                      </div> 
                     </div>
-                    <div class="custom-control custom-radio custom-control-solid">
-                        <input class="custom-control-input" id="empleado" type="radio" name="customRadioSolid1" checked>
-                        <label class="custom-control-label" for="empleado">Empleado</label>
-                    </div> 
                 </div>
               </div>              
           </fieldset>

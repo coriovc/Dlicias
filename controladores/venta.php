@@ -10,7 +10,7 @@ require_once "auditoria.php";
 
   $r = mysqli_query($db,"SELECT MAX(id) as ultimoid FROM venta");
   $temporal = mysqli_fetch_assoc($r);
-  if(!$temporal) die('Error de sintaxis');
+  if(!$temporal){ die('Error de sintaxis');}
   registrarOperacion(" ha registrado una venta",$_SESSION['admin']['id'],"VENTA");
   return $temporal['ultimoid'];
 }
@@ -21,10 +21,10 @@ require_once "auditoria.php";
   mysqli_query($db,"UPDATE producto SET cantidad = cantidad - (equivalencia_venta * ".$cantidad.") WHERE id = $id_producto");
 }
 
- function insertarVentaCita($id_venta,$id_cita){
+ function insertarVentaPedido($id_venta,$id_pedido){
   global $db; 
-  mysqli_query($db,"INSERT INTO venta_cita VALUES (NULL,'".$id_venta."','".$id_cita."')"); 
-  mysqli_query($db,"UPDATE citas SET estado = 'PAGADA' WHERE id = $id_cita");
+  mysqli_query($db,"INSERT INTO venta_pedido VALUES (NULL,'".$id_venta."','".$id_pedido."')"); 
+  mysqli_query($db,"UPDATE pedidos SET estado = 'PAGADA' WHERE id = $id_pedido");
 }
 
  function eliminarVenta(){ 
@@ -40,10 +40,10 @@ require_once "auditoria.php";
 
   $r = mysqli_query($db,"SELECT * from venta_producto WHERE id_venta=$id");
   while($temporal = mysqli_fetch_assoc($r) ){ $total += $temporal['precio_v'] * $temporal['cantidad']; } 
-  $r = mysqli_query($db,"SELECT cita_servicio.precio from 
-  cita_servicio 
-  INNER JOIN citas ON citas.id=cita_servicio.id_cita
-  INNER JOIN venta_cita ON venta_cita.id_cita=citas.id
+  $r = mysqli_query($db,"SELECT pedido_servicio.precio from 
+  pedido_servicio 
+  INNER JOIN pedidos ON pedidos.id=pedido_servicio.id_pedido
+  INNER JOIN venta_pedido ON venta_pedido.id_pedido=pedidos.id
      WHERE id_venta=$id");
   while($temporal = mysqli_fetch_assoc($r) ) $total += $temporal['precio'];
   return $total;

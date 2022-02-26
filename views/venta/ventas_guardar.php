@@ -3,10 +3,10 @@
 session_start();
 require_once "../../controladores/venta.php"; 
 
- function citasPendientes($id){
+ function pedidosPendientes($id){
   global $db; 
-  $r = mysqli_query($db,"SELECT citas.* FROM citas 
-    WHERE citas.id_identificacion=$id AND citas.estado='PENDIENTE' AND citas.fecha='$_REQUEST[fecha]'");
+  $r = mysqli_query($db,"SELECT pedidos.* FROM pedidos 
+    WHERE pedidos.id_identificacion=$id AND pedidos.estado='PENDIENTE' AND pedidos.fecha='$_REQUEST[fecha]'");
   	$resultados = [];
 	while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
@@ -14,12 +14,12 @@ require_once "../../controladores/venta.php";
 
 
 $totals = 0;
-$pendientes = citasPendientes($_REQUEST['id_cliente']);
+$pendientes = pedidosPendientes($_REQUEST['id_cliente']);
 
 if(( !isset($_SESSION["venta"]) 
 	|| !is_array($_SESSION["venta"]) 
 	|| !count($_SESSION["venta"]) ) && (!$pendientes || !count($pendientes)) ) {
-	header("location: ventas_nuevo.php?error=1");
+	header("location: index.php?error=1");
 	exit(1);
 }  
 
@@ -44,7 +44,7 @@ foreach ($_SESSION["venta"] as $key => $value) {
 if ($pendientes && is_array($pendientes) && count($pendientes)) {
 
 	foreach ($pendientes as $key => $value) {
-	insertarVentaCita($id_venta,$value['id']);
+	insertarVentapedido($id_venta,$value['id']);
 }
 }
  

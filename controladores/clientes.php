@@ -26,7 +26,7 @@ if($c){
 
  function eliminarCliente(){ 
   global $db;
-  mysqli_query($db,"UPDATE usuario SET borrado='S' WHERE id=$_REQUEST[id]");
+  mysqli_query($db,"UPDATE cliente SET borrado='S' WHERE id=$_REQUEST[id]");
   registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un cliente",$_SESSION['admin']['id'],"CLIENTE");
 }
 

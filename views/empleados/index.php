@@ -2,6 +2,15 @@
 if(!isset($_SESSION)){session_start();}
 if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 ?>
+
+<?php
+require_once "../../controladores/empleado.php";
+$lisempleado = listarEmpleado();
+if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+  eliminarEmpleado();
+}
+ ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -16,7 +25,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <body onload="startTime()">
       <?php
       include ('../../php/navbar.php');
-      include ('../../php/menu/menu_emp.php'); /* barra lateral y barra superior */
+      include ('../../php/menu/menu_empleados.php'); /* barra lateral y barra superior */
       ?>
   <header class="page-header bg-img-cover overlay overlay-30" style="background-image: url(../../imagenes/fondo-Principal.jpg);">
   <div class="container" style="margin-top: 6rem;">
@@ -60,12 +69,12 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                 </div>
 
                 <div class="my-2">
-                  <a class="btn btn-yellow btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-producto">
+                  <a class="btn btn-yellow btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-new-empleado">
                     <div class="btn-icon bg-light text-yellow shadow mr-2">
                     <i class="material-icons-round icon-size-35">person_add</i></div>Nuevo Empleado</a>
 
                   
-                  <a class="btn btn-yellow btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-servicio">
+                  <a class="btn btn-yellow btn-add tct btn-block" href="#" data-toggle="modal" data-target="#modal-registrar-entrada">
                     <div class="btn-icon bg-light text-yellow shadow mr-2">
                     <i class="material-icons-round icon-size-35">pending_actions</i></div>Registrar entrada</a>
                 </div>
@@ -84,79 +93,32 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     <div class="datatable table-responsive">
                     <table class="table" id="dataTable" width="100%" cellspacing="0">
                       <thead class="text-yellow bg-table-yellow">
-                      <tr>
-                        <th class="text-center">
-                          <div class="custom-control custom-checkbox">
-                          <input type="checkbox" class="custom-control-input" id="selectall">
-                          <label class="custom-control-label" for="selectall"></label>
-                          </div>
-                        </th>            
-                        <th>Codigo</th>
+                      <tr>           
                         <th>Nombre</th>
-                        <th>Puesto</th>
+                        <th>Cedula</th>
+                        <th>Cargo</th>
                         <th>Estado</th>
                         <th></th>
                       </tr>
                       </thead>                  
                       <tbody>
+                        <?php 
+                        $resultados = listarEmpleado();
+                        foreach ($resultados as $key => $r){ ?>
                        <tr>
-                        <td align="center">
-                          <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input check" id="1">
-                              <label class="custom-control-label check" for="1"></label>
-                          </div>
-                        </td>
-                        <td><strong>CE-1234</strong></a></td>
-                        <td><strong>Victor corio</strong></td>
-                        <td><strong>Programador</strong></td>
+                        <td><strong><?php echo $r['nombre']; ?></strong></a></td>
+                        <td><strong><?php echo $r['cedula']; ?></strong></td>
+                        <td><strong><?php echo $r['cargo']; ?></strong></td>
                         <td>
                           <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
                         </td>                      
                         <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
+                          <a class="btn btn-blue rounded-pill btn-sm lift-X-l"  href="detalle_empleado.php?id=<?=$r['id'] ?>" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
                           
-                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
+                          <button class="btn btn-icon btn-transparent-dark btn-sm " onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-Empleado" type="button" title="Eliminar Empleado"><span class="material-icons-round">close</span></button>
                         </td>
                        </tr>
-                       <tr>
-                        <td align="center">
-                          <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input check" id="2">
-                              <label class="custom-control-label check" for="2"></label>
-                          </div>
-                        </td>
-                        <td><strong>CE-1234</strong></a></td>
-                        <td><strong>Victor corio</strong></td>
-                        <td><strong>Programador</strong></td>
-                        <td>
-                          <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
-                        </td>                      
-                        <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
-                          
-                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
-                        </td>
-                       </tr> 
-                       <tr>
-                        <td align="center">
-                          <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input check" id="3">
-                              <label class="custom-control-label check" for="3"></label>
-                          </div>
-                        </td>
-                        <td><strong>CE-1234</strong></a></td>
-                        <td><strong>Victor corio</strong></td>
-                        <td><strong>Programador</strong></td>
-                        <td>
-                          <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
-                        </td>                      
-                        <td align="right">
-                          <a class="btn btn-blue rounded-pill btn-sm lift-img"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
-                          
-                          <a class="btn btn-red rounded-pill btn-sm lift-img btn-icon"  href="#!" data-toggle="tooltip" data-placement="bottom" title="Eliminar empleado"><span class="material-icons-round">close</span></a>
-                        </td>
-                       </tr> 
-                        
+                       <?php } ?>                          
 
                       </tbody>
                     </table>
@@ -173,6 +135,8 @@ include ('../../php/footer.php');
 /* scripts */
 include ('../../php/scripts.php');
 /* Modales */
+include ('../../php/modal/modal_empleado.php');
+include ('../../php/modal/modal_eliminar.php');
 include ('../../php/modal/modal_logout.php'); 
 ?>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>

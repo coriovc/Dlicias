@@ -18,10 +18,6 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Base de datos: `nazstudio`
---
-
 -- --------------------------------------------------------
 
 --
@@ -36,14 +32,6 @@ CREATE TABLE `bitacora` (
   `tipo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `bitacora`
---
-
-INSERT INTO `bitacora` (`id`, `campo_texto`, `fecha`, `id_usuario`, `tipo`) VALUES
-(1, 'Jhoan Gomez ha cerrado sesion', '2019-11-27 08:42:13', 1, 'SALIDA'),
-(2, 'Gustavo Gordon ha iniciado sesion', '2019-11-27 08:57:51', 2, 'ENTRADA'),
-(3, ' ha hecho un respaldo de la base de datos', '2019-11-27 08:59:00', 2, 'RESPALDO');
 
 -- --------------------------------------------------------
 
@@ -60,14 +48,14 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `citas`
+-- Estructura de tabla para la tabla `pedidos`
 --
 
-CREATE TABLE `citas` (
+CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `id_identificacion` int(35) NOT NULL,
   `id_codigo_s` int(35) NOT NULL,
-  `codigo_cita` varchar(5) NOT NULL,
+  `codigo_pedido` varchar(5) NOT NULL,
   `fecha` date NOT NULL,
   `hora` varchar(6) NOT NULL,
   `monto` varchar(10) NOT NULL,
@@ -78,12 +66,12 @@ CREATE TABLE `citas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cita_servicio`
+-- Estructura de tabla para la tabla `pedido_servicio`
 --
 
-CREATE TABLE `cita_servicio` (
+CREATE TABLE `pedido_servicio` (
   `id` int(11) NOT NULL,
-  `id_cita` int(11) NOT NULL,
+  `id_pedido` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
   `precio` int(11) NOT NULL,
   `borrado` char (1) DEFAULT 'N'
@@ -108,6 +96,40 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
+
+
+--
+-- Estructura de tabla para la tabla `empleado`
+--
+
+CREATE TABLE `empleado` (
+  `id` int(11) NOT NULL, 
+  `cedula` int(10) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `cargo` enum('Cocinero','Cajero','Mesero','Administrador','Obrero') COLLATE utf8_spanish_ci NOT NULL,
+  `sueldo` int(50) NOT NULL,
+  `nro_cuenta` int(24) NOT NULL,
+  `banco` text COLLATE utf8_spanish_ci NOT NULL,
+  `ci_banco` int(10) NOT NULL,
+  `nombre_banco` text COLLATE utf8_spanish_ci NOT NULL,
+  `borrado` char (1) DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+CREATE TABLE `asistencia` (
+  `id` int(11) NOT NULL,
+  `id_empleado` int(11) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `hora_e` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `hora_s` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `borrado` char (1) DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Estructura de tabla para la tabla `compras`
@@ -174,21 +196,6 @@ CREATE TABLE `servicio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
-INSERT INTO `servicio` (`id`, `codigo_s`, `nombre`, `precio`, `id_categoria`, `tiempo`, `borrado`) VALUES
-(1, 'SRZTM', 'Maquillada', 50000, 4, 45,'N'),
-(2, 'SR5GB', 'lavado', 12000, 6, 30,'N'),
-(3, 'SRL87', 'jjjj', 5555, 6, 45,'N'),
-(4, 'SRD5R', 'madelava', 50000, 7, 120,'N'),
-(5, 'SRFVR', 'yo venezuela', 1212121, 7, 30,'N'),
-(6, 'SRBO5', '345', 34534, 7, 34,'N'),
-(7, 'SR2XF', 'tr', 456546, 7, 45,'N'),
-(8, 'SRR0J', 'tr', 456546, 7, 45,'N'),
-(9, 'SRJQR', 'tr', 456546, 7, 45,'N'),
-(10, 'SR4Z8', 'tre6', 45643, 7, 30,'N'),
-(11, 'SR0L2', 'hg', 6567, 7, 30,'N'),
-(12, 'SR7HT', '32423', 23423, 7, 30,'N'),
-(13, 'SRO9H', '456456', 45645, 7, 30,'N'),
-(14, 'SREND', '345345', 34534, 7, 30,'N');
 
 --
 -- Estructura de tabla para la tabla `servicio_producto`
@@ -215,15 +222,14 @@ CREATE TABLE `unidad` (
 
 
 INSERT INTO `unidad` (`id`, `nombre`, `abreviatura`) VALUES
-(1, 'MILILITROS', 'ML'),
-(2, 'LITROS', 'L'),
-(3, 'PAQUETES', 'PQ'),
-(4, 'CAJA', 'CA'),
-(5, 'UNIDAD', 'UND'),
-(6, 'MILIGRAMO', 'MG'),
-(7, 'GRAMO', 'G'),
-(9, 'PAR', 'P'),
-(10, 'CENTIMETROS', 'CM');
+(1, 'Mililitros', 'ML'),
+(2, 'Litros', 'L'),
+(3, 'Paquetes', 'PQ'),
+(4, 'Caja', 'CAJ'),
+(5, 'Unidad', 'UND'),
+(6, 'Miligramo', 'MG'),
+(7, 'Gramos', 'G'),
+(9, 'Centimetros', 'CM');
 -- --------------------------------------------------------
 
 --
@@ -247,9 +253,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`, `borrado`) VALUES
-(1, 27463096, 'Jhoan Gomez', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jhoan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'S'),
-(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'N'),
-(3, 27867932, 'Gustavo Gordon', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'gustavo@gmail.com', 'Nivel 1', 'Pasatiempo favorito', 'leer', 'N');
+(1, 26866133, 'Jan de sousa', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'S'),
+(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'N');
 
 -- --------------------------------------------------------
 
@@ -284,13 +289,13 @@ CREATE TABLE `venta` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `venta_cita`
+-- Estructura de tabla para la tabla `venta_pedido`
 --
 
-CREATE TABLE `venta_cita` (
+CREATE TABLE `venta_pedido` (
   `id` int(11) NOT NULL,
   `id_venta` int(11) NOT NULL,
-  `id_cita` int(11) NOT NULL
+  `id_pedido` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -324,15 +329,15 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `citas`
+-- Indices de la tabla `pedidos`
 --
-ALTER TABLE `citas`
+ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `cita_servicio`
+-- Indices de la tabla `pedido_servicio`
 --
-ALTER TABLE `cita_servicio`
+ALTER TABLE `pedido_servicio`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -340,6 +345,19 @@ ALTER TABLE `cita_servicio`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `empleado`
+--
+ALTER TABLE `asistencia`
+  ADD PRIMARY KEY (`id`);
+
 
 --
 -- Indices de la tabla `compras`
@@ -401,9 +419,9 @@ ALTER TABLE `venta`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `venta_cita`
+-- Indices de la tabla `venta_pedido`
 --
-ALTER TABLE `venta_cita`
+ALTER TABLE `venta_pedido`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -429,15 +447,15 @@ ALTER TABLE `categoria`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `citas`
+-- AUTO_INCREMENT de la tabla `pedidos`
 --
-ALTER TABLE `citas`
+ALTER TABLE `pedidos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cita_servicio`
+-- AUTO_INCREMENT de la tabla `pedido_servicio`
 --
-ALTER TABLE `cita_servicio`
+ALTER TABLE `pedido_servicio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -445,6 +463,19 @@ ALTER TABLE `cita_servicio`
 --
 ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `empleado`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `asistencia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT de la tabla `compras`
@@ -501,9 +532,9 @@ ALTER TABLE `venta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `venta_cita`
+-- AUTO_INCREMENT de la tabla `venta_pedido`
 --
-ALTER TABLE `venta_cita`
+ALTER TABLE `venta_pedido`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

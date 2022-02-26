@@ -418,7 +418,8 @@ hr {
 }
 
 hr,.white{
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #00000021;
+    border-radius: 50px;
 
 }
 
@@ -3501,8 +3502,8 @@ fieldset:disabled a.btn {
 }
 .btn-white:not(:disabled):not(.disabled):active, .btn-white:not(:disabled):not(.disabled).active, .show > .btn-white.dropdown-toggle {
   color: #232323;
-  background-color: #e6e6e6;
-  border-color: #dfdfdf;
+  background-color: #fff;
+  border-color: transparent;
 }
 .btn-white:not(:disabled):not(.disabled):active:focus, .btn-white:not(:disabled):not(.disabled).active:focus, .show > .btn-white.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(221, 224, 227, 0.5);

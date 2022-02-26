@@ -2,7 +2,7 @@
 <?php 
 require_once "../../controladores/producto.php";
 require_once "../../controladores/clientes.php";
-require_once "../../controladores/cita.php";
+require_once "../../controladores/pedido.php";
 $productos = listarProducto();
 $cliente = listarCliente();
 
@@ -48,7 +48,7 @@ if(isset($_GET["removerproducto"])){
           && $('#id_cliente').val()!='' && $('#fecha').val()!='')
         $.ajax(
           {
-            url:'../../ajax/traercitaspendientes.php',
+            url:'../../ajax/traerpedidospendientes.php',
             method:'GET',
             data: {id_cliente : $('#id_cliente').val(),fecha: $('#fecha').val()},
             success: function(data){
