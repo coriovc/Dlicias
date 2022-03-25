@@ -3,10 +3,20 @@
 require_once("conexion-BD.php");
 require_once "auditoria.php";
 
- function registrarAsistencia($id,$id_empleado,$fecha,$hora_e,$hora_s,$borrado){
+ function registrarAsistencia(){
   global $db;
 
- mysqli_query($db,"INSERT INTO  asistencia(id,id_empleado,fecha,hora_e,hora_s,borrado) VALUES (NULL,'".$id_empleado."','".$fecha." 00:00:00','".$hora_e." 00:00:00','".$hora_s." 00:00:00','".$borrado."')");
+  $id_empleado= $_REQUEST['id_empleado'];   
+  $fecha = $_REQUEST['fecha'];
+  $hora_e = $_REQUEST['hora_e'];
+  $hora_s = NULL;    
+
+ mysqli_query($db,"INSERT INTO  asistencia VALUES (NULL,
+  '".$id_empleado."',
+  '".$fecha."',
+  '".$hora_e."',
+  '".$hora_s."')
+   ");
 
     
 
@@ -15,7 +25,7 @@ require_once "auditoria.php";
 
  function eliminarAsistencia(){ 
   global $db;
-  mysqli_query($db,"UPDATE asistencia SET borrado='S' WHERE asistencia.id=$_REQUEST[id]");
+  mysqli_query($db,"DELETE FROM asistencia WHERE asistencia.id=$_REQUEST[id]");
   registrarOperacion($_SESSION['admin']['nombre']." ha eliminado una Asistencia",$_SESSION['admin']['id'],"ASISTENCIA");
 }
 
@@ -33,7 +43,7 @@ require_once "auditoria.php";
 
  function buscarAsistencia(){
   global $db;
- $r = mysqli_query($db,"SELECT * FROM asistencia WHERE borrado='N' AND id=$_REQUEST[id]");
+ $r = mysqli_query($db,"SELECT * FROM asistencia WHERE id=$_REQUEST[id]");
     $temporal = mysqli_fetch_assoc($r);
   return $temporal;
 }

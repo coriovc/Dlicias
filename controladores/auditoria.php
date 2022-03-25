@@ -43,7 +43,7 @@ INNER JOIN usuario ON usuario.id=id_usuario
     $sql .= " AND id_usuario = '$_POST[usuario]' ";
   }
 
-  $sql .= " ORDER BY fecha DESC";
+  $sql .= " ORDER BY fecha ASC";
   $r = mysqli_query($db,$sql);
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
@@ -52,8 +52,7 @@ INNER JOIN usuario ON usuario.id=id_usuario
 
 function eliminarBitacora(){ 
   global $db;
-  mysqli_query($db,"truncate table bitacora");
-   
+  mysqli_query($db,"TRUNCATE TABLE bitacora");
   
 }
 

@@ -1,8 +1,8 @@
--- MariaDB dump 10.19  Distrib 10.4.18-MariaDB, for Win64 (AMD64)
+-- MariaDB dump 10.19  Distrib 10.4.24-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: dlicias-BD
+-- Host: localhost    Database: dlicias-bd
 -- ------------------------------------------------------
--- Server version	10.4.18-MariaDB
+-- Server version	10.4.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,32 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `asistencia`
+--
+
+DROP TABLE IF EXISTS `asistencia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `asistencia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_empleado` int(11) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `hora_e` timestamp NOT NULL DEFAULT current_timestamp(),
+  `hora_s` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `asistencia`
+--
+
+LOCK TABLES `asistencia` WRITE;
+/*!40000 ALTER TABLE `asistencia` DISABLE KEYS */;
+/*!40000 ALTER TABLE `asistencia` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `bitacora`
@@ -29,7 +55,7 @@ CREATE TABLE `bitacora` (
   `id_usuario` int(11) NOT NULL,
   `tipo` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +64,7 @@ CREATE TABLE `bitacora` (
 
 LOCK TABLES `bitacora` WRITE;
 /*!40000 ALTER TABLE `bitacora` DISABLE KEYS */;
-INSERT INTO `bitacora` (`id`, `campo_texto`, `fecha`, `id_usuario`, `tipo`) VALUES (1,'Jhoan Gomez ha cerrado sesion','2019-11-27 08:42:13',1,'SALIDA'),(2,'Gustavo Gordon ha iniciado sesion','2019-11-27 08:57:51',2,'ENTRADA'),(3,' ha hecho un respaldo de la base de datos','2019-11-27 08:59:00',2,'RESPALDO'),(4,'Victor Corio ha cerrado sesion','2021-07-09 12:09:55',2,'SALIDA'),(5,'Gustavo Gordon ha iniciado sesion','2021-07-09 12:10:18',3,'ENTRADA'),(6,'Gustavo Gordon ha cerrado sesion','2021-07-09 12:22:50',3,'SALIDA'),(7,'Victor Corio ha iniciado sesion','2021-07-09 12:24:41',2,'ENTRADA'),(8,' ha registrado un cliente','2021-07-09 12:29:27',2,'CLIENTE'),(9,' ha registrado un cliente','2021-07-09 12:39:30',2,'CLIENTE'),(10,' ha registrado un cliente','2021-07-09 12:46:00',2,'CLIENTE'),(11,' ha registrado un cliente','2021-07-09 12:50:15',2,'CLIENTE'),(12,' ha registrado un cliente','2021-07-09 12:51:33',2,'CLIENTE'),(13,' ha modificado un cliente','2021-07-09 12:53:50',2,'CLIENTE'),(14,' ha eliminado un cliente','2021-07-09 12:58:24',2,'CLIENTE'),(15,' ha eliminado un cliente','2021-07-09 13:02:09',2,'CLIENTE'),(16,' ha eliminado un cliente','2021-07-09 13:02:28',2,'CLIENTE'),(17,' ha eliminado un cliente','2021-07-09 13:05:59',2,'CLIENTE'),(18,' ha eliminado un cliente','2021-07-09 13:10:53',2,'CLIENTE'),(19,' ha eliminado un cliente','2021-07-09 13:14:16',2,'CLIENTE'),(20,' ha eliminado un cliente','2021-07-09 13:14:35',2,'CLIENTE'),(21,' ha eliminado un cliente','2021-07-09 13:15:19',2,'CLIENTE'),(22,' ha eliminado un cliente','2021-07-09 13:18:58',2,'CLIENTE'),(23,' ha eliminado un cliente','2021-07-09 13:21:19',2,'CLIENTE'),(24,'Victor Corio ha iniciado sesion','2021-07-10 12:46:45',2,'ENTRADA'),(25,'Victor Corio ha iniciado sesion','2021-07-12 08:42:11',2,'ENTRADA'),(26,'Victor Corio ha registrado una categoria','2021-07-12 08:43:15',2,'CATEGORIA'),(27,' ha hecho un respaldo de la base de datos','2021-07-12 08:56:53',2,'RESPALDO'),(28,' ha hecho un respaldo de la base de datos','2021-07-12 08:58:32',2,'RESPALDO'),(29,' ha hecho un respaldo de la base de datos','2021-07-12 08:58:45',2,'RESPALDO');
+INSERT INTO `bitacora` (`id`, `campo_texto`, `fecha`, `id_usuario`, `tipo`) VALUES (1,'Victor Corioha hecho un respaldo de la base de datos','2022-03-22 13:56:18',2,'RESPALDO'),(2,'Victor Corioha hecho un respaldo de la base de datos','2022-03-22 14:01:40',2,'RESPALDO'),(3,' ha hecho un respaldo de la base de datos','2022-03-22 14:04:58',2,'RESPALDO'),(4,' ha hecho un respaldo de la base de datos','2022-03-22 14:05:38',2,'RESPALDO'),(5,' ha hecho un respaldo de la base de datos','2022-03-22 14:05:48',2,'RESPALDO'),(6,' ha hecho un respaldo de la base de datos','2022-03-22 14:07:22',2,'RESPALDO'),(7,'Victor Corio ha hecho un respaldo de la base de datos','2022-03-22 14:11:54',2,'RESPALDO'),(8,'Victor Corio ha hecho un respaldo de la base de datos','2022-03-22 14:12:15',2,'RESPALDO'),(9,'Victor Corio ha hecho un respaldo de la base de datos','2022-03-22 14:12:15',2,'RESPALDO'),(10,'Victor Corio ha hecho un respaldo de la base de datos','2022-03-22 14:12:36',2,'RESPALDO');
 /*!40000 ALTER TABLE `bitacora` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,9 +78,8 @@ DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(60) DEFAULT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,63 +88,8 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria` (`id`, `nombre`) VALUES (1,'TORTA');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cita_servicio`
---
-
-DROP TABLE IF EXISTS `cita_servicio`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cita_servicio` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_cita` int(11) NOT NULL,
-  `id_servicio` int(11) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cita_servicio`
---
-
-LOCK TABLES `cita_servicio` WRITE;
-/*!40000 ALTER TABLE `cita_servicio` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cita_servicio` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `citas`
---
-
-DROP TABLE IF EXISTS `citas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `citas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_identificacion` int(35) NOT NULL,
-  `id_codigo_s` int(35) NOT NULL,
-  `codigo_cita` varchar(5) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` varchar(6) NOT NULL,
-  `monto` varchar(10) NOT NULL,
-  `estado` varchar(20) DEFAULT 'PENDIENTE',
-  `borrado` char(1) DEFAULT 'N',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `citas`
---
-
-LOCK TABLES `citas` WRITE;
-/*!40000 ALTER TABLE `citas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -137,8 +107,7 @@ CREATE TABLE `cliente` (
   `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `alergias` text COLLATE utf8_spanish_ci NOT NULL,
-  `borrado` char(1) COLLATE utf8_spanish_ci DEFAULT 'N',
+  `empresa` text COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -149,7 +118,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` (`id`, `tipo_documento`, `identificacion`, `nombre`, `telefono`, `correo`, `direccion`, `alergias`, `borrado`) VALUES (1,'Venezolano',26866132,'Victor corio','04124784959','victororio2910@gmail.com','av princpal el castaño','ocor','N'),(2,'Venezolano',1234567,'Jesús azocar','04124784959','azo@gmail.com','av princpal el castaño','ocor','N'),(3,'Venezolano',123456789,'prueba de borrado n1','04124784959','victororio2910@gmail.com','av princpal el castaño','ocor','n'),(4,'Venezolano',27555555,'thomas moreno ','04124784959','victororio2910@gmail.com','av princpal el castaño','ocor','N');
+INSERT INTO `cliente` (`id`, `tipo_documento`, `identificacion`, `nombre`, `telefono`, `correo`, `direccion`, `empresa`) VALUES (1,'Venezolano',26866132,'victor cliente','04124784959','victor@gmail.com','maracay','no tiene'),(2,'Venezolano',26866133,'jan cliente','04124784959','jan@gmail.com','maracay','no tiene'),(3,'Venezolano',26866134,'luis cliente','04124784959','luis@gmail.com','maracay','no tiene'),(4,'Venezolano',268661333,'thomas moreno ','04124784959','yoo@gmail.com','av princpal el castaño','ocor');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -168,7 +137,6 @@ CREATE TABLE `compras` (
   `precio_c` int(11) NOT NULL,
   `codigo_compra` varchar(32) NOT NULL,
   `numero_factura` int(11) DEFAULT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -180,6 +148,94 @@ CREATE TABLE `compras` (
 LOCK TABLES `compras` WRITE;
 /*!40000 ALTER TABLE `compras` DISABLE KEYS */;
 /*!40000 ALTER TABLE `compras` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empleado`
+--
+
+DROP TABLE IF EXISTS `empleado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `empleado` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cedula` int(10) NOT NULL,
+  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `correo` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
+  `cargo` enum('Cocinero','Cajero','Mesero','Administrador','Obrero') COLLATE utf8_spanish_ci NOT NULL,
+  `sueldo` int(50) NOT NULL,
+  `nro_cuenta` int(24) NOT NULL,
+  `banco` text COLLATE utf8_spanish_ci NOT NULL,
+  `ci_banco` int(10) NOT NULL,
+  `nombre_banco` text COLLATE utf8_spanish_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empleado`
+--
+
+LOCK TABLES `empleado` WRITE;
+/*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido_servicio`
+--
+
+DROP TABLE IF EXISTS `pedido_servicio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedido_servicio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pedido` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  `precio` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido_servicio`
+--
+
+LOCK TABLES `pedido_servicio` WRITE;
+/*!40000 ALTER TABLE `pedido_servicio` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedido_servicio` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pedidos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_identificacion` int(35) NOT NULL,
+  `id_codigo_s` int(35) NOT NULL,
+  `codigo_pedido` varchar(5) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` varchar(6) NOT NULL,
+  `monto` varchar(10) NOT NULL,
+  `estado` varchar(20) DEFAULT 'PENDIENTE',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidos`
+--
+
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -227,10 +283,9 @@ CREATE TABLE `producto` (
   `stock_max` int(11) NOT NULL,
   `id_unidadventa` int(11) NOT NULL,
   `equivalencia_venta` int(11) NOT NULL,
-  `borrado` char(1) COLLATE utf8_spanish_ci DEFAULT 'N',
   PRIMARY KEY (`id`),
   KEY `codigo_pt` (`codigo_pt`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,6 +294,7 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+INSERT INTO `producto` (`id`, `codigo_pt`, `nombre`, `cantidad`, `precio_c`, `precio_v`, `id_unidad`, `id_unidadconsumo`, `equivalencia`, `stock_min`, `stock_max`, `id_unidadventa`, `equivalencia_venta`) VALUES (1,'PRO79032','INGRETIDENTE 1',20,20,30,3,3,4,40,200,3,4);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,9 +312,8 @@ CREATE TABLE `servicio` (
   `precio` int(10) NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `tiempo` int(11) NOT NULL,
-  `borrado` char(1) COLLATE utf8_spanish_ci DEFAULT 'N',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,6 +322,7 @@ CREATE TABLE `servicio` (
 
 LOCK TABLES `servicio` WRITE;
 /*!40000 ALTER TABLE `servicio` DISABLE KEYS */;
+INSERT INTO `servicio` (`id`, `codigo_s`, `nombre`, `precio`, `id_categoria`, `tiempo`) VALUES (1,'SE483','SERVICIO 1',50,1,90);
 /*!40000 ALTER TABLE `servicio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,10 +338,9 @@ CREATE TABLE `servicio_producto` (
   `id_producto` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
   `cantidad` float NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`),
   KEY `id_producto` (`id_producto`,`id_servicio`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,6 +349,7 @@ CREATE TABLE `servicio_producto` (
 
 LOCK TABLES `servicio_producto` WRITE;
 /*!40000 ALTER TABLE `servicio_producto` DISABLE KEYS */;
+INSERT INTO `servicio_producto` (`id`, `id_producto`, `id_servicio`, `cantidad`) VALUES (1,1,1,2);
 /*!40000 ALTER TABLE `servicio_producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +365,7 @@ CREATE TABLE `unidad` (
   `nombre` varchar(30) NOT NULL,
   `abreviatura` varchar(7) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,6 +374,7 @@ CREATE TABLE `unidad` (
 
 LOCK TABLES `unidad` WRITE;
 /*!40000 ALTER TABLE `unidad` DISABLE KEYS */;
+INSERT INTO `unidad` (`id`, `nombre`, `abreviatura`) VALUES (1,'Mililitros','ML'),(2,'Litros','L'),(3,'Paquetes','PQ'),(4,'Caja','CAJ'),(5,'Unidad','UND'),(6,'Miligramo','MG'),(7,'Gramos','G'),(9,'Centimetros','CM');
 /*!40000 ALTER TABLE `unidad` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,7 +394,6 @@ CREATE TABLE `usuario` (
   `tipo_usuario` enum('Admin','Nivel 2','Nivel 1') NOT NULL,
   `pregunta` enum('Nombre de su primera mascota','Pelicula favorita','Nombre de tu abuelo','Pasatiempo favorito') NOT NULL,
   `respuesta` varchar(35) NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`),
   KEY `ci` (`ci`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -349,7 +405,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`, `borrado`) VALUES (1,27463096,'Jhoan Gomez','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','jhoan@gmail.com','Admin','Pasatiempo favorito','programar','S'),(2,26866132,'Victor Corio','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','victor@gmail.com','Admin','Pasatiempo favorito','programar','N'),(3,27867932,'Gustavo Gordon','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','gustavo@gmail.com','Nivel 1','Pasatiempo favorito','leer','N');
+INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`) VALUES (1,26866133,'Jan de sousa','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','jan@gmail.com','Admin','Pasatiempo favorito','programar'),(2,26866132,'Victor Corio','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','victor@gmail.com','Admin','Pasatiempo favorito','programar'),(3,323423423,'thomas moreno ','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','victororio2910@gmail.com','Nivel 1','Pelicula favorita','P');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,7 +454,6 @@ CREATE TABLE `venta` (
   `recibido` float NOT NULL,
   `cambio` float NOT NULL,
   `referencia` varchar(20) NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -413,28 +468,27 @@ LOCK TABLES `venta` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `venta_cita`
+-- Table structure for table `venta_pedido`
 --
 
-DROP TABLE IF EXISTS `venta_cita`;
+DROP TABLE IF EXISTS `venta_pedido`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `venta_cita` (
+CREATE TABLE `venta_pedido` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_venta` int(11) NOT NULL,
-  `id_cita` int(11) NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
+  `id_pedido` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `venta_cita`
+-- Dumping data for table `venta_pedido`
 --
 
-LOCK TABLES `venta_cita` WRITE;
-/*!40000 ALTER TABLE `venta_cita` DISABLE KEYS */;
-/*!40000 ALTER TABLE `venta_cita` ENABLE KEYS */;
+LOCK TABLES `venta_pedido` WRITE;
+/*!40000 ALTER TABLE `venta_pedido` DISABLE KEYS */;
+/*!40000 ALTER TABLE `venta_pedido` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -450,7 +504,6 @@ CREATE TABLE `venta_producto` (
   `id_producto` int(11) NOT NULL,
   `precio_v` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `borrado` char(1) DEFAULT 'N',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -465,7 +518,7 @@ LOCK TABLES `venta_producto` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'dlicias-BD'
+-- Dumping routines for database 'dlicias-bd'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -477,4 +530,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-12  8:58:51
+-- Dump completed on 2022-03-22 14:12:36

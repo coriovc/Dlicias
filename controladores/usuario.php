@@ -6,7 +6,7 @@ require_once "auditoria.php";
  function buscarUsuarioLogin(){
   global $db;
   $clave=hash('sha256',$_REQUEST['clave']);
- $r = mysqli_query($db,"SELECT * FROM usuario WHERE ci=$_REQUEST[ci] AND borrado='N' AND clave='$clave' ");
+ $r = mysqli_query($db,"SELECT * FROM usuario WHERE ci=$_REQUEST[ci] AND clave='$clave' ");
     $temporal = mysqli_fetch_assoc($r); 
   return $temporal;
 }
@@ -137,8 +137,7 @@ $correo = $_REQUEST['correo'];
 $tipo_usuario =$_REQUEST['tipo_usuario'];  
 $pregunta = $_REQUEST['pregunta'];  
 $respuesta = $_REQUEST['respuesta'];
-$borrado = 'N';
-/*die ("INSERT INTO usuario VALUES (NULL,'".$ci."','".$nombre."','".$clave."','".$correo."','".$tipo_usuario."','".$pregunta."','".$respuesta."')") ;*/
+
 
 
 $cl =  mysqli_query($db, "SELECT * FROM usuario WHERE ci='$ci'" );
@@ -148,7 +147,7 @@ if($c){
 }else {
   
 
-  mysqli_query($db,"INSERT INTO usuario VALUES (NULL,'".$ci."','".$nombre."','".$clave."','".$correo."','".$tipo_usuario."','".$pregunta."','".$respuesta."','".$borrado."')");
+  mysqli_query($db,"INSERT INTO usuario VALUES (NULL,'".$ci."','".$nombre."','".$clave."','".$correo."','".$tipo_usuario."','".$pregunta."','".$respuesta."')");
   
 for ($i=1; $i <= 18; $i++) { 
         $sql="INSERT INTO usuarios_has_privilegios VALUES(null,".$id_usuario.",".$i.",'no')";
@@ -160,28 +159,15 @@ for ($i=1; $i <= 18; $i++) {
  function listarUsuario(){
   global $db;
   $resultados = [];
-  $r = mysqli_query($db,"SELECT  * from usuario WHERE borrado='N' ORDER BY id DESC");
+  $r = mysqli_query($db,"SELECT  * from usuario ORDER BY id DESC");
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
 }
 
  function eliminarUsuario(){ 
   global $db;
-  mysqli_query($db,"UPDATE usuario SET borrado='S' WHERE id=$_REQUEST[id]");
+  mysqli_query($db,"DELETE FROM usuario WHERE id=$_REQUEST[id]");
   
 }
 
- function listarUsuarioBorrado(){
-  global $db;
-  $resultados = [];
-  $r = mysqli_query($db,"SELECT  * from usuario WHERE borrado='S' ORDER BY id DESC");
-  while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
-  return $resultados;
-}
-
- function RestaurarUsuario(){ 
-  global $db;
-  mysqli_query($db,"UPDATE usuario SET borrado='N' WHERE id=$_REQUEST[id]");
-  
-}
  ?>

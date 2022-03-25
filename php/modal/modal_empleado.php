@@ -119,7 +119,7 @@
               </div>
               <div class="col-12 col-lg-6 mb-2">
                 <label><strong>Hora*</strong></label>
-                <input type="time" name="nombre" class="form-control" title="hora" value="<?php echo date('h:i:s A'); ?>" required="required">
+                <input type="time" name="hora_e" class="form-control" title="hora" value="<?php echo date('h:i:s A'); ?>" required="required">
               </div>
             </div>            
           </fieldset>          
@@ -127,7 +127,7 @@
         <div class="modal-footer tct">        
           <button type="button" class="btn btn-transparent-dark"  data-dismiss="modal">Cancelar</button>
           <button type="submit" id="toastBasicTrigger" name="guardar" title="Agregar" class="btn btn-success">Agregar</button>
-          <input type="hidden" name="operacion" value="guardar">
+          <input type="hidden" name="id" value="guardar">
         </div>
       </form>            
       

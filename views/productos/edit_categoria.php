@@ -10,7 +10,7 @@ $categoria = buscarCategoria();
   <?php
   include ('../../php/head.php');
   ?>
-  <title>Nuevo Servicio</title>
+  <title>Editar</title>
   <!-- Estilos de esta pagina-->
 </head>
 <body>
@@ -28,7 +28,7 @@ $categoria = buscarCategoria();
     
       <div class="row">
         <div class="col-lg-12 mb-4">
-        <div class="card card-bor mb-4" style="margin-top: -1rem;">
+        <div class="card card-bor mb-4 mx-3" style="margin-top: -1rem;">
         
             <form  method="POST" name="form"  action="categorias_modificar.php" >
               <fieldset>
@@ -43,9 +43,9 @@ $categoria = buscarCategoria();
                 </div>
               </div>
               <div class="modal-footer tct">        
-                <button type="button" class="btn btn-transparent-dark"  data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="toastBasicTrigger" name="guardar" title="Agregar" class="btn btn-success">Agregar</button>
-                <input type="hidden" name="operacion" value="guardar">
+                <!--<button type="button" class="btn btn-transparent-dark"  data-dismiss="modal">Cancelar</button>-->
+                <button type="submit" id="toastBasicTrigger" name="guardar" title="Agregar" class="btn btn-success">Modificar</button>
+                <input type="hidden" name="id" value="<?= $categoria['id']?>">
               </div>
               </fieldset>
             </form> 
@@ -55,10 +55,10 @@ $categoria = buscarCategoria();
       </div>
   
 <div style=" position: fixed; top: 2rem; right: 1rem; z-index: 900;">
-    <div class="toast" id="toast-success-servicio" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+    <div class="toast" id="toast-success-categoria" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
         <div class="toast-header tct text-success">
             <span class="material-icons-round">check_circle_outline</span>
-            <strong class="mr-auto">Se Registro un Servicio Exitosamente</strong>
+            <strong class="mr-auto">Se ha modificado Exitosamente</strong>
         <button class="ml-2 mb-1 close" type="button" data-dismiss="toast" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -71,14 +71,12 @@ $categoria = buscarCategoria();
 include ('../../php/scripts.php');
 ?>
 
-<script>
-    $('#toast-success-servicio').toast('show');}
+<!--<script>
+    
+    $('#toast-success-categoria').toast('show');
     sleep(7);
-</script>
 
-
-
-
+</script>-->
 
 <script type="text/javascript">
 function cargar(){
@@ -86,3 +84,5 @@ function cargar(){
     window.close();
 }
 </script>
+</body>
+</html>

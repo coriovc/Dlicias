@@ -23,14 +23,14 @@ require_once "auditoria.php";
   mysqli_query($db,"INSERT INTO producto VALUES (NULL,'".$codigo_pt."','".$nombre."','".$cantidad."','".$precio_c."','".$precio_v."','".$id_unidad."','".$id_unidadconsumo."','".$equivalencia."','".$stock_min."','".$stock_max."','".$id_unidadventa."','".$equivalencia_venta."')");
 
 
-  registrarOperacion(" ha registrado un producto",$_SESSION['admin']['id'],"PRODUCTO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha registrado un producto",$_SESSION['admin']['id'],"PRODUCTO");
 }
 
  function eliminarProducto(){ 
   global $db;
   mysqli_query($db,"DELETE FROM producto WHERE id=$_REQUEST[id]");
   $_SESSION['eliminada']=1;
-  registrarOperacion(" ha eliminado un producto",$_SESSION['admin']['id'],"PRODUCTO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un producto",$_SESSION['admin']['id'],"PRODUCTO");
 }
 
  function listarProducto(){

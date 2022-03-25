@@ -10,7 +10,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -41,8 +40,7 @@ CREATE TABLE `bitacora` (
 
 CREATE TABLE `categoria` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(60) DEFAULT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `nombre` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,8 +57,7 @@ CREATE TABLE `pedidos` (
   `fecha` date NOT NULL,
   `hora` varchar(6) NOT NULL,
   `monto` varchar(10) NOT NULL,
-  `estado` varchar(20) DEFAULT 'PENDIENTE',
-  `borrado` char (1) DEFAULT 'N'
+  `estado` varchar(20) DEFAULT 'PENDIENTE'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,8 +70,7 @@ CREATE TABLE `pedido_servicio` (
   `id` int(11) NOT NULL,
   `id_pedido` int(11) NOT NULL,
   `id_servicio` int(11) NOT NULL,
-  `precio` int(11) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `precio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -91,12 +87,18 @@ CREATE TABLE `cliente` (
   `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `alergias` text COLLATE utf8_spanish_ci NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `empresa` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
--- --------------------------------------------------------
 
+
+INSERT INTO `cliente`(`id`, `tipo_documento`, `identificacion`, `nombre`, `telefono`, `correo`, `direccion`, `empresa`) 
+VALUES (1,'Venezolano','26866132','victor cliente','04124784959','victor@gmail.com','maracay','no tiene'),
+       (2,'Venezolano','26866133','jan cliente','04124784959','jan@gmail.com','maracay','no tiene'),
+       (3,'Venezolano','26866134','luis cliente','04124784959','luis@gmail.com','maracay','no tiene');
+
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `empleado`
@@ -115,19 +117,18 @@ CREATE TABLE `empleado` (
   `nro_cuenta` int(24) NOT NULL,
   `banco` text COLLATE utf8_spanish_ci NOT NULL,
   `ci_banco` int(10) NOT NULL,
-  `nombre_banco` text COLLATE utf8_spanish_ci NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `nombre_banco` text COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
+
 
 CREATE TABLE `asistencia` (
   `id` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL,
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `hora_e` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `hora_s` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `borrado` char (1) DEFAULT 'N'
+  `hora_s` TIMESTAMP NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -140,9 +141,9 @@ CREATE TABLE `compras` (
   `fecha` date NOT NULL,
   `id_producto` int(11) DEFAULT NULL,
   `cantidad` int(11) NOT NULL,
-  `precio_c` int(11) NOT NULL,
-  `codigo_compra` varchar(32) NOT NULL,
-  `numero_factura` int(11) DEFAULT NULL
+  `precio_c` decimal(11,2) NOT NULL,
+  `codigo_compra` varchar(50) NOT NULL,
+  `numero_factura` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,8 +169,8 @@ CREATE TABLE `producto` (
   `codigo_pt` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `precio_c` int(11) NOT NULL,
-  `precio_v` int(11) NOT NULL,
+  `precio_c` decimal(11,2) NOT NULL,
+  `precio_v` decimal(11,2) NOT NULL,
   `id_unidad` int(11) DEFAULT NULL,
   `id_unidadconsumo` int(11) NOT NULL,
   `equivalencia` int(11) NOT NULL,
@@ -189,10 +190,9 @@ CREATE TABLE `servicio` (
   `id` int(11) NOT NULL,
   `codigo_s` varchar(5) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `precio` int(10) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
   `id_categoria` int(11) NOT NULL,
-  `tiempo` int(11) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `tiempo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -244,17 +244,16 @@ CREATE TABLE `usuario` (
   `correo` varchar(35) NOT NULL,
   `tipo_usuario` enum('Admin','Nivel 2','Nivel 1') NOT NULL,
   `pregunta` enum('Nombre de su primera mascota','Pelicula favorita','Nombre de tu abuelo','Pasatiempo favorito') NOT NULL,
-  `respuesta` varchar(35) NOT NULL,
-  `borrado` char (1) DEFAULT 'N'
+  `respuesta` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`, `borrado`) VALUES
-(1, 26866133, 'Jan de sousa', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'S'),
-(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar', 'N');
+INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`) VALUES
+(1, 26866133, 'Jan de sousa', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar'),
+(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar');
 
 -- --------------------------------------------------------
 
@@ -280,7 +279,7 @@ CREATE TABLE `venta` (
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_cliente` int(11) NOT NULL,
   `codigo_venta` varchar(11) NOT NULL,
-  `forma_pago` varchar(20) NOT NULL DEFAULT 'PUNTO',
+  `forma_pago` enum('Debito','Transferencia','Pago movil','Paypal','Efectivo','BINANCE') NOT NULL,
   `recibido` float NOT NULL,
   `cambio` float NOT NULL,
   `referencia` varchar(20) NOT NULL
@@ -308,7 +307,7 @@ CREATE TABLE `venta_producto` (
   `id` int(11) NOT NULL,
   `id_venta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
-  `precio_v` int(11) NOT NULL,
+  `precio_v` decimal(11,2) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -356,14 +355,13 @@ ALTER TABLE `empleado`
 -- Indices de la tabla `empleado`
 --
 ALTER TABLE `asistencia`
-  ADD PRIMARY KEY (`id`);
+  ADD KEY `id_empleado` (`id_empleado`);
 
 
 --
 -- Indices de la tabla `compras`
 --
-ALTER TABLE `compras`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `compras` ADD PRIMARY KEY(`id`);
 
 --
 -- Indices de la tabla `privilegios`
@@ -555,6 +553,10 @@ ALTER TABLE `usuario_has_privilegios`
   ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+ALTER TABLE `asistencia` ADD FOREIGN KEY (`id_empleado`) REFERENCES `empleados`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `venta` ADD FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `compras` ADD FOREIGN KEY (`id_producto`) REFERENCES `producto`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;

@@ -23,7 +23,7 @@
   <div class="modal tct fade filter-dark" id="eliminar-categoria" tabindex="-1" role="dialog" aria-labelledby="eliminar-categoria" aria-hidden="true">
     <section class="modal-dialog Exit-section" role="document">
       <div class="modal-content container">
-        <form action="?operacion=eliminar" method="post" accept-charset="utf-8">
+        <form action="?operacion-c=eliminar-c" method="post" accept-charset="utf-8">
           <div class="row height-100 align-items-center justify-content-center">
               <div class="col-12 col-lg-7 home-content">
                 <h2>Está Seguro que desea eliminar </h2>
@@ -41,11 +41,11 @@
   </div>
 
 
-<!-- Modal Eliminar Ingrediente-->
+<!-- Modal Eliminar cliente-->
   <div class="modal tct fade filter-dark" id="eliminar-Cliente" tabindex="-1" role="dialog" aria-labelledby="eliminar-Cliente" aria-hidden="true">
     <section class="modal-dialog Exit-section" role="document">
       <div class="modal-content container">
-        <form action="index.php?operacion=eliminar" method="post" accept-charset="utf-8">
+        <form action="index.php?operacioncli=eliminar-cli" method="post" accept-charset="utf-8">
           <div class="row height-100 align-items-center justify-content-center">
               <div class="col-12 col-lg-7 home-content">
                 <h2>Está Seguro que desea eliminar </h2>
@@ -100,7 +100,7 @@
   <div class="modal tct fade filter-dark" id="modal-borrar-bitacora" tabindex="-1" role="dialog" aria-labelledby="modal-borrar-bitacora" aria-hidden="true">
     <section class="modal-dialog Exit-section" role="document">
       <div class="modal-content container">
-        <form action="../../controladores/auditoria.php?operacion=eliminar" method="post" accept-charset="utf-8">
+        <form action="index.php?operacion-b=eliminar-b" method="post" accept-charset="utf-8">
           <div class="row height-100 align-items-center justify-content-center">
               <div class="col-12 col-lg-7 home-content">
                 <h2>Está Seguro que desea Vaciar La Bitacora </h2>

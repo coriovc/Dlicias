@@ -1,5 +1,5 @@
 <?php
-require_once "../../controladores/auditoria.php";
+require_once "controladores/auditoria.php";
 error_reporting(E_ERROR | E_PARSE | E_CORE_ERROR);
 $servername='localhost';//localhost
 $dbusername='root';//root

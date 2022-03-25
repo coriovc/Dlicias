@@ -9,7 +9,7 @@ require_once "auditoria.php";
   
   mysqli_query($db,"UPDATE producto SET cantidad = cantidad + (equivalencia * equivalencia_venta * '".$informacion['cantidad']."') WHERE id = $id_producto");
   
-  registrarOperacion(" ha registrado una compra",$_SESSION['admin']['id'],"COMPRA");
+  registrarOperacion($_SESSION['admin']['nombre']." ha registrado una compra",$_SESSION['admin']['id'],"COMPRAS");
 }
 
  function eliminarCompra(){ 
@@ -23,7 +23,8 @@ require_once "auditoria.php";
   $resultados = [];
   $r = mysqli_query($db,"SELECT  compras.*,producto.nombre as nombreproducto, unidad.nombre as nombreunidad,producto.equivalencia  FROM compras
     inner join producto on producto.id=compras.id_producto
-    inner join unidad on unidad.id=producto.id_unidad
+    inner join unidad on unidad.id=producto.id_unidad 
+    ORDER BY fecha DESC
     ");
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
@@ -32,6 +33,8 @@ require_once "auditoria.php";
  function modificarCompra(){
   global $db;
   mysqli_query($db,"UPDATE compras SET factura='$_REQUEST[factura]',codigo_com='$_REQUEST[codigo_com]',nombre='$_REQUEST[nombre]',fecha='$_REQUEST[fecha]',comprador='$_REQUEST[comprador]',cantidad='$_REQUEST[cantidad]',presentacion='$_REQUEST[presentacion]' WHERE id='$_REQUEST[id]'");
+
+  registrarOperacion($_SESSION['admin']['nombre']." ha Modificado una compra",$_SESSION['admin']['id'],"COMPRAS");
 }
 
  function buscarCompra(){

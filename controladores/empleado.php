@@ -17,8 +17,7 @@ $sueldo = $_REQUEST['sueldo'];
 $nro_cuenta = $_REQUEST['nro_cuenta']; 
 $banco = $_REQUEST['banco']; 
 $ci_banco = $_REQUEST['ci_banco']; 
-$nombre_banco = $_REQUEST['nombre_banco']; 
-$borrado = 'N'; 
+$nombre_banco = $_REQUEST['nombre_banco'];
 
 
 $emp =  mysqli_query($db, "SELECT * FROM empleado WHERE cedula='$cedula'" );
@@ -39,8 +38,7 @@ if($em){
     '".$nro_cuenta."',
     '".$banco."',
     '".$ci_banco."',
-    '".$nombre_banco."',
-    '".$borrado."')");
+    '".$nombre_banco."')");
 
     
 
@@ -49,14 +47,14 @@ if($em){
 
  function eliminarEmpleado(){ 
   global $db;
-  mysqli_query($db,"UPDATE empleado SET borrado='S' WHERE empleado.id=$_REQUEST[id]");
+  mysqli_query($db,"DELETE FROM empleado WHERE empleado.id=$_REQUEST[id]");
   registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un Empleado",$_SESSION['admin']['id'],"EMPLEADO");
 }
 
  function listarEmpleado(){
   global $db;
   $resultados = [];
-  $r = mysqli_query($db,"SELECT * FROM empleado WHERE borrado='N' ORDER BY id DESC");
+  $r = mysqli_query($db,"SELECT * FROM empleado ORDER BY id DESC");
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
 }
@@ -82,7 +80,7 @@ if($em){
 
  function buscarEmpleado(){
   global $db;
- $r = mysqli_query($db,"SELECT * FROM empleado WHERE borrado='N' AND id=$_REQUEST[id]");
+ $r = mysqli_query($db,"SELECT * FROM empleado WHERE id=$_REQUEST[id]");
     $temporal = mysqli_fetch_assoc($r);
   return $temporal;
 }

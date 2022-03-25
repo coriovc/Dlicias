@@ -10,14 +10,13 @@ require_once "auditoria.php";
   $precio = $_REQUEST['precio'];
   $id_categoria = $_REQUEST['id_categoria'];
   $tiempo = $_REQUEST['tiempo'];
-  $borrado = 'N'; 
-  mysqli_query($db,"INSERT INTO servicio VALUES (NULL,'".$codigo_s."','".$nombre."','".$precio."','".$id_categoria."','".$tiempo."','".$borrado."')");
+  mysqli_query($db,"INSERT INTO servicio VALUES (NULL,'".$codigo_s."','".$nombre."','".$precio."','".$id_categoria."','".$tiempo."')");
 
   $r = mysqli_query($db,"SELECT MAX(id) as ultimoid FROM servicio");
   $temporal = mysqli_fetch_assoc($r);
   if(!$temporal) die('Error de sintaxis');
 
-  registrarOperacion(" ha registrado un servicio",$_SESSION['admin']['id'],"SERVICIO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha registrado un servicio",$_SESSION['admin']['id'],"SERVICIO");
   return $temporal['ultimoid'];
 }
 
@@ -29,9 +28,9 @@ require_once "auditoria.php";
 
  function eliminarServicio(){ 
   global $db;
-  mysqli_query($db,"UPDATE servicio SET borrado='S' WHERE id=$_REQUEST[id]");
+  mysqli_query($db,"DELETE FROM servicio WHERE id=$_REQUEST[id]");
    $_SESSION['creada']=1;
-  registrarOperacion(" ha eliminado un servicio",$_SESSION['admin']['id'],"SERVICIO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un servicio",$_SESSION['admin']['id'],"SERVICIO");
 }
 
  function traerMateriales(){ 
@@ -48,7 +47,7 @@ inner join producto on producto.id=servicio_producto.id_producto
   global $db;
   mysqli_query($db,"DELETE FROM servicio_producto WHERE id_servicio=$_REQUEST[id]");
 
-  registrarOperacion(" ha borrado un material",$_SESSION['admin']['id'],"SERVICIO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha borrado un material",$_SESSION['admin']['id'],"SERVICIO");
 }
 
  function listarServicio(){
@@ -64,14 +63,14 @@ inner join producto on producto.id=servicio_producto.id_producto
   global $db; 
   mysqli_query($db,"UPDATE servicio SET codigo_s='$_REQUEST[codigo_s]',id_categoria='$_REQUEST[id_categoria]',nombre='$_REQUEST[nombre]',precio='$_REQUEST[precio]',tiempo='$_REQUEST[tiempo]' WHERE id='$_REQUEST[id]'");
 
-  registrarOperacion(" ha actualizado un servicio",$_SESSION['admin']['id'],"SERVICIO");
+  registrarOperacion($_SESSION['admin']['nombre']." ha actualizado un servicio",$_SESSION['admin']['id'],"SERVICIO");
 }
 
  function buscarServicio(){
   global $db;
  $r =  mysqli_query($db,"SELECT servicio.*,categoria.nombre as nombrecategoria FROM servicio
   INNER JOIN categoria ON categoria.id=servicio.id_categoria
-    WHERE servicio.id=$_REQUEST[id] AND borrado='N'");
+    WHERE servicio.id=$_REQUEST[id]");
     $temporal = mysqli_fetch_assoc($r);
   return $temporal;
 

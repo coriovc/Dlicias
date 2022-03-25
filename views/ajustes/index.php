@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <?php 
 require_once "../../controladores/auditoria.php";
 require_once "../../controladores/usuario.php";
-if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
   eliminarBitacora();
 }
  ?>
@@ -56,26 +56,22 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false"><span class="material-icons-round text-yellow mr-2">settings_suggest</span>Gestion del sistema</button>
           </li>
           <?php } ?> 
-        <!--Estructura de costo--> 
+        <!--Estructura de costo
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false"><span class="material-icons-round text-blue mr-2">paid</span>Costos</button>
           </li>
-        <!--Cargos-->
+        <!--Cargos
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-5-tab" data-bs-toggle="pill" data-bs-target="#pills-5" type="button" role="tab" aria-controls="pills-5" aria-selected="false"><span class="material-icons-round text-blue mr-2">badge</span>Cargos</button>
           </li>
-        <!--pagos-->
+        <!--pagos
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-6-tab" data-bs-toggle="pill" data-bs-target="#pills-6" type="button" role="tab" aria-controls="pills-6" aria-selected="false"><span class="material-icons-round text-blue mr-2">payment</span>Pagos</button>
           </li>
-        <!--informacion--> 
+        <!--informacion
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-7-tab" data-bs-toggle="pill" data-bs-target="#pills-7" type="button" role="tab" aria-controls="pills-7" aria-selected="false"><span class="material-icons-round text-green mr-2">policy</span>Parametros</button>
-          </li>
-        <!--Papelera-->
-          <li class="nav-item" role="presentation">
-            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-8-tab" data-bs-toggle="pill" data-bs-target="#pills-8" type="button" role="tab" aria-controls="pills-8" aria-selected="false"><span class="material-icons-round text-red mr-2">delete</span>Papelera</button>
-          </li>
+          </li>--> 
         </ul>
 
       <hr>
@@ -761,48 +757,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
 
           </div>
         <!--Papelera-->
-          <div class="tab-pane fade" id="pills-8" role="tabpanel" aria-labelledby="pills-8-tab">
-              
-                <div class="text-left my-4">
-                    <h6>En la papelera apareceran todos los elementos <span class="text-red">borrados</span> del sistema buedes buscarlos por <span class="text-red">nombre</span>, <span class="text-red">código</span> o <span class="text-red">fecha</span>.</h6>
-                </div>
-
-                <div class="card mb-4 overflow-hidden">
-                    <div class="card-header">
-                      <i class="material-icons-round grand red">auto_delete</i>
-                      <h2 class="red">Papelera</h2>
-                    </div>    
-                    <table id="" class="table display" width="100%">
-                      <thead class="text-red bg-table-red">
-                        <tr>
-                          <th>Nombre</th>
-                          <th>Ci</th>
-                          <th>Tipo de Usuario</th>
-                          <th>Estado</th>
-                          <th>Aciones</th>
-                        </tr>
-                      </thead>                  
-                      <tbody>
-                        <?php 
-                        $resultados = listarUsuarioBorrado();
-                        foreach ($resultados as $key => $r){ ?>
-                        <tr>
-                          <td><strong><?php echo $r['nombre']; ?></strong></td>
-                          <td><strong><?php echo $r['ci']; ?></strong></td>
-                          <td><div class="btn btn-red btn-sm"><strong><?php echo $r['tipo_usuario']; ?></strong></div></td>
-                          <td>
-                            <div class="badge badge-marketing badge-red-soft badge-pill text-red"><strong>Inactivo</strong></div>
-                          </td>                      
-                          <td align="right">
-                            <a class="btn btn-red rounded-pill text-white btn-sm lift-X-r"><span class="material-icons-round">restore</span>Restaurar</a>
-                          </td>
-                        </tr>
-                        <?php } ?>
-                      </tbody>
-                    </table>
-                </div>
-
-          </div>
+          
         </div>
         </div>         
       </div>

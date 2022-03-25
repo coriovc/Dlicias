@@ -8,7 +8,7 @@ if(!isset($_SESSION))
   <table class="table table-bordered table-hover" width="100%">
     <thead>
       <tr>
-          <th>servicio o Servicio</th>
+          <th>Servicio</th>
           <th>Cantidad</th>
           <th>Costo</th>
           <th>Monto</th>

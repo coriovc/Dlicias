@@ -35,7 +35,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
         </div>            
     </header>
 
-    <div class="container" data-aos="fade-right" data-aos-delay="200">
+    <!--<div class="container" data-aos="fade-right" data-aos-delay="200">
             <div class="row" style="margin-top: -2rem;">
                 <div class="my-2">
                   <form class="d-none d-sm-inline-block form-inline mw-100 navbar-search">
@@ -43,7 +43,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                   </form>  
               </div>       
             </div>
-        </div>
+        </div>-->
 
 
 <section class="section-inv">
@@ -80,28 +80,34 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
             </thead>
             <tbody>
               <?php 
-              $resultados = listarProducto();
-              foreach ($resultados as $key => $r){ ?>
-                <tr>
-                  <td><?php echo $r['id']; ?></td>
-                  <td><?php echo $r['codigo_pt']; ?></td>
-                  <td><?php echo $r['nombre']; ?></td>
-                  <td><?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?><br>
-                    <?php echo round($r['cantidad'] / $r['equivalencia_venta']); ?> <?php echo $r['und']; ?><br>
-                  
-                <?php echo $r['cantidad'] /// $r['equivalencia_venta']; ?> <?php echo $r['und_consumo']; ?><br></td>
-                  <td><?php echo $r['precio_c']; ?></td>
-                  <td><?php echo $r['precio_v']; ?></td>
-                  <td>
-                      <a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
-                    <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
-                              <i class="fa fa-times"></i>
-                            </button>
-                  </td>
+                    $resultados = listarProducto();
+                    foreach ($resultados as $key => $r){ ?>
+                      <tr>
+                        <td><?php echo $r['id']; ?></td>
+                        <td><?php echo $r['codigo_pt']; ?></td>
+                        <td><?php echo $r['nombre']; ?></td>
+                        <td>
+                            Stock - <?php echo $r['cantidad']?> <?php echo $r['und']; ?>
+                            <br>
+                            EV - <?php echo round($r['cantidad'] / $r['equivalencia_venta']); ?> <?php echo $r['und']; ?>
+                            <br>
+                            EQ - <?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?>
+                            </td>
+                        <td><?php echo $r['precio_c']; ?>Bs</td>
+                        <td><?php echo $r['precio_v']; ?>Bs</td>
+                        <td>
+                            <!--<a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
+                          <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
+                                    <i class="fa fa-times"></i>
+                                  </button>-->
+                          <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><span class="material-icons-round">edit</span></a>
+                          
+                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-ingrediente"><span class="material-icons-round">close</span></button>
+                        </td>
 
-                  
-                </tr>
-              <?php } ?>
+                        
+                      </tr>
+                    <?php } ?>
             </tbody>
         </table>
       </div>

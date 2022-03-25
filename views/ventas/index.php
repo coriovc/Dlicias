@@ -5,7 +5,8 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <?php
 require_once "../../controladores/venta.php";
 require_once "../../controladores/clientes.php";
-if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+
+if(isset($_REQUEST['operacion-cli']) && $_REQUEST['operacion-cli']=='eliminar-cli'){
   eliminarCliente();
 }
  ?>
@@ -81,12 +82,14 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                     <div class="card-header justify-content-between">
                       <i class="material-icons-round grand blue">store</i>
                         <h2 class="blue">Ventas</h2>
-                    <div class="dropdown no-caret mr-3">
-                        <a class="btn btn-white rounded-pill shadow" href="javascript:popUp('imprimir_venta.php')">
-                            <i class="material-icons-round mr-2">description</i>
+                      <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
+                        <div class="mr-3">
+                          <a class="btn btn-blue rounded-pill shadow" href="javascript:popUp_pdf('imprimir_ventas.php')">
+                            <span class="material-icons-round mr-2">article</span>
                             <div class="font-weight-500 tct">Imprimir PDF</div>
-                        </a>
-                    </div>
+                          </a>
+                        </div>
+                      <?php } ?>
                     </div>
 
                     <div>
@@ -124,9 +127,17 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           </div>
           <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
               <div class="card mb-4 overflow-hidden">
-                    <div class="card-header">
+                    <div class="card-header justify-content-between">
                       <i class="material-icons-round grand blue">person</i>
                         <h2 class="blue">Clientes</h2>
+                        <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
+                        <div class="mr-3">
+                          <a class="btn btn-blue rounded-pill shadow" href="javascript:popUp_pdf('imprimir_clientes.php')">
+                            <span class="material-icons-round mr-2">article</span>
+                            <div class="font-weight-500 tct">Imprimir PDF</div>
+                          </a>
+                        </div>
+                        <?php } ?>
                     </div>
 
                     <div>
@@ -169,8 +180,8 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
     </div>
   </section> 
   <script type="text/javascript">
-    function popUp(URL) {
-        window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=900,height=800,left = 390,top = 50');
+    function popUp_pdf(URL) {
+        window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=900,height=800,left = 0,top = 50');
     }
   </script>
 

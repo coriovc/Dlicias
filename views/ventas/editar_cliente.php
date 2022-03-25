@@ -67,7 +67,7 @@ $cliente = buscarCliente(); ?>
 
                   <div class="col-lg-4 col-12" >
                     <label for="exampleInputEmail">Identificación*</label>
-                    <input type="number" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>48 && w <57 && this.value.length<=7;" name="identificacion" class="form-control" title="Ingrese la Cedula" id="identificacion" required="required" value="<?= $cliente['identificacion']?>">
+                    <input type="tel" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>48 && w <57 && this.value.length<=7;" name="identificacion" class="form-control" title="Ingrese la Cedula" id="identificacion" required="required" value="<?= $cliente['identificacion']?>">
                     </div>
                   
                   <div class="col-lg-4 col-12" >
@@ -88,8 +88,8 @@ $cliente = buscarCliente(); ?>
                     <input type="text" name="direccion" class="form-control" id="direccion" required="required" title="Ingrese la direccion" value="<?= $cliente['direccion']?>">
                   </div>
                   <div class="col-lg-4 col-12">
-                    <label><span>Alergias*</span></label>
-                    <input type="text" name="alergias" class="form-control" id="alergia" required="required" title="Ingrese las Alergias" value="<?= $cliente['alergias']?>">
+                    <label><span>Empresa*</span></label>
+                    <input type="text" name="empresa" class="form-control" id="empresa" required="required" title="Ingrese su empresa" value="<?= $cliente['empresa']?>">
                   </div>
                 </div>
 

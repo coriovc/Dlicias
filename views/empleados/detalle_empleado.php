@@ -1,8 +1,10 @@
 <?php
 require_once "../../controladores/empleado.php";
+require_once "../../controladores/asistencia.php";
 
-$empleado = buscarEmpleado(); ?>
-
+$empleado = buscarEmpleado(); 
+$asis = buscarAsistencia(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,15 +73,19 @@ $empleado = buscarEmpleado(); ?>
                   </div>
                   <div class="col-lg-4 col-12">
                     <h6>Sueldo</h6>
-                    <h4><?= $empleado['sueldo']?></h4>
+                    <h4>$<?= $empleado['sueldo']?></h4>
                   </div>
                   <div class="col-lg-12 col-12">
                     <h6>Direccion</h6>
                     <h4><?= $empleado['direccion']?></h4>
                   </div>
-                  <div class="col-lg-12 col-12"><a class="btn btn-blue btn-add tct mb-2 " href="#" data-toggle="modal" data-target="#modal-Banco">
+                  <div class="col-lg-12 col-12 mt-3"><a class="btn btn-blue btn-add tct mb-2 " href="#" data-toggle="modal" data-target="#modal-Banco">
                     <div class="btn-icon bg-light text-blue shadow mr-2">
                     <i class="material-icons-round icon-size-35">account_balance</i></div>Datos bancarios</a>
+
+                    <a class="btn btn-blue btn-add tct mb-2 " href="#" data-toggle="modal" data-target="#">
+                    <div class="btn-icon bg-light text-blue shadow mr-2">
+                    <i class="material-icons-round icon-size-35">edit</i></div>Editar Datos</a>
                   </div>
                 </div>
 
@@ -100,22 +106,19 @@ $empleado = buscarEmpleado(); ?>
                         <th>Fecha</th>
                         <th>Hora de Entrada</th>
                         <th>Hora de Salida</th>
-                        <th>Estado</th>
+                        <th>acciones</th>
                       </tr>
                       </thead>                  
                       <tbody>
-                          <tr>
-                            <td>22-02-2022</td>
-                            <td>8:00 am</td>
-                            <td>10:00 pm</td>
-                            <td><div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Asistio</strong></div></td>
-                          </tr>  
-                          <tr>
-                            <td>22-02-2022</td>
-                            <td>--</td>
-                            <td>--</td>
-                            <td><div class="badge badge-marketing badge-red-soft badge-pill text-red"><strong>No Asistio</strong></div></td>
-                          </tr>                
+                                <tr>                                  
+                                  <td><?php echo date("d/m/Y",strtotime($asis['fecha'])); ?></td>
+                                  <td><?php echo date("h:i a",strtotime($asis['hora_e'])); ?></td>
+                                  <td><?php echo date("h:i a",strtotime($asis['hora_s'])); ?></td>
+                                  <td>
+                                    <buttom type="button" class="badge badge-marketing badge-red-soft badge-pill text-red"><strong>Marcar salida</strong></buttom>
+                                  </td>
+                                </tr>
+           
                       </tbody>
                     </table>
                     </div>

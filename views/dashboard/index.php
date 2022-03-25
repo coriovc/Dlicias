@@ -64,8 +64,8 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
     <section class="dash-section" data-aos="fade-up" data-aos-delay="1000">
         <div class="container">
          <div class="row">
-          <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?> 
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+           
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card bg-blue lift-img" href="../Venta/">
                   <div class="card-head"><span class="material-icons-round text-white">monetization_on</span></div>
                     <div class="card-body">
@@ -76,9 +76,9 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     </div>
                 </a>
             </div>
-           <?php } ?>
+           
            <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="#" data-toggle="modal" data-target="#modal-registrar-entrada">
                   <div class="card-head"><span class="material-icons-round text-yellow">how_to_reg</span></div>
                     <div class="card-body">
@@ -91,7 +91,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             </div>
             <?php } ?>
             <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="#" data-toggle="modal" data-target="#modal-ingrediente">
                   <div class="card-head"><span class="material-icons-round text-purple">add_circle_outline</span></div>
                     <div class="card-body">
@@ -102,7 +102,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     </div>
                 </a>
             </div>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="javascript:popUp('../productos/servicios_nuevo.php')">
                   <div class="card-head"><span class="material-icons-round text-purple">room_service</span></div>
                     <div class="card-body">
@@ -116,7 +116,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             <?php } ?>
             
 
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ventas/#seccion-2">
                   <div class="card-head"><span class="material-icons-round text-blue">person_add</span></div>
                     <div class="card-body">
@@ -128,7 +128,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                 </a>
             </div>                  
             <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../empleados/">
                   <div class="card-head"><span class="material-icons-round text-green">people</span></div>
                     <div class="card-body">
@@ -141,7 +141,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
             </div>
             <?php } ?>
 
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ayuda/">                  
                   <div class="card-head"><span class="material-icons-round text-yellow">help</span></div>
                     <div class="card-body">
@@ -153,7 +153,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                 </a>
             </div>
 
-            <div class="col-12 col-md-12 col-lg-2 my-4">
+            <div class="col-6 col-md-12 col-lg-2 my-4">
                 <a class="card lift-img" href="../ajustes/">                  
                   <div class="card-head"><span class="material-icons-round text-red">settings</span></div>
                     <div class="card-body">

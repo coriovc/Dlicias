@@ -85,9 +85,16 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
         <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
 
          <div class="card my-4 overflow-hidden">
-            <div class="card-header">
+            <div class="card-header justify-content-between">
               <i class="material-icons-round grand yellow">group</i>
               <h2 class="yellow">Empleados</h2>
+              <div class="mr-3">
+                <a class="btn btn-yellow rounded-pill shadow" href="javascript:popUp_pdf('imprimir_empleados.php')">
+                  <span class="material-icons-round mr-2">article</span>
+                  <div class="font-weight-500 tct">Imprimir PDF</div>
+                </a>
+              </div>
+
             </div>
 
                     <div class="datatable table-responsive">
@@ -106,7 +113,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                         $resultados = listarEmpleado();
                         foreach ($resultados as $key => $r){ ?>
                        <tr>
-                        <td><strong><?php echo $r['nombre']; ?></strong></a></td>
+                        <td><strong><?php echo $r['nombre'].' '.$r['apellido']; ?></strong></a></td>
                         <td><strong><?php echo $r['cedula']; ?></strong></td>
                         <td><strong><?php echo $r['cargo']; ?></strong></td>
                         <td>
@@ -129,6 +136,9 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
       </div>
     </div>
   </section>
+
+
+
 <?php
 /* footer */
 include ('../../php/footer.php'); 
@@ -139,6 +149,12 @@ include ('../../php/modal/modal_empleado.php');
 include ('../../php/modal/modal_eliminar.php');
 include ('../../php/modal/modal_logout.php'); 
 ?>
-<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>  
+
+<script type="text/javascript">
+    function popUp_pdf(URL) {
+        window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=900,height=800,left = 0,top = 50');
+    }
+  </script>
 </body>
 </html>

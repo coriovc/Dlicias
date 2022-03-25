@@ -61,7 +61,7 @@
               </div>
               
               <div class="col-sm-6">
-                <label><strong>Nombre de la empresa</strong></label><input type="txt" class="form-control" id="alergias" name="alergias" placeholder="Ejem (empresa)" required><div class="invalid-feedback">Rellene este campo</div>
+                <label><strong>Nombre de la empresa</strong></label><input type="txt" class="form-control" id="empresa" name="empresa" placeholder="Ejem (empresa)" required><div class="invalid-feedback">Rellene este campo</div>
               </div>
             </div>
           </fieldset>

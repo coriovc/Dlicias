@@ -205,7 +205,7 @@ if(isset($_GET["removerservicio"])){
 
                 <div class="form-group row">
                 <div class="col-12 col-lg-6 ">
-                <label>servicio o Servicio *</label>
+                <label>Servicio*</label>
                 <select class="form-control form-control-solid select2" name="id_servicio" id="id_servicio" required="required" title="Seleccione un servicio" style="width: 100%;">
                   <option>Seleccionar</option>
                   <?php
