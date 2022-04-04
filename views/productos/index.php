@@ -5,13 +5,10 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <?php
 require_once "../../controladores/producto.php";
 require_once "../../controladores/unidad.php";
+require_once "../../controladores/categoria.php";
+require_once "../../controladores/compra.php";
 
 $unidades = listarUnidad();
-?>
-<?php
-require_once "../../controladores/categoria.php";
-require_once "../../controladores/producto.php";
-require_once "../../controladores/compra.php";
 $productos = listarProducto();
 $categorias = listarCategorias();
 $compras = listarCompra();
@@ -40,20 +37,20 @@ elseif(isset($_GET["remover"])){
  ?>
  <?php 
 require_once "../../controladores/servicio.php";
-if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+if(isset($_REQUEST['operacionserv']) && $_REQUEST['operacionserv']=='eliminarserv'){
   eliminarServicio();
-  header("Location: URL");
+  header("Location: index.php");
 }
  ?>
  <?php require_once "../../controladores/producto.php";
-if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+if(isset($_REQUEST['operacionIngre']) && $_REQUEST['operacionIngre']=='eliminarIngre'){
   eliminarProducto();
   header("Location: index.php");
 }
  ?>
 
   <?php require_once "../../controladores/categoria.php";
-if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
+if(isset($_REQUEST['operacionc']) && $_REQUEST['operacionc']=='eliminarc'){
   eliminarCategoria();
   header("Location: index.php");
 }
@@ -99,6 +96,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
               </div>
 
               <div class="my-2">
+              <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
                 <a class="btn btn-purple btn-add tct mb-2 btn-block" href="#" data-toggle="modal" data-target="#modal-categoria">
                   <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nueva Categoria</a>
@@ -110,7 +108,8 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                 <a class="btn btn-purple btn-add tct mb-2 btn-block" href="javascript:popUp('servicios_nuevo.php')">
                   <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add</i></div>Nuevo Servicio</a>
-                <a class="btn btn-purple btn-add tct mb-2 btn-block" href="javascript:popUp('Ingrediente_nuevo.php')">
+              <?php } ?> 
+                <a class="btn btn-purple btn-add tct mb-2 btn-block" href="javascript:popUp_compra('ingre_nuevo.php')">
                   <div class="btn-icon bg-light text-purple shadow mr-2">
                   <i class="material-icons-round icon-size-35">add_shopping_cart</i></div>Comprar Ingredientes</a>
               </div>
@@ -121,23 +120,66 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
       <div class="col-lg-8 col-xl-9 mb-4" data-aos="fade-up" data-aos-delay="1000">   
         <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-purple mr-2">egg</span>Ingredientes</button>
+            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="false"><span class="material-icons-round text-purple mr-2">shopping_cart</span>Compras</button>
           </li>
+          <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
           <li class="nav-item" role="presentation">
-            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false"><span class="material-icons-round text-purple mr-2">shopping_cart</span>Compras</button>
-          </li>
+            <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="true"><span class="material-icons-round text-purple mr-2">egg</span>Ingredientes</button>
+          </li>          
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false"><span class="material-icons-round text-purple mr-2">room_service</span>Servicios</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link btn btn-white rounded-pill mx-2" id="pills-4-tab" data-bs-toggle="pill" data-bs-target="#pills-4" type="button" role="tab" aria-controls="pills-4" aria-selected="false"><span class="material-icons-round text-purple mr-2">view_cozy</span>Categorias</button>
           </li>
+          <?php } ?> 
         </ul>
 
       <hr>
 
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+              
+              <div class="card mb-4 overflow-hidden">
+                    <div class="card-header justify-content-between">
+                      <i class="material-icons-round grand text-purple">shopping_cart</i>
+                        <h2 class="text-purple">Compras Realizadas</h2>
+                        <div class="mr-3">
+                          <a class="btn btn-purple rounded-pill shadow" href="javascript:popUp_pdf('imprimir_compras.php')">
+                            <span class="material-icons-round mr-2">article</span>
+                            <div class="font-weight-500 tct">Imprimir PDF</div>
+                          </a>
+                        </div>
+                    </div>
+
+                    <table class="table display" width="100%">
+                      <thead class="text-purple bg-table-purple">
+                      <tr>
+                        <th>Código Compra</th>
+                        <th>Fecha Compra</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th> 
+                      </tr>
+                      </thead>
+                      <tbody>
+                    <?php 
+                    $resultados = listarCompra();
+                    foreach ($resultados as $key => $r){ ?>
+                      <tr>
+                        <td><?php echo $r['codigo_compra']; ?></td>
+                        <td><?php echo date("d/m/Y",strtotime($r['fecha'])); ?></td>
+                        <td><?php echo $r['nombreproducto']; ?></td>
+                        <td><?php echo $r['cantidad']; ?> <?php echo $r['nombreunidad']; ?></td>
+                        <td><?php echo $r['cantidad'] * $r['precio_c']  ; ?>$ </td> 
+                      </tr>
+                    <?php } ?>
+                      </tbody>
+                    </table>
+              </div>
+
+          </div>
+          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
               
               <div class="card mb-4 overflow-hidden">
                     <div class="card-header justify-content-between">
@@ -180,8 +222,8 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                             <br>
                             EQ - <?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?>
                             </td>
-                        <td><?php echo $r['precio_c']; ?>Bs</td>
-                        <td><?php echo $r['precio_v']; ?>Bs</td>
+                        <td><?php echo $r['precio_c']; ?> $</td>
+                        <td><?php echo $r['precio_v']; ?> $</td>
                         <td>
                             <!--<a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
                           <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
@@ -190,7 +232,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                           <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" 
                           href="javascript:popUp_producto('edit_ingrediente.php?operacion=modificar&id=<?=$r['id'] ?>')"><span class="material-icons-round">edit</span></a>
                           
-                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-ingrediente"><span class="material-icons-round">close</span></button>
+                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onmouseover="$('#id_ingre').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-ingrediente"><span class="material-icons-round">close</span></button>
                         </td>
 
                         
@@ -200,58 +242,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                     </table>
               </div>
 
-          </div>
-          <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
-              
-              <div class="card mb-4 overflow-hidden">
-                    <div class="card-header justify-content-between">
-                      <i class="material-icons-round grand text-purple">shopping_cart</i>
-                        <h2 class="text-purple">Compras Realizadas</h2>
-                        <div class="mr-3">
-                          <a class="btn btn-purple rounded-pill shadow" href="javascript:popUp_pdf('imprimir_compras.php')">
-                            <span class="material-icons-round mr-2">article</span>
-                            <div class="font-weight-500 tct">Imprimir PDF</div>
-                          </a>
-                        </div>
-                    </div>
-
-                    <table class="table display" width="100%">
-                      <thead class="text-purple bg-table-purple">
-                      <tr>
-                        <th>Nro</th>
-                        <th>Fecha</th>
-                        <th>Ingrediente</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Nro Factura</th>
-                        <th>Acciones</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                    <?php 
-                    $resultados = listarCompra();
-                    foreach ($resultados as $key => $r){ ?>
-                      <tr>
-                        <td><?php echo $r['id']; ?></td>
-                        <td><?php echo $r['fecha']; ?></td>
-                        <td><?php echo $r['id_producto']; ?></td>
-                        <td><?php echo $r['cantidad']; ?></td>
-                        <td><?php echo $r['precio_c']; ?></td>
-                        <td><?php echo $r['numero_factura']; ?></td>
-
-                        <td>
-                          <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="servicios_edicion.php?operacion=modificar&id=<?=$r['id'] ?>&primeracarga"><span class="material-icons-round">edit</span></a>
-                          
-                          <a class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" href="#" ><span class="material-icons-round">close</span></a>
-                        </td>
-                        </td>
-                      </tr>
-                    <?php } ?>
-                      </tbody>
-                    </table>
-              </div>
-
-          </div>
+          </div>          
           <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab">
               
               <div class="card mb-4 overflow-hidden">
@@ -284,7 +275,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                       <tr>
                         <td><?php echo $r['id']; ?></td>
                         <td><?php echo $r['nombre']; ?></td>
-                        <td><?php echo $r['precio']; ?></td>
+                        <td><?php echo $r['precio']; ?> $</td>
                         <td><?php echo $r['nombrecategoria']; ?></td>
                         <td><?php if ($r['tiempo']>60) {
                           echo sprintf("%.2f",$r['tiempo']/60);
@@ -300,7 +291,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                         <td>
                           <!--<a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="servicios_edicion.php?operacion=modificar&id=<?=$r['id'] ?>&primeracarga"><span class="material-icons-round">edit</span></a>-->
                           
-                          <a class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" href="#" ><span class="material-icons-round">close</span></a>
+                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onmouseover="$('#id_serv').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-servicio"><span class="material-icons-round">close</span></button>
                         </td>
                         </td>
                       </tr>
@@ -338,7 +329,7 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
                           <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" 
                           href="javascript:popUp_categoria('edit_categoria.php?operacion=modificar&id=<?=$r['id'] ?>')"><span class="material-icons-round">edit</span></a>
                           
-                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-categoria"><span class="material-icons-round">close</span></button>
+                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onmouseover="$('#id_cate').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-categoria"><span class="material-icons-round">close</span></button>
                         </td>
 
                         
@@ -361,6 +352,11 @@ if(isset($_REQUEST['operacion-c']) && $_REQUEST['operacion-c']=='eliminar-c'){
   <script type="text/javascript">
     function popUp(URL) {
         window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=600,height=800,left = 390,top = 50');
+    }
+  </script>
+  <script type="text/javascript">
+    function popUp_compra(URL) {
+        window.open(URL, 'Nombre de la ventana', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=1000,height=800,left = 0,top = 50');
     }
   </script>
   <script type="text/javascript">

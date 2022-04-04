@@ -45,6 +45,14 @@ CREATE TABLE `categoria` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `categoria`(`id`, `nombre`) 
+VALUES (1,'Desayunos'),
+       (2,'Almuerzos'),
+       (3,'Postres'),
+       (4,'Merienda');
+
+
+
 --
 -- Estructura de tabla para la tabla `pedidos`
 --
@@ -87,15 +95,16 @@ CREATE TABLE `cliente` (
   `telefono` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `correo` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(35) COLLATE utf8_spanish_ci NOT NULL,
-  `empresa` text COLLATE utf8_spanish_ci NOT NULL
+  `empresa` text COLLATE utf8_spanish_ci NOT NULL,
+  `borrado` char (1) DEFAULT 'N'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 
 
-INSERT INTO `cliente`(`id`, `tipo_documento`, `identificacion`, `nombre`, `telefono`, `correo`, `direccion`, `empresa`) 
-VALUES (1,'Venezolano','26866132','victor cliente','04124784959','victor@gmail.com','maracay','no tiene'),
-       (2,'Venezolano','26866133','jan cliente','04124784959','jan@gmail.com','maracay','no tiene'),
-       (3,'Venezolano','26866134','luis cliente','04124784959','luis@gmail.com','maracay','no tiene');
+INSERT INTO `cliente`(`id`, `tipo_documento`, `identificacion`, `nombre`, `telefono`, `correo`, `direccion`, `empresa`, `borrado`) 
+VALUES (1,'Venezolano','26866132','victor cliente','04124784959','victor@gmail.com','maracay','no tiene','N'),
+       (2,'Venezolano','20068555','jan cliente','04124784959','jan@gmail.com','maracay','no tiene','N'),
+       (3,'Venezolano','29554569','luis cliente','04124784959','luis@gmail.com','maracay','no tiene','N');
 
 
 -- --------------------------------------------------------
@@ -141,9 +150,9 @@ CREATE TABLE `compras` (
   `fecha` date NOT NULL,
   `id_producto` int(11) DEFAULT NULL,
   `cantidad` int(11) NOT NULL,
-  `precio_c` decimal(11,2) NOT NULL,
-  `codigo_compra` varchar(50) NOT NULL,
-  `numero_factura` varchar(50) DEFAULT NULL
+  `precio_c` int(11) NOT NULL,
+  `codigo_compra` varchar(32) NOT NULL,
+  `numero_factura` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -181,6 +190,11 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
+INSERT INTO `producto`(`id`, `codigo_pt`, `nombre`, `cantidad`, `precio_c`, `precio_v`, `id_unidad`, `id_unidadconsumo`, `equivalencia`, `stock_min`, `stock_max`, `id_unidadventa`, `equivalencia_venta`) 
+VALUES (1,'PRO12345','ingrediente 1',5,5.00,6.00,1,2,2,10,1,2,2),
+       (2,'PRO12346','ingrediente 2',5,5.00,6.00,1,2,2,10,1,2,2),
+       (3,'PRO12347','ingrediente 3',5,5.00,6.00,1,2,2,10,1,2,2),
+       (4,'PRO12348','ingrediente 4',5,5.00,6.00,1,2,2,10,1,2,2);
 
 --
 -- Estructura de tabla para la tabla `servicio`
@@ -196,7 +210,11 @@ CREATE TABLE `servicio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
-
+INSERT INTO `servicio`(`id`, `codigo_s`, `nombre`, `precio`, `id_categoria`, `tiempo`) 
+VALUES (1,'SE123','Servicio 1',10.00,1,30),
+       (2,'SE124','Servicio 2',20.00,2,30),
+       (3,'SE125','Servicio 3',30.00,3,30),
+       (4,'SE126','Servicio 4',40.00,4,30);
 --
 -- Estructura de tabla para la tabla `servicio_producto`
 --
@@ -252,8 +270,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `ci`, `nombre`, `clave`, `correo`, `tipo_usuario`, `pregunta`, `respuesta`) VALUES
-(1, 26866133, 'Jan de sousa', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar'),
-(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar');
+(1, 20068555, 'Jan de sousa', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'jan@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar'),
+(2, 26866132, 'Victor Corio', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'victor@gmail.com', 'Admin', 'Pasatiempo favorito', 'programar'),
+(3, 29554569, 'Luis alfonzo', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'luis@gmail.com', 'nivel 1', 'Pasatiempo favorito', 'programar');
 
 -- --------------------------------------------------------
 
@@ -279,7 +298,7 @@ CREATE TABLE `venta` (
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_cliente` int(11) NOT NULL,
   `codigo_venta` varchar(11) NOT NULL,
-  `forma_pago` enum('Debito','Transferencia','Pago movil','Paypal','Efectivo','BINANCE') NOT NULL,
+  `forma_pago` enum('Debito','Transferencia_PagoM','Paypal','Efectivo','BINANCE') NOT NULL,
   `recibido` float NOT NULL,
   `cambio` float NOT NULL,
   `referencia` varchar(20) NOT NULL
@@ -355,7 +374,7 @@ ALTER TABLE `empleado`
 -- Indices de la tabla `empleado`
 --
 ALTER TABLE `asistencia`
-  ADD KEY `id_empleado` (`id_empleado`);
+  ADD PRIMARY KEY (`id`);
 
 
 --
@@ -555,7 +574,6 @@ COMMIT;
 
 
 
-ALTER TABLE `asistencia` ADD FOREIGN KEY (`id_empleado`) REFERENCES `empleados`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 ALTER TABLE `venta` ADD FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 

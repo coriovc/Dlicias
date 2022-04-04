@@ -25,14 +25,22 @@ if(isset($_GET["removerservicio"])){
     <script>
 
       function controlarCampos(forma_pago){
-        if(forma_pago=='Efectivo')
+        if(forma_pago=='Debito')
           {
             $('#camposefectivo').css('display','block');
             $('.campoefectivo').attr('required','required'); 
             $('#campostransferencia').css('display','none');
             $('.campotransferencia').removeAttr('required');
           }
-        else if (forma_pago=='Trasnferencia o Pago movil')
+
+        else if (forma_pago=='Efectivo')
+          {
+            $('#camposefectivo').css('display','block');
+            $('.campoefectivo').attr('required','required'); 
+            $('#campostransferencia').css('display','none');
+            $('.campotransferencia').removeAttr('required');
+          }
+        else if (forma_pago=='Transferencia_PagoM')
           { 
             $('#campostransferencia').css('display','block');
             $('.campotransferencia').attr('required','required'); 
@@ -46,7 +54,13 @@ if(isset($_GET["removerservicio"])){
             $('#camposefectivo').css('display','none');
             $('.campoefectivo').removeAttr('required');
           }
-
+        else if (forma_pago=='BINANCE')
+          { 
+            $('#campostransferencia').css('display','block');
+            $('.campotransferencia').attr('required','required'); 
+            $('#camposefectivo').css('display','none');
+            $('.campoefectivo').removeAttr('required');
+          }
           else
           {
             $('#camposefectivo').css('display','none');
@@ -244,11 +258,13 @@ if(isset($_GET["removerservicio"])){
               <div class="col-12 col-lg-8">
                 <label><strong>Medio de pago*</strong></label>
                 <select class="form-control form-control-solid select2" required name="forma_pago" onchange="controlarCampos(this.value);">
-                    <option value="">Seleccione</option>
-                    <option>Debito (Master)</option>
-                    <option>Trasnferencia o Pago movil</option>
-                    <option>Efectivo</option>
-                    <option>Paypal</option>
+                    <option>Seleccione</option>
+                    <option value="Debito">Debito (Master)</option>
+                    <option value="Transferencia_PagoM">Trasnferencia o Pago movil</option>
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Paypal">Paypal</option>
+                    <option value="BINANCE">BINANCE</option>
+
                   </select>
               </div>
               <div class="col-12 col-lg-4" id="campostransferencia" style="display: none; -webkit-transition: all .5s;

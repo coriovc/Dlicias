@@ -165,7 +165,7 @@ elseif(isset($_GET["remover"])){
 
               <div class="col-6 col-lg-6 mb-2">
                 <label><strong>Precio*</strong></label>
-                <input type="text" name="precio" id="number" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=10;" title="Ingrese el Precio" class="form-control" placeholder="12.000bs" required="required">
+                <input type="text" name="precio" id="number" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=10;" title="Ingrese el Precio" class="form-control" placeholder="12.00 $" required="required">
               </div>
 
             </div>
@@ -200,9 +200,7 @@ include ('../../php/scripts.php');
 ?>
 
 <script>
-    $('#toast-servicio').on('click', function(e) { 
-    e.preventDefault(); 
-    $('#toast-success-servicio').toast('show');});
+    $('#toast-success-servicio').toast('show');
     sleep(7);
 </script>
 

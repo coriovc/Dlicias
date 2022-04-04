@@ -9,6 +9,11 @@ require_once "../../controladores/usuario.php";
 if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
   eliminarBitacora();
 }
+
+if(isset($_REQUEST['operacionUser']) && $_REQUEST['operacionUser']=='eliminarUser'){
+  eliminarUsuario();
+  header("Location: index.php");
+}
  ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -104,7 +109,7 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                         <h4><?php echo $_SESSION['admin']['correo']; ?></h4>
                       </div>
                       
-                      <div class="mt-4 d-flex" style="margin-left: -0.5rem;">
+                      <!--<div class="mt-4 d-flex" style="margin-left: -0.5rem;">
                           <h6 class="mb-0">Opciones</h6>
                       </div>
 
@@ -113,7 +118,7 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                           <div class="btn-icon bg-light text-red shadow mr-2">
                           <i class="material-icons-round icon-size-35">person</i></div>Editar prefil</a>
 
-                      </div>
+                      </div>-->
                       </div>
                     </div>
                 </div>
@@ -127,66 +132,39 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                       </div>
 
                       <div class="table-responsive">
-                      <table class="table" width="100%">
-                        <thead class="text-red bg-table-red">
-                        <tr>
-                          <th>Actividad</th>
-                          <th>Fecha</th>
-                          <th>Hora</th>
-                          <th>Actions</th>
-                        </tr>
-                        </thead>                  
-                        <tbody>
+                      <table id="" class="table display" width="100%">
+                            <thead class="text-red bg-table-red">
                             <tr>
-                              <td>Registro una venta</td>
-                              <td>2011/04/25</td>
-                              <td>12:00 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
+                                <th>Fecha y Hora</th>
+                                <th>Tipo</th>                                   
+                                <th>Actividad</th>
+                                <th>Usuario</th>                                
+                                <th>Acciones</th>
                             </tr>
-                            <tr>
-                              <td>Registro una compra</td>
-                              <td>2011/04/25</td>
-                              <td>03:00 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Registro un estado sad</td>
-                              <td>2011/04/25</td>
-                              <td>11:11 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Registro una venta</td>
-                              <td>2011/04/25</td>
-                              <td>12:00 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Registro una compra</td>
-                              <td>2011/04/25</td>
-                              <td>03:00 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>Registro un estado sad</td>
-                              <td>2011/04/25</td>
-                              <td>11:11 PM</td>
-                              <td>
-                                <button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark mr-2"><i class="material-icons-round">more_vert</i></button><button class="btn btn-datatable btn-icon btn-sm btn-transparent-dark"><span class="material-icons-round">delete</span></button>
-                              </td>
-                            </tr>
-                        </tbody>
-                      </table>
+                            </thead>
+
+                            
+
+                            <tbody>
+                            <?php 
+                            $resultados = listarOperacionesuser();
+                            foreach ($resultados as $key => $r){ ?>
+                                <tr>
+                                  <td><?php echo date("d/m/Y - h:i:s a",strtotime($r['fecha'])); ?></td>
+                                  <td><div class="badge badge-purple badge-pill"><?php echo $r['tipo']; ?></div></td>
+                                  <td><?php echo $r['campo_texto']; ?></td>
+                                  <td><?php echo $r['nombreuser']; ?></td>
+                                  
+
+                                  
+                                  <td>
+                                    <button class="btn btn-sm btn-icon btn-transparent-dark">
+                                    <span class="material-icons-round">delete</span></button>
+                                  </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                          </table>
                       </div>
                     </div>
               </div>  
@@ -201,13 +179,13 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                   <h1 class="display-5 tct text-green">Datos de la empresa</h1>
               </div>
               
-              <div class="dropdown no-caret mr-3">
+              <!--<div class="dropdown no-caret mr-3">
                   
                   <a href="#" class="btn btn-outline-green rounded-pill lift-btn tct">
                     <i class="material-icons-round mr-2">edit</i>
                     <h6 style="margin-bottom: 0;">Editar</h6>
                   </a>                  
-              </div>
+              </div>-->
             </div>
                 <hr class="mb-4"/>                              
                 <div class="row justify-content-center">
@@ -231,7 +209,7 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                         </div> 
                         <div class="content">
                           <h6>Valor de Impuesto</h6>
-                          <h4>13%</h4>
+                          <h4>16%</h4>
                         </div>                 
                       </div>
                     </div>
@@ -265,7 +243,7 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-5 col-xl-4 mb-4">
+                  <!--<div class="col-lg-5 col-xl-4 mb-4">
                     <div class="card">
                       <div class="card-body">
                         <h4 class="text-green">Documentos</h4>
@@ -304,7 +282,7 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                           </div>                 
                       </div>
                     </div>
-                  </div>               
+                  </div> -->              
                 </div>
 
           </div>
@@ -357,16 +335,13 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                         <div class="datatable table-responsive">
                         <table id="" class="table display" width="100%">
                           <thead class="text-yellow bg-table-yellow">
-                          <tr>
-                            <th class="text-center">
-                              <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="selectall">
-                              <label class="custom-control-label" for="selectall"></label>
-                              </div>
-                            </th>            
-                            <th>Nombre</th>
+                          <tr>           
                             <th>Ci</th>
+                            <th>Nombre</th>                            
+                            <th>Correo</th>
                             <th>Rol</th>
+                            <th>Pregunta</th>
+                            <th>Respuesta</th>
                             <th>Estado</th>
                             <th></th>
                           </tr>
@@ -376,21 +351,18 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                             $resultados = listarUsuario();
                             foreach ($resultados as $key => $r){ ?>
                             <tr>
-                            <td align="center">
-                              <div class="custom-control custom-checkbox">
-                                  <input type="checkbox" class="custom-control-input check" id="<?php echo $r['ci']; ?>">
-                                  <label class="custom-control-label check" for="<?php echo $r['ci']; ?>"></label>
-                              </div>
-                            </td>
-                            <td><strong><?php echo $r['nombre']; ?></strong></td>
                             <td><strong><?php echo $r['ci']; ?></strong></td>
+                            <td><strong><?php echo $r['nombre']; ?></strong></td>
+                            <td><strong><?php echo $r['correo']; ?></strong></td>
                             <td><strong><?php echo $r['tipo_usuario']; ?></strong></td>
+                            <td><strong><?php echo $r['pregunta']; ?></strong></td>
+                            <td><strong><?php echo $r['respuesta']; ?></strong></td>
                             <td>
                               <div class="badge badge-marketing badge-green-soft badge-pill text-green"><strong>Activo</strong></div>
                             </td>                      
-                            <td align="right">
-                              <a class="btn btn-yellow rounded-pill btn-sm lift-img" href="#!"><span class="material-icons-round">account_circle</span>Ver</a>
-                              <a class="btn btn-red rounded-pill btn-sm lift-X-r" href="#" ><span class="material-icons-round">close</span>Eliminar</a>
+                            <td>
+                              <!--<a class="btn btn-yellow rounded-pill btn-sm lift-img" href="#!"><span class="material-icons-round">account_circle</span>Ver</a>-->
+                              <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onmouseover="$('#id_user').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-Usuario"><span class="material-icons-round">close</span></button>
                             </td>
                           </tr>
                           <?php } ?>
@@ -409,10 +381,9 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                           <table id="" class="table display" width="100%">
                             <thead class="text-yellow bg-table-yellow">
                             <tr>
-                                <th>Tipo</th>                                   
-                                <th>Actividad</th>
                                 <th>Fecha y Hora</th>
-                                <th>Acciones</th>
+                                <th>Tipo</th>                                   
+                                <th>Actividad</th>    
                             </tr>
                             </thead>
 
@@ -423,14 +394,9 @@ if(isset($_REQUEST['operacion-b']) && $_REQUEST['operacion-b']=='eliminar-b'){
                             $resultados = listarOperaciones();
                             foreach ($resultados as $key => $r){ ?>
                                 <tr>
-                                  
+                                  <td><?php echo date("d/m/Y - h:i:s a",strtotime($r['fecha'])); ?></td>
                                   <td><div class="badge badge-purple badge-pill"><?php echo $r['tipo']; ?></div></td>
                                   <td><?php echo $r['campo_texto']; ?></td>
-                                  <td><?php echo date("d/m/Y - h:i:s a",strtotime($r['fecha'])); ?></td>
-                                  <td>
-                                    <button class="btn btn-sm btn-icon btn-transparent-dark">
-                                    <span class="material-icons-round">delete</span></button>
-                                  </td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

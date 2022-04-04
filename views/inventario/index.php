@@ -62,7 +62,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
               
             <div class="card mb-4 overflow-hidden">
         <div class="card-header">
-          <i class="material-icons-round grand red">category</i>
+          <i class="material-icons-round grand red">eggy</i>
           <h2 class="red">Ingredientes</h2>
         </div>
                     
@@ -75,7 +75,6 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                 <th>Cantidad</th>
                 <th>Precio de Compra</th>
                 <th>Precio de Venta</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -93,19 +92,8 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                             <br>
                             EQ - <?php echo sprintf("%.2f",$r['cantidad'] / ($r['equivalencia_venta'] * $r['equivalencia'])); ?> <?php echo $r['und_entrada']; ?>
                             </td>
-                        <td><?php echo $r['precio_c']; ?>Bs</td>
-                        <td><?php echo $r['precio_v']; ?>Bs</td>
-                        <td>
-                            <!--<a href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><button class="btn bg-purple" title="Modificar"><i class="fa fa-edit"></i></button></a>
-                          <button type="button" class="btn btn-danger" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#modal-danger">
-                                    <i class="fa fa-times"></i>
-                                  </button>-->
-                          <a class="btn btn-purple btn-icon btn-sm lift-img" title="Editar" href="producto_edicion.php?operacion=modificar&id=<?=$r['id'] ?>"><span class="material-icons-round">edit</span></a>
-                          
-                          <button class="btn btn-red btn-icon btn-sm lift-X-r" title="Eliminar" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-ingrediente"><span class="material-icons-round">close</span></button>
-                        </td>
-
-                        
+                        <td><?php echo $r['precio_c']; ?>$</td>
+                        <td><?php echo $r['precio_v']; ?>$</td>                        
                       </tr>
                     <?php } ?>
             </tbody>

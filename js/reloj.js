@@ -30,20 +30,6 @@ function checkTime(i) {
     return i;
 }
 
-function mostrarPassword(){
-    
-    var cambio = document.getElementById("Passw");
-
-    if(cambio.type == "password"){
-        
-        cambio.type = "text";
-        $('icon').removeClass('visibility_off').addClass('visibility');
-    }
-    else{
-        cambio.type = "password";
-        $('icon').removeClass('visibility').addClass('visibility_off');
-    }
-  }
 
 
 

@@ -14,8 +14,8 @@ require_once "auditoria.php";
  mysqli_query($db,"INSERT INTO  asistencia VALUES (NULL,
   '".$id_empleado."',
   '".$fecha."',
-  '".$hora_e."',
-  '".$hora_s."')
+  '".$fecha." ".$hora_e."',
+  '".$fecha." ".$hora_s."')
    ");
 
     
@@ -46,6 +46,32 @@ require_once "auditoria.php";
  $r = mysqli_query($db,"SELECT * FROM asistencia WHERE id=$_REQUEST[id]");
     $temporal = mysqli_fetch_assoc($r);
   return $temporal;
+}
+
+ function actualizarSalida($id){
+  global $db;
+ $r = mysqli_query($db,"SELECT * FROM asistencia WHERE id=$id;");
+    $temporal = mysqli_fetch_assoc($r);
+    date_default_timezone_set('America/Caracas');
+    $hora = date("h");
+    if(date("a")=='pm') $hora +=12;
+    $nh = date("Y-m-d",strtotime($temporal['fecha'])).' '.$hora.date(":i:s");
+  mysqli_query($db,"UPDATE asistencia SET hora_s='".$nh."' WHERE id=$id");
+  
+}
+
+ function buscarAsistencias($id){
+  global $db;
+ $r = mysqli_query($db,"SELECT * FROM asistencia WHERE id_empleado=$id");
+$arr = [];
+    $temporal = mysqli_fetch_assoc($r);
+    while($temporal!=null)
+    {
+      $arr[] = $temporal;
+
+    $temporal = mysqli_fetch_assoc($r);
+    }
+  return $arr;
 }
 
 

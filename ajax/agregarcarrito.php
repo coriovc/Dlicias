@@ -11,9 +11,9 @@ if(isset($_POST["id_servicio"])){
   }
   else{
     $_REQUEST["id"] = $_POST["id_servicio"];
-    $servicio = buscarservicio();
+    $servicio = buscarServicio(); 
     if($servicio){
-      if(intval($_POST['cantidad']) * intval($servicio['equivalencia_venta']) > intval($servicio["cantidad"]))
+      if(false && intval($_POST['cantidad']) * intval($servicio['equivalencia_venta']) > intval($servicio["cantidad"]))
       {
         ?>
 <script type="text/javascript">alert('No hay suficiencia en stock. La cantidad de la que se dispone es: <?php echo intval($servicio['cantidad']) / intval($servicio['equivalencia_venta']); ?> <?php echo obtenerUnidadVenta($servicio['id']); ?>');</script>
@@ -23,8 +23,8 @@ if(isset($_POST["id_servicio"])){
       $_SESSION["venta"][$_POST["id_servicio"]] = [
         "nombre" => $servicio["nombre"],
         "cantidad" => $_POST["cantidad"],
-        "precio_v" => $servicio["precio_v"],
-        "unidad_venta" => obtenerUnidadVenta($servicio["id"])
+        "precio_v" => $servicio["precio"],
+       // "unidad_venta" => obtenerUnidadVenta($servicio["id"])
       ];
       }
     }

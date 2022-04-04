@@ -52,7 +52,7 @@
                         </div>
                         <hr class="white">
                         <div class="form-group text-center">
-                          <a class="small" href="forgot-password.php">¿Olvidaste tu contraseña?</a>
+                          <a class="small" href="olvido_contraseña.php">¿Olvidaste tu contraseña?</a>
                         </div>
                         <div class="text-center small"><p class="mt-5 mb-3">Copyright &copy; Codes by Ocor 2020</p></div>
                         </fieldset>

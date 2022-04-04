@@ -24,8 +24,8 @@ if(!isset($_SESSION))
       ?>
       <tr>
           <td><?=$elemento['nombre']?></td>
-          <td><?=$elemento['cantidad']?> <?=$elemento['unidad_venta']?> </td>
-          <td><?=$elemento['precio_v']?> Bs. S.</td>
+          <td><?=$elemento['cantidad']?>   </td>
+          <td><?=$elemento['precio_v']?> $</td>
           <td><?=intval($elemento['cantidad']) * intval($elemento['precio_v']) ?></td>
           <td><button type="button"onclick="window.location='index.php?removerservicio=<?=$id_servicio ?>';" class="btn badge-danger rounded-pill btn-sm btn-icon"><i class="material-icons-round">clear</i></button></td>
       </tr>
@@ -34,7 +34,7 @@ if(!isset($_SESSION))
       <tr>
           <td colspan="2"></td>
           <td>Monto Total: </td>
-          <td colspan="2"><?= $total; ?>Bs. S.</td>
+          <td colspan="2"><?= $total; ?> $</td>
       </tr>                                      
     </tbody>
   </table>

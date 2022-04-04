@@ -65,12 +65,12 @@
 
               <div class="col-12 col-lg-5 mb-2">
                 <label><strong>Precio de Compra (UNIDAD)*</strong></label>
-                  <input type="text" id="precio_c" name="precio_c" title="Ingrese el Precio" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=10;" class="form-control preci" placeholder="5.000 Bs.S"required="required">
+                  <input type="text" id="precio_c" name="precio_c" title="Ingrese el Precio" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=10;" class="form-control preci" placeholder="5.000 $"required="required">
               </div>
 
               <div class="col-12 col-lg-5 mb-2">
                 <label><strong>Precio de Venta (UNIDAD)*</strong></label>
-                  <input type="text" id="precio_v" name="precio_v"  title="Ingrese el precio" class="form-control preci"  placeholder="3.000 Bs.S"required="required">
+                  <input type="text" id="precio_v" name="precio_v"  title="Ingrese el precio" class="form-control preci"  placeholder="3.000 $"required="required">
               </div>
 
               <div class="col-12 col-lg-4 mb-2">
@@ -127,12 +127,12 @@
 
               <div class="col-12 col-lg-3 mb-2">
                 <label><strong>Equivalencia de venta*</strong></label>
-                  <input id="id_equivalencia_venta" type="number" min="0" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia_venta" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control" title="Ingrese la Equivalencia" placeholder="20"required="required">
+                  <input id="equivalencia_venta" type="number" min="1" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia_venta" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control" title="Ingrese la Equivalencia" placeholder="20"required="required">
               </div>
 
               <div class="col-12 col-lg-3 mb-2">
                 <label><strong>Equivalencia*</strong></label>
-                  <input id="id_equivalencias" type="number" min="0" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control"  placeholder="20"required="required" title="Ingrese la Equivalencia">
+                  <input id="equivalencia" type="number" min="1" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control"  placeholder="20"required="required" title="Ingrese la Equivalencia">
               </div>
               
               </div>

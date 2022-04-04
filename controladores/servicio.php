@@ -29,7 +29,6 @@ require_once "auditoria.php";
  function eliminarServicio(){ 
   global $db;
   mysqli_query($db,"DELETE FROM servicio WHERE id=$_REQUEST[id]");
-   $_SESSION['creada']=1;
   registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un servicio",$_SESSION['admin']['id'],"SERVICIO");
 }
 

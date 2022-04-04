@@ -28,7 +28,7 @@
             <div class="mdl-tooltip" data-mdl-for="fecha"><strong id="date"></strong></div>
                  
                                 
-            <li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
+            <!--<li class="nav-item dropdown no-caret mr-3 dropdown-notifications">
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownAlerts" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="material-icons-round">notifications</span></a>
                     
                 <?php 
@@ -69,7 +69,7 @@
                         
                         <a class="dropdown-item dropdown-notifications-footer" href="#!">Ver Todas</a>
                     </div>
-                </li>
+            </li>-->
                
                 
                 <li class="nav-item dropdown no-caret mr-3">

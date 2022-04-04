@@ -18,7 +18,7 @@ require_once "auditoria.php";
   $stock_min = intval($_REQUEST['stock_min']) * intval($_REQUEST['equivalencia']);
   $stock_max = intval($_REQUEST['stock_max']) * intval($_REQUEST['equivalencia']);
   $equivalencia = $_REQUEST['equivalencia'];
-  $equivalencia_venta = $_REQUEST['equivalencia_v'];
+  $equivalencia_venta = $_REQUEST['equivalencia_venta'];
  
   mysqli_query($db,"INSERT INTO producto VALUES (NULL,'".$codigo_pt."','".$nombre."','".$cantidad."','".$precio_c."','".$precio_v."','".$id_unidad."','".$id_unidadconsumo."','".$equivalencia."','".$stock_min."','".$stock_max."','".$id_unidadventa."','".$equivalencia_venta."')");
 
@@ -54,7 +54,7 @@ require_once "auditoria.php";
 
  function modificarProducto(){
   global $db; 
-  mysqli_query($db,"UPDATE producto SET codigo_pt='$_REQUEST[codigo_pt]',nombre='$_REQUEST[nombre]',cantidad='$_REQUEST[cantidad]',precio_c='$_REQUEST[precio_c]',precio_v='$_REQUEST[precio_v]',id_unidad='$_REQUEST[id_unidad]',id_unidadconsumo='$_REQUEST[id_unidadconsumo]',equivalencia='$_REQUEST[equivalencia]',stock_min='$_REQUEST[stock_min]',stock_max='$_REQUEST[stock_max]',id_unidadventa='$_REQUEST[id_unidadventa]',equivalencia_venta='$_REQUEST[equivalencia_v]' WHERE id='$_REQUEST[id]'");
+  mysqli_query($db,"UPDATE producto SET codigo_pt='$_REQUEST[codigo_pt]',nombre='$_REQUEST[nombre]',cantidad='$_REQUEST[cantidad]',precio_c='$_REQUEST[precio_c]',precio_v='$_REQUEST[precio_v]',id_unidad='$_REQUEST[id_unidad]',id_unidadconsumo='$_REQUEST[id_unidadconsumo]',equivalencia='$_REQUEST[equivalencia]',stock_min='$_REQUEST[stock_min]',stock_max='$_REQUEST[stock_max]',id_unidadventa='$_REQUEST[id_unidadventa]',equivalencia_venta='$_REQUEST[equivalencia_venta]' WHERE id='$_REQUEST[id]'");
 
 
   registrarOperacion($_SESSION['admin']['nombre']." ha modificado un producto",$_SESSION['admin']['id'],"PRODUCTO");

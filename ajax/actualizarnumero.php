@@ -26,7 +26,7 @@ $total = $total + intval($elemento['cantidad']) * intval($elemento['precio_v']);
     }
   }
 
-
+/*
 $pendientes = pedidosPendientes($_REQUEST['id_cliente']);
 if ($pendientes && is_array($pendientes) && count($pendientes)) {
   foreach ($pendientes as $key => $value) {
@@ -35,6 +35,6 @@ if ($pendientes && is_array($pendientes) && count($pendientes)) {
     $dpedido = buscardpedido(); 
 $total = $total +  intval($dpedido['total']);
 }
-}
+}*/
 die("Total: $total Bs. S.<script>var totalAjax= $total;</script>");
    ?>

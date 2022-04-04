@@ -187,10 +187,10 @@
                           <input class="custom-control-input" id="Nivel 2" type="radio" name="tipo_usuario" value="Nivel 2">
                           <label class="custom-control-label" for="Nivel 2">Nivel 2</label>
                       </div>
-                      <div class="custom-control custom-radio custom-control-solid">
+                      <!--<div class="custom-control custom-radio custom-control-solid">
                           <input class="custom-control-input" id="cliente" type="radio" name="tipo_usuario" value="cliente">
                           <label class="custom-control-label" for="cliente">Cliente</label>
-                      </div>  
+                      </div>-->  
                     </div>
                 </div>
               </div>              

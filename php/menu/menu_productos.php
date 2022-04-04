@@ -67,6 +67,7 @@
         </div>
       </li>
 <!--Empleados-->
+ <?php if($_SESSION['admin']['tipo_usuario']=="Admin"){ ?>
       <li id="empleados"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
           <a class="btn btn-transparent-light btn-icon" href="../empleados/">
@@ -79,6 +80,7 @@
           Empleados</a>
         </div>
       </li>
+        <?php } ?> 
 <!--gestion 
       <li id="gestion"class="nav-item mr-2">        
         <div class="d-inline d-md-none">

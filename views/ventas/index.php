@@ -6,13 +6,13 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 require_once "../../controladores/venta.php";
 require_once "../../controladores/clientes.php";
 
-if(isset($_REQUEST['operacion-cli']) && $_REQUEST['operacion-cli']=='eliminar-cli'){
+if(isset($_REQUEST['operacioncli']) && $_REQUEST['operacioncli']=='eliminarcli'){
   eliminarCliente();
 }
  ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <?php
@@ -101,7 +101,7 @@ if(isset($_REQUEST['operacion-cli']) && $_REQUEST['operacion-cli']=='eliminar-cl
                         <th>Fecha</th>
                         <th>Forma de pago</th>
                         <th>Total</th>
-                        <th class="text-right">Acciones</th>
+                        <!--<th class="text-right">Acciones</th>-->
                       </tr>
                       </thead>                  
                       <tbody>
@@ -113,11 +113,11 @@ if(isset($_REQUEST['operacion-cli']) && $_REQUEST['operacion-cli']=='eliminar-cl
                             <td><?php echo $r['nombre']; ?></td>
                             <td><?php echo date("d/m/Y",strtotime($r['fecha'])); ?></td>
                             <td><?php echo $r['forma_pago']; ?></td>
-                            <td><?php echo totalVenta($r['id']); ?> Bs. s.</td>
-                            <td align="right">
+                            <td><?php echo totalVenta($r['id']); ?> $</td>
+                            <!--<td align="right">
                               <a class="btn btn-purple rounded-pill btn-sm lift-img" href="#"><span class="material-icons-round mr-2">visibility</span>ver</a>
                               <a class="btn btn-red rounded-pill btn-sm lift-X-r" href="#" ><span class="material-icons-round mr-2">close</span>Eliminar</a>
-                            </td>
+                            </td>-->
                           </tr>
                           <?php } ?>                          
                       </tbody>
@@ -163,7 +163,7 @@ if(isset($_REQUEST['operacion-cli']) && $_REQUEST['operacion-cli']=='eliminar-cl
                             <td align="right">
                               <a class="btn btn-purple btn-icon btn-sm lift-img" href="detalle_cliente.php?id=<?=$r['id'] ?>"><span class="material-icons-round">visibility</span></a>
                               <a class="btn btn-purple btn-icon btn-sm lift-img" href="editar_cliente.php?id=<?=$r['id'] ?>"><span class="material-icons-round">edit</span></a>
-                              <button class="btn btn-red btn-icon btn-sm lift-X-r" onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-Cliente" type="button" ><span class="material-icons-round">close</span></button>
+                              <button class="btn btn-red btn-icon btn-sm lift-X-r" onmouseover="$('#id_cliente').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-Cliente" type="button" ><span class="material-icons-round">close</span></button>
                             </td>
                           </tr>
                           <?php } ?>                      

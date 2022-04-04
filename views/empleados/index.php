@@ -6,7 +6,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
 <?php
 require_once "../../controladores/empleado.php";
 $lisempleado = listarEmpleado();
-if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
+if(isset($_REQUEST['operacionEmp']) && $_REQUEST['operacionEmp']=='eliminarEmp'){
   eliminarEmpleado();
 }
  ?>
@@ -42,26 +42,6 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
     <div class="container-fluid" data-aos="fade-right" data-aos-delay="400">
       <div class="row">        
         <div class="col-lg-3 mb-4">
-          <div class="justify-content-center tct text-center">
-             
-              <div class="d-flex mt-4" style="margin-left: -0.5rem;">
-                    <h6 class="mb-0">Buscar Empleado:</h6>
-                </div>
-              <div class="my-2">
-                  <form>
-                    <div class="input-group">
-                      <input type="text" class="form-control rounded-pill no-rounded-right" placeholder="Ejem: victor corio...." aria-label="Search" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button class="btn btn-yellow btn-icon" type="button">
-                          <i class="material-icons-round">search</i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-              </div>
-              
-          </div>
-
           <div class="card tct o-visible my-4">
               <div class="card-body">
                 <div class="d-flex" style="margin-left: -0.5rem;">
@@ -122,7 +102,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
                         <td align="right">
                           <a class="btn btn-blue rounded-pill btn-sm lift-X-l"  href="detalle_empleado.php?id=<?=$r['id'] ?>" data-toggle="tooltip" data-placement="bottom" title="Ver Empleado"><span class="material-icons-round">account_circle</span>Ver</a>
                           
-                          <button class="btn btn-icon btn-transparent-dark btn-sm " onclick="javascript:eliminar('<?=$r['id']?>')" data-toggle="modal" data-target="#eliminar-Empleado" type="button" title="Eliminar Empleado"><span class="material-icons-round">close</span></button>
+                          <button class="btn btn-icon btn-transparent-dark btn-sm " onmouseover="$('#id_empleado').val('<?=$r['id']?>');" data-toggle="modal" data-target="#eliminar-Empleado" type="button" title="Eliminar Empleado"><span class="material-icons-round">close</span></button>
                         </td>
                        </tr>
                        <?php } ?>                          

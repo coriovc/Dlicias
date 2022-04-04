@@ -11,7 +11,7 @@ require_once "auditoria.php";
   $r = mysqli_query($db,"SELECT MAX(id) as ultimoid FROM venta");
   $temporal = mysqli_fetch_assoc($r);
   if(!$temporal){ die('Error de sintaxis');}
-  registrarOperacion(" ha registrado una venta",$_SESSION['admin']['id'],"VENTA");
+  registrarOperacion($_SESSION['admin']['nombre']." ha registrado una venta",$_SESSION['admin']['id'],"VENTA");
   return $temporal['ultimoid'];
 }
 

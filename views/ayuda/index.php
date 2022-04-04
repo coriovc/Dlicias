@@ -31,16 +31,26 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                         <div class="container">
                             <div class="row features text-center mb-2">
                                 <div class="col-lg-4 col-md-6 mb-5">
-                                    <a class="card card-link border-top border-top-lg border-blue border-bottom-0 border-left-0 border-right-0 lift-img" href="#!"
+                                    <a class="card card-link border-top border-top-lg border-blue border-bottom-0 border-left-0 border-right-0 lift-img" href="manual_1.pdf"
                                         ><div class="card-body">
                                             <div class="icon-stack icon-stack-lg bg-blue-soft text-blue"><span class="material-icons-round" style="font-size: 3rem;">person_pin</span></div>
                                             <h6 class="text-blue">Manual de Usuario</h6>
-                                            <p class="">Problemas con el inicio de sesion, cierre de sesion, errores con su cuenta.</p>
+                                            <p class="">Como Usar el sistema Correctamente</p>
                                         </div>
                                         <div class="card-footer border-0 bg-transparent"><div class="btn btn-blue rounded-pill font-weight-normal">Descargar</div></div></a
                                     >
                                 </div>
                                 <div class="col-lg-4 col-md-6 mb-5">
+                                    <a class="card card-link border-top border-top-lg border-blue border-bottom-0 border-left-0 border-right-0 lift-img" href="manual_2.pdf"
+                                        ><div class="card-body">
+                                            <div class="icon-stack icon-stack-lg bg-blue-soft text-blue"><span class="material-icons-round" style="font-size: 3rem;">person_pin</span></div>
+                                            <h6 class="text-blue">Manual de Instalación</h6>
+                                            <p class="">Como instalar el sistema Correctamente.</p>
+                                        </div>
+                                        <div class="card-footer border-0 bg-transparent"><div class="btn btn-blue rounded-pill font-weight-normal">Descargar</div></div></a
+                                    >
+                                </div>
+                                <!--<div class="col-lg-4 col-md-6 mb-5">
                                     <a class="card card-link border-top border-top-lg border-green border-bottom-0 border-left-0 border-right-0 h-100 lift-img" href="#!"
                                         ><div class="card-body">
                                             <div class="icon-stack icon-stack-lg bg-green-soft text-green"><span class="material-icons-round" style="font-size: 3rem;">query_builder</span></div>
@@ -59,7 +69,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                                         </div>
                                         <div class="card-footer border-0 bg-transparent"><div class="badge badge-pill badge-light font-weight-normal">14 entradas</div></div></a
                                     >
-                                </div>
+                                </div>-->
                                 
                             </div><br><br>
 
@@ -70,10 +80,10 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                                 </div>
                             </div>
                             <div class="row align-items-center mb-10 ">
-                                <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                                <!--<div class="col-lg-4 text-center mb-5 mb-lg-0">
                                     <div class="section-preheading">Mensaje con nosotros</div>
                                     <a href="#!">¡Iniciar una conversación!</a>
-                                </div>
+                                </div>-->
                                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
                                     <div class="section-preheading">Llamar en cualquier momento</div>
                                     <a href="#!">+58 (412) 478-4959</a>
@@ -83,14 +93,14 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                                     <a href="#!">support@ocor.com</a>
                                 </div>
                             </div>
-                            <form>
+                            <!--<form>
                                 <div class="form-row">
                                     <div class="form-group col-md-6"><label class="" for="inputName">Nombre completo</label><input class="form-control dark py-4" id="inputName" type="text" placeholder="Nombre completo" /></div>
                                     <div class="form-group col-md-6"><label class="" for="inputEmail">Correo</label><input class="form-control dark py-4" id="inputEmail" type="email" placeholder="nombre@ocor.com" /></div>
                                 </div>
                                 <div class="form-group"><label class="" for="inputMessage">Mensaje</label><textarea class="form-control dark py-3" id="inputMessage" type="text" placeholder="Ingrese su mensaje..." rows="4"></textarea></div>
                                 <div class="text-center"><button class="btn btn-primary btn-marketing rounded-pill mt-4" type="submit">Enviar Peticion</button></div>
-                            </form>
+                            </form>-->
                         </div>
                     </section>
                

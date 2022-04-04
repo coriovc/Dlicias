@@ -48,6 +48,7 @@ if($em){
  function eliminarEmpleado(){ 
   global $db;
   mysqli_query($db,"DELETE FROM empleado WHERE empleado.id=$_REQUEST[id]");
+  $_SESSION['eliminada']=1;
   registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un Empleado",$_SESSION['admin']['id'],"EMPLEADO");
 }
 
@@ -62,18 +63,7 @@ if($em){
  function modificarEmpleado(){
   global $db;
   mysqli_query($db,"UPDATE empleado SET 
-    cedula='$_REQUEST[cedula]',  
-    nombre ='$_REQUEST[nombre]',
-    apellido ='$_REQUEST[apellido]', 
-    telefono ='$_REQUEST[telefono]', 
-    correo ='$_REQUEST[correo]', 
-    direccion ='$_REQUEST[direccion]', 
-    cargo ='$_REQUEST[cargo]', 
-    sueldo ='$_REQUEST[sueldo]',
-    nro_cuenta ='$_REQUEST[nro_cuenta]',
-    banco ='$_REQUEST[banco]',
-    ci_banco ='$_REQUEST[ci_banco]',
-    nombre_banco ='$_REQUEST[nombre_banco]' WHERE id='$_REQUEST[id]'");
+    cedula='$_REQUEST[cedula]',  nombre ='$_REQUEST[nombre]',apellido ='$_REQUEST[apellido]', telefono ='$_REQUEST[telefono]', correo ='$_REQUEST[correo]', direccion ='$_REQUEST[direccion]', cargo ='$_REQUEST[cargo]', sueldo ='$_REQUEST[sueldo]',nro_cuenta ='$_REQUEST[nro_cuenta]',banco ='$_REQUEST[banco]',ci_banco ='$_REQUEST[ci_banco]',nombre_banco ='$_REQUEST[nombre_banco]' WHERE id='$_REQUEST[id]'");
   
   registrarOperacion($_SESSION['admin']['nombre']." ha modificado un empleado",$_SESSION['admin']['id'],"EMPLEADO");
 }

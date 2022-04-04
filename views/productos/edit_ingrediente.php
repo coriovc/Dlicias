@@ -69,7 +69,7 @@ $producto = buscarProducto();
                   <?php
                   for ($i=0; $i < count($unidades); $i++){ 
                     ?>
-                    <option value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
+                    <option <?php if($unidades[$i]['id']==$producto['id_unidad']) echo 'selected'; ?> value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
                   <?php
                   }
                   ?>
@@ -81,7 +81,7 @@ $producto = buscarProducto();
                 <?php
                 for ($i=0; $i < count($unidades); $i++){ 
                   ?>
-                  <option value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
+                  <option <?php if($unidades[$i]['id']==$producto['id_unidadconsumo']) echo 'selected'; ?> value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
                 <?php
                 }
                 ?>
@@ -93,7 +93,7 @@ $producto = buscarProducto();
                 <?php
                 for ($i=0; $i < count($unidades); $i++){ 
                   ?>
-                  <option value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
+                  <option <?php if($unidades[$i]['id']==$producto['id_unidadventa']) echo 'selected'; ?> value="<?=$unidades[$i]['id'] ?>"><?= $unidades[$i]['nombre'] ?></option>
                 <?php
                 }
                 ?>
@@ -116,7 +116,7 @@ $producto = buscarProducto();
 
               <div class="col-12 col-lg-3 mb-2">
                 <label><strong>Equivalencia de venta*</strong></label>
-                  <input id="id_equivalencia_venta" type="number" min="0" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia_v" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control" title="Ingrese la Equivalencia" placeholder="20"required="required" value="<?= $producto['equivalencia_venta']?>">
+                  <input id="equivalencia_venta" type="number" min="0" onkeypress="var w = event.which == undefined? event.which : event.keyCode; return w>=48 && w <=57 && this.value.length<=7;" name="equivalencia_venta" onchange="if(parseInt($(this).val()) < parseInt($('#stock_min').val()) ){alert('Error, el maximo no puede ser menor al minimo'); $(this).val('');}" class="form-control" title="Ingrese la Equivalencia" placeholder="20"required="required" value="<?= $producto['equivalencia_venta']?>">
               </div>
 
               <div class="col-12 col-lg-3 mb-2">

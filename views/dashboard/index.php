@@ -30,7 +30,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
         </div>              
     </header>
 
-        <div class="container">
+        <!--<div class="container">
             <div class="row" style="margin-top: -1.5rem; margin-bottom: 3rem;">
                 <div class="dropdown no-caret" data-aos="fade-right" data-aos-delay="700">
                     <a class="btn btn-white rounded-pill shadow-lg dropdown-toggle" id="navbarDropdownDocs" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +57,7 @@ if(!isset($_SESSION['admin'])){header("location: ../../index.php");exit(1);}
                     </div>
                 </div>          
             </div>
-        </div>
+        </div>-->
 
         
 

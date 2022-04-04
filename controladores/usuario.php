@@ -57,7 +57,7 @@ function verificar_respuesta(){
     ?>
       <script type="text/javascript">
         alert("RESPUESTA INCORRECTA");
-        window.location="pregunta.php"
+        window.location="contraseña/pregunta.php"
         </script>
     <?php
     }//fin if mysqli num rows
@@ -94,9 +94,8 @@ function cambiar_clave(){
           ?>
       <script type="text/javascript">
         alert("CAMBIO DE CLAVE EXITOSO");
-        window.location="login.php";
+        window.location="../index.php";
       </script>
-
     <?php
     
         }else{
@@ -104,7 +103,7 @@ function cambiar_clave(){
           ?>
       <script type="text/javascript">
         alert("FALLA AL CAMBIAR CLAVE");
-        window.location="recuperar.php";</script>
+        window.location="../olvido_contraseña.php";</script>
     <?php
 
         }
@@ -149,6 +148,7 @@ if($c){
 
   mysqli_query($db,"INSERT INTO usuario VALUES (NULL,'".$ci."','".$nombre."','".$clave."','".$correo."','".$tipo_usuario."','".$pregunta."','".$respuesta."')");
   
+  registrarOperacion($_SESSION['admin']['nombre']." ha registrado un usuario",$_SESSION['admin']['id'],"USUARIO");
 for ($i=1; $i <= 18; $i++) { 
         $sql="INSERT INTO usuarios_has_privilegios VALUES(null,".$id_usuario.",".$i.",'no')";
         
@@ -167,6 +167,8 @@ for ($i=1; $i <= 18; $i++) {
  function eliminarUsuario(){ 
   global $db;
   mysqli_query($db,"DELETE FROM usuario WHERE id=$_REQUEST[id]");
+
+  registrarOperacion($_SESSION['admin']['nombre']." ha eEliminado un usuario",$_SESSION['admin']['id'],"USUARIO");
   
 }
 

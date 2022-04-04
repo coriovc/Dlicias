@@ -41,7 +41,6 @@
         </div>
       </li>
 <!--Productos-->
-  <?php if($_SESSION['admin']['tipo_usuario']=="Admin" || $_SESSION['admin']['tipo_usuario']=="Nivel socia"){ ?>
       <li id="productos"class="nav-item mr-2">        
         <div class="d-inline d-md-none">
           <a class="btn btn-transparent-light btn-icon" href="../productos/">
@@ -53,8 +52,7 @@
           <span class="mr-2 material-icons-round">category</span>
           Productos</a>
         </div>
-      </li>
-  <?php } ?>   
+      </li> 
 <!--Inventario-->
       <li id="inventario"class="nav-item mr-2">        
         <div class="d-inline d-md-none">

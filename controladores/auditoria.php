@@ -31,20 +31,9 @@ INNER JOIN usuario ON usuario.id=id_usuario
  function listarOperacionesuser($fecha=null){
   global $db;
   $resultados = [];
-  $sql = "SELECT bitacora.*,usuario.nombre FROM bitacora 
-INNER JOIN usuario ON usuario.id=id_usuario
-  WHERE 1 ";
-
-  if(isset($_POST['fecha']) && trim($_POST['fecha'])!=''){
-    $sql .= " AND fecha LIKE '%$_POST[fecha]%' ";
-  }
-
-  if(isset($_POST['usuario']) && trim($_POST['usuario'])!=''){
-    $sql .= " AND id_usuario = '$_POST[usuario]' ";
-  }
-
-  $sql .= " ORDER BY fecha ASC";
-  $r = mysqli_query($db,$sql);
+  $r = mysqli_query($db,"SELECT  bitacora.*,usuario.nombre as nombreuser FROM bitacora
+    inner join usuario on usuario.id=bitacora.id_usuario 
+    ");
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
 }

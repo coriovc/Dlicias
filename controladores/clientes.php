@@ -12,6 +12,7 @@ $telefono= $_REQUEST['telefono'];
 $correo = $_REQUEST['correo'];  
 $direccion = $_REQUEST['direccion'];  
 $empresa = $_REQUEST['empresa'];
+$borrado = 'N'; 
 
 $cl =  mysqli_query($db, "SELECT * FROM cliente WHERE identificacion='$identificacion'" );
 $c = mysqli_fetch_assoc($cl);
@@ -19,26 +20,27 @@ if($c){
   die('Cliente ya registrado');
 }
 
-  mysqli_query($db,"INSERT INTO cliente VALUES (NULL,'".$tipo_documento."','".$identificacion."','".$nombre."','".$telefono."','".$correo."','".$direccion."','".$empresa."')");
+  mysqli_query($db,"INSERT INTO cliente VALUES (NULL,'".$tipo_documento."','".$identificacion."','".$nombre."','".$telefono."','".$correo."','".$direccion."','".$empresa."','".$borrado."')");
   registrarOperacion($_SESSION['admin']['nombre']." ha registrado un cliente",$_SESSION['admin']['id'],"CLIENTE");
 }
 
  function eliminarCliente(){ 
   global $db;
-  mysqli_query($db,"DELETE FROM `cliente` WHERE id=$_REQUEST[id]");
+  mysqli_query($db,"UPDATE `cliente` SET `borrado` = 's' WHERE id=$_REQUEST[id]");
+  registrarOperacion($_SESSION['admin']['nombre']." ha eliminado un cliente",$_SESSION['admin']['id'],"CLIENTE");
 }
 
  function listarCliente(){
   global $db;
   $resultados = [];
-  $r = mysqli_query($db,"SELECT * FROM cliente ORDER BY id DESC");
+  $r = mysqli_query($db,"SELECT * FROM cliente WHERE borrado='N' ORDER BY id DESC");
   while($temporal = mysqli_fetch_assoc($r) ) $resultados[] = $temporal;
   return $resultados;
 }
 
  function modificarCliente(){
   global $db;
-  mysqli_query($db,"UPDATE cliente SET tipo_documento='$_REQUEST[tipo_documento]',identificacion='$_REQUEST[identificacion]',nombre='$_REQUEST[nombre]',telefono='$_REQUEST[telefono]',correo='$_REQUEST[correo]',direccion='$_REQUEST[direccion]',empresa='$_REQUEST[empresa]' WHERE id='$_REQUEST[id]'");
+  mysqli_query($db,"UPDATE cliente SET tipo_documento='$_REQUEST[tipo_documento]',identificacion='$_REQUEST[identificacion]',nombre='$_REQUEST[nombre]',telefono='$_REQUEST[telefono]',correo='$_REQUEST[correo]',direccion='$_REQUEST[direccion]',empresa='$_REQUEST[empresa]',borrado='N' WHERE id='$_REQUEST[id]'");
   registrarOperacion($_SESSION['admin']['nombre']." ha modificado un cliente",$_SESSION['admin']['id'],"CLIENTE");
 }
 
