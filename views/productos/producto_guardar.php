@@ -1,3 +1,3 @@
-<?php require_once "../../controladores/compra.php"; 
-registrarCompra();
+<?php require_once "../../controladores/producto.php"; 
+registrarProducto();
 header('Location: ../inventario/index.php'); ?>
