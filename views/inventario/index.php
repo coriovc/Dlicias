@@ -29,7 +29,7 @@ if(isset($_REQUEST['operacion']) && $_REQUEST['operacion']=='eliminar'){
           <div class="row">
             <div class="col-lg-12" data-aos="fade-right" data-aos-delay="200">
               <h1 class="display-3 tct text-white">Inventario</h1>
-              <i class="material-icons-round icon-head icon-animate">bubble_chart</i>
+              <i class="material-icons-round icon-head icon-animate">inventory</i>
             </div>
           </div>
         </div>            
