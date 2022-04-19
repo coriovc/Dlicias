@@ -63,7 +63,7 @@
                   <input class="form-control" name="banco" type="text" id="banco" placeholder="Banesco">
               </div>
               <div class="col-12 col-lg-6 mb-2">
-                  <label><strong>Cedula de la ceunta*</strong></label>
+                  <label><strong>Cedula de la cuenta*</strong></label>
                   <input class="form-control" name="ci_banco" minlength="6" type="text" id="ci_banco" placeholder="26866132">
               </div>
               <div class="col-12 mb-2">

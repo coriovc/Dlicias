@@ -48,7 +48,7 @@ if(isset($_REQUEST['operacionUser']) && $_REQUEST['operacionUser']=='eliminarUse
           <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
         <!--Perfil-->
           <li class="nav-item" role="presentation">
-            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-red mr-2">admin_panel_settings</span>Perfil</button>
+            <button class="nav-link active btn btn-white rounded-pill mx-2" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true"><span class="material-icons-round text-yellow mr-2">admin_panel_settings</span>Perfil</button>
           </li>
         <!--Empresa-->
           <li class="nav-item" role="presentation">
@@ -127,13 +127,13 @@ if(isset($_REQUEST['operacionUser']) && $_REQUEST['operacionUser']=='eliminarUse
               <div class="col-lg-9 col-12 mb-4" data-aos="fade-right" data-aos-delay="200">
                 <div class="card mb-4 overflow-hidden mt-5">
                       <div class="card-header">
-                        <i class="material-icons-round grand red">history</i>
-                          <h2 class="text-red">Mi Actividad</h2>
+                        <i class="material-icons-round grand yellow">history</i>
+                          <h2 class="text-yellow">Mi Actividad</h2>
                       </div>
 
                       <div class="table-responsive">
                       <table id="" class="table display" width="100%">
-                            <thead class="text-red bg-table-red">
+                            <thead class="text-yellow bg-table-yellow">
                             <tr>
                                 <th>Fecha y Hora</th>
                                 <th>Tipo</th>                                   
